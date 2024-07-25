@@ -35,6 +35,7 @@ namespace DUAN1.Chủ
             DateTime dateee;
             DateTime.TryParse(hienthi.UserAge.ToString(),out dateee);
             Date.Value = dateee;
+            
 
         }
 
