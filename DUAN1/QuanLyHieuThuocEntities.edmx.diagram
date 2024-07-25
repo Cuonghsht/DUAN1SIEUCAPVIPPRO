@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9f367da29e9c4702b9b3902a237195c0" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyHieuThuocModel.Bill" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHieuThuocModel.Category" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHieuThuocModel.Customer" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHieuThuocModel.Detailedbill" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHieuThuocModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHieuThuocModel.Role" Width="1.5" PointX="1.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHieuThuocModel.Statuss" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHieuThuocModel.sysdiagram" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHieuThuocModel.TaiKhoan" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHieuThuocModel.Unit" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyHieuThuocModel.User" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <AssociationConnector Association="QuanLyHieuThuocModel.FK__Bills__IdCustome__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyHieuThuocModel.FK__Bills__StatusId__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyHieuThuocModel.FK__Detailedb__BillI__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyHieuThuocModel.FK__Product__IdCateg__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyHieuThuocModel.FK__Detailedb__IdUse__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyHieuThuocModel.FK__Detailedb__Produ__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyHieuThuocModel.FK__Product__IdUnit__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyHieuThuocModel.FK__TaiKhoan__IdRole__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyHieuThuocModel.FK__Users__IdTaiKhoa__3D5E1FD2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
