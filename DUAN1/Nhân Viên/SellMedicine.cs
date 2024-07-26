@@ -23,6 +23,11 @@ namespace DUAN1.Nhân_Viên
             txtGia.Enabled = false;
             ListProduct();
             hienthiview();
+            PricePro.Enabled = false;
+            IdPro.Enabled = false;
+            NamePro.Enabled = false;
+            HSD.Enabled = false;
+           
         }
         public void ListProduct()
         {
@@ -89,28 +94,43 @@ namespace DUAN1.Nhân_Viên
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            var ar = _context.Users.FirstOrDefault(x => x.IdTaiKhoan == _id);
-            decimal Gia;
-            decimal.TryParse((txtGia.Text), out Gia);
-            var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
-            if (khachhang == null)
+            if (IdPro.Text == "")
             {
-                MessageBox.Show("khach hang nay chua duoc them vao data");
+                MessageBox.Show("Vui long chon san pham ban can them vao gio hang");
             }
-            var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
-
-            Detailedbill detailedbill = new Detailedbill
+            else
             {
-                ProductId = Convert.ToInt32(IdPro.Text),
-                BillId = Convert.ToInt32(HoaDon.BillId),
-                Quantity = Convert.ToInt32(txtSl.Text),
-                IdUser = ar.IdUser,
-                Price = Gia,
+                var sl = Convert.ToInt32(txtSl.Text);
+                if(txtSl.Text==""||!txtSl.Text.All(char.IsDigit) || sl <= 0)
+                {
+                    MessageBox.Show("ban ca nhap so luong dung cach");
+                }
+                else
+                {
+                    var ar = _context.Users.FirstOrDefault(x => x.IdTaiKhoan == _id);
+                    decimal Gia;
+                    decimal.TryParse((txtGia.Text), out Gia);
+                    var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
+                    if (khachhang == null)
+                    {
+                        MessageBox.Show("khach hang nay chua duoc them vao data");
+                    }
+                    var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
 
-            };
-            _context.Detailedbills.Add(detailedbill);
-            _context.SaveChanges();
-            hienthiview();
+                    Detailedbill detailedbill = new Detailedbill
+                    {
+                        ProductId = Convert.ToInt32(IdPro.Text),
+                        BillId = Convert.ToInt32(HoaDon.BillId),
+                        Quantity = Convert.ToInt32(txtSl.Text),
+                        IdUser = ar.IdUser,
+                        Price = Gia,
+
+                    };
+                    _context.Detailedbills.Add(detailedbill);
+                    _context.SaveChanges();
+                    hienthiview();
+                }
+            }
 
         }
         public void hienthiview()
@@ -135,35 +155,63 @@ namespace DUAN1.Nhân_Viên
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
-            bool GioiTinh;
-            if (Namradio.Checked)
+            if (SDTCus.Text == "")
             {
-                GioiTinh = true;
+                MessageBox.Show(" o SDT khong duoc de trong");
             }
             else
             {
-                GioiTinh = false;
-            }
-            Customer customer = new Customer
-            {
-                CustomerName = NameCus.Text,
-                SDT = SDTCus.Text,
-                CustomerAddress = DiaChiCus.Text,
-                CustomerGender = GioiTinh,
+                if (SDTCus.TextLength != 10 || SDTCus.Text.Substring(0, 1) != "0"|| !SDTCus.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("Dinh danh Sdt chua chinh xac");
+                }
+                else
+                {
+                    if (MessageBox.Show("Ban co chac chan muon them hoa don cho khach hang nay khong", " Xac nhan", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        bool GioiTinh;
+                        if (Namradio.Checked)
+                        {
+                            GioiTinh = true;
+                        }
+                        else
+                        {
+                            GioiTinh = false;
+                        }
+                        Customer customer = new Customer
+                        {
+                            CustomerName = NameCus.Text,
+                            SDT = SDTCus.Text,
+                            CustomerAddress = DiaChiCus.Text,
+                            CustomerGender = GioiTinh,
 
-            };
-            var checkTonTai = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
-            if (checkTonTai == null)
-            {
-                _context.Customers.Add(customer);
-                _context.SaveChanges();
-                ThemHoaDon();
+                        };
+                        var checkTonTai = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
+                        if (checkTonTai == null)
+                        {
+                            _context.Customers.Add(customer);
+                            _context.SaveChanges();
+                            ThemHoaDon();
+                        }
+                        else
+                        {
+                            var b = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
+                            NameCus.Text = b.CustomerName;
+                            DiaChiCus.Text = b.CustomerAddress;
+                            if (b.CustomerGender == true)
+                            {
+                                Namradio.Checked = true;
+                            }
+                            else
+                            {
+                                Nuradio.Checked = true;
+                            }
+                            MessageBox.Show("Khach hang nay da tung mua san pham o day");
+                            ThemHoaDon();
+                        }
+                    }
+                }
             }
-            else
-            {
-                ThemHoaDon();
-            }
-
         }
 
 
