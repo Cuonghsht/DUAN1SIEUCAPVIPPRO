@@ -125,11 +125,23 @@
     <Compile Include="Nhân Viên\Dasbord.Designer.cs">
       <DependentUpon>Dasbord.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nhân Viên\SellMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nhân Viên\SellMedicine.Designer.cs">
+      <DependentUpon>SellMedicine.cs</DependentUpon>
+    </Compile>
     <Compile Include="Nhân Viên\UpdateMedicine.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Nhân Viên\UpdateMedicine.Designer.cs">
       <DependentUpon>UpdateMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nhân Viên\ViewCheckValidity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nhân Viên\ViewCheckValidity.Designer.cs">
+      <DependentUpon>ViewCheckValidity.cs</DependentUpon>
     </Compile>
     <Compile Include="Nhân Viên\ViewMedicine.cs">
       <SubType>Form</SubType>
@@ -205,8 +217,14 @@
     <EmbeddedResource Include="Nhân Viên\Dasbord.resx">
       <DependentUpon>Dasbord.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Nhân Viên\SellMedicine.resx">
+      <DependentUpon>SellMedicine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Nhân Viên\UpdateMedicine.resx">
       <DependentUpon>UpdateMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nhân Viên\ViewCheckValidity.resx">
+      <DependentUpon>ViewCheckValidity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nhân Viên\ViewMedicine.resx">
       <DependentUpon>ViewMedicine.cs</DependentUpon>
