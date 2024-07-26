@@ -57,7 +57,7 @@ namespace DUAN1
                     else
                     {
                         MessageBox.Show("day la nhan vien");
-                        Users us = new Users(dbContext);
+                        Users us = new Users(dbContext,idd);
                         us.FormClosed += (a, b) => this.Close();
                         us.Show();
                         this.Hide();

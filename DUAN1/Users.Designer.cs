@@ -149,6 +149,7 @@
             this.btnDashbord.Size = new System.Drawing.Size(256, 45);
             this.btnDashbord.TabIndex = 2;
             this.btnDashbord.Text = "Dashbord";
+            this.btnDashbord.Click += new System.EventHandler(this.btnDashbord_Click);
             // 
             // label1
             // 

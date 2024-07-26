@@ -35,14 +35,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.comboVaitro = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtphone = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtdiachi = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMail = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtPass = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -110,16 +108,6 @@
             this.label6.Size = new System.Drawing.Size(53, 19);
             this.label6.TabIndex = 7;
             this.label6.Text = "Email";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(960, 720);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 19);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Mật Khẩu";
             // 
             // label8
             // 
@@ -227,26 +215,6 @@
             this.txtMail.Size = new System.Drawing.Size(273, 48);
             this.txtMail.TabIndex = 24;
             // 
-            // txtPass
-            // 
-            this.txtPass.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPass.DefaultText = "";
-            this.txtPass.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPass.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPass.Location = new System.Drawing.Point(964, 743);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPass.Name = "txtPass";
-            this.txtPass.PasswordChar = '\0';
-            this.txtPass.PlaceholderText = "";
-            this.txtPass.SelectedText = "";
-            this.txtPass.Size = new System.Drawing.Size(273, 48);
-            this.txtPass.TabIndex = 25;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -334,14 +302,12 @@
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.txtdiachi);
             this.Controls.Add(this.txtphone);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.comboVaitro);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -366,14 +332,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2ComboBox comboVaitro;
         private Guna.UI2.WinForms.Guna2TextBox txtName;
         private Guna.UI2.WinForms.Guna2TextBox txtphone;
         private Guna.UI2.WinForms.Guna2TextBox txtdiachi;
         private Guna.UI2.WinForms.Guna2TextBox txtMail;
-        private Guna.UI2.WinForms.Guna2TextBox txtPass;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;

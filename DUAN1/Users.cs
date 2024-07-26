@@ -15,8 +15,10 @@ namespace DUAN1
     public partial class Users : Form
     {
         private readonly QuanLyHieuThuocEntities1 aa;
-        public Users(QuanLyHieuThuocEntities1 dbContext)
+        private int idd;
+        public Users(QuanLyHieuThuocEntities1 dbContext,int id)
         {
+            idd = id;
             aa = dbContext;
             InitializeComponent();
         }
@@ -49,6 +51,15 @@ namespace DUAN1
             f.FormClosed += (a, b) => this.Show();
             f.Show();
             this.Hide();
+        }
+
+        private void btnDashbord_Click(object sender, EventArgs e)
+        {
+            SellMedicine f = new SellMedicine(aa,idd);
+            f.FormClosed += (a, b) => this.Show();
+            f.Show();
+            this.Hide();
+
         }
     }
 }
