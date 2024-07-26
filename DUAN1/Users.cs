@@ -16,13 +16,17 @@ namespace DUAN1
     {
         private readonly QuanLyHieuThuocEntities1 aa;
         private int idd;
+       
         public Users(QuanLyHieuThuocEntities1 dbContext,int id)
         {
+            InitializeComponent();
             idd = id;
             aa = dbContext;
-            InitializeComponent();
+            
+            
+   
         }
-
+        
         private void Users_Load(object sender, EventArgs e)
         {
 
@@ -52,10 +56,11 @@ namespace DUAN1
             f.Show();
             this.Hide();
         }
-
+       
         private void btnDashbord_Click(object sender, EventArgs e)
         {
-            SellMedicine f = new SellMedicine(aa,idd);
+            
+            SellMedicine f = new SellMedicine(aa, idd);
             f.FormClosed += (a, b) => this.Show();
             f.Show();
             this.Hide();

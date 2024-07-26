@@ -46,7 +46,7 @@ namespace DUAN1
                 else
                 {
                     var idd = DangNhap.IdTaiKhoan;
-                    if (DangNhap.IdRoles == 1)
+                    if (DangNhap.IdRoles == 2)
                     {
                         MessageBox.Show("Day la chu");
                         FrmAdmin admin = new FrmAdmin(dbContext, idd);

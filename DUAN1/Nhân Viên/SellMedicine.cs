@@ -14,15 +14,15 @@ namespace DUAN1.Nhân_Viên
     {
         private readonly QuanLyHieuThuocEntities1 _context;
         private int _id;
-        public SellMedicine(QuanLyHieuThuocEntities1 context, int id)
+        public SellMedicine(QuanLyHieuThuocEntities1 context, int idd)
         {
             InitializeComponent();
             _context = context;
-            this._id = id;
-            var a = _id;
+            _id = idd;
+            
             ListProduct();
         }
-         public void ListProduct()
+        public void ListProduct()
         {
             listView1.View = View.Details;
             listView1.Columns.Add("ID", 30);
@@ -87,7 +87,76 @@ namespace DUAN1.Nhân_Viên
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            var ar = _context.Users.FirstOrDefault(x => x.IdTaiKhoan == _id);
+            decimal Gia;
+            decimal.TryParse((txtGia.Text), out Gia);
+            var khachhang = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
+            if (khachhang == null)
+            {
+                MessageBox.Show("khach hang nay chua duoc them vao data");
+            }
+            var HoaDon = _context.Bills.FirstOrDefault(x => x.IdCustomer == khachhang.IdCustomer);
+            Detailedbill detailedbill = new Detailedbill
+            {
+                ProductId = Convert.ToInt32(IdPro.Text),
+                BillId = Convert.ToInt32(HoaDon.BillId),
+                Quantity = Convert.ToInt32(txtSl.Text),
+                IdUser = ar.IdUser,
+                Price = Gia,
+
+            };
+            _context.Detailedbills.Add(detailedbill);
+            _context.SaveChanges();
+
+
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            bool GioiTinh;
+            if (Namradio.Checked)
+            {
+                GioiTinh = true;
+            }
+            else
+            {
+                GioiTinh = false;
+            }
+            Customer customer = new Customer
+            {
+                CustomerName = NameCus.Text,
+                SDT = SDTCus.Text,
+                CustomerAddress = DiaChiCus.Text,
+                CustomerGender = GioiTinh,
+
+            };
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+
+            var IdHd = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
+            Bill bill = new Bill
+            {
+                IdCustomer = IdHd.IdCustomer,
+                PriceBill = 0,
+                DateBill = DateTime.Now.Date,
+                StatusId = 2,
+            };
+            _context.Bills.Add(bill);
+            _context.SaveChanges();
+        }
+
+
+        private void label10_Click(object sender, EventArgs e)
+        {
 
         }
     }
 }
+
+
