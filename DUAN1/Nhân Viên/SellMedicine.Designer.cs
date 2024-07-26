@@ -32,7 +32,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.view = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.txtGia = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@
             this.Namradio = new System.Windows.Forms.RadioButton();
             this.Nuradio = new System.Windows.Forms.RadioButton();
             this.label13 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.view)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -120,15 +120,15 @@
             this.guna2Button3.TabIndex = 95;
             this.guna2Button3.Text = "Loại Bỏ";
             // 
-            // dataGridView1
+            // view
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(552, 524);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(962, 296);
-            this.dataGridView1.TabIndex = 94;
+            this.view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.view.Location = new System.Drawing.Point(552, 524);
+            this.view.Name = "view";
+            this.view.RowHeadersWidth = 51;
+            this.view.RowTemplate.Height = 24;
+            this.view.Size = new System.Drawing.Size(962, 296);
+            this.view.TabIndex = 94;
             // 
             // label7
             // 
@@ -571,7 +571,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.guna2Button4);
             this.Controls.Add(this.guna2Button3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.view);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtGia);
             this.Controls.Add(this.label5);
@@ -598,7 +598,7 @@
             this.Name = "SellMedicine";
             this.Text = "SellMedicine";
             this.Load += new System.EventHandler(this.SellMedicine_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.view)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -609,7 +609,7 @@
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView view;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2TextBox txtGia;
         private System.Windows.Forms.Label label5;

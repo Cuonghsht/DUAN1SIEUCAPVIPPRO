@@ -14,13 +14,15 @@ namespace DUAN1.Nhân_Viên
     {
         private readonly QuanLyHieuThuocEntities1 _context;
         private int _id;
+        private List<Customer> khachhang;
         public SellMedicine(QuanLyHieuThuocEntities1 context, int idd)
         {
             InitializeComponent();
             _context = context;
             _id = idd;
-            
+            txtGia.Enabled = false;
             ListProduct();
+            hienthiview();
         }
         public void ListProduct()
         {
@@ -79,23 +81,24 @@ namespace DUAN1.Nhân_Viên
         }
         private void txtGia_TextChanged(object sender, EventArgs e)
         {
-
         }
         private void txtGia_MouseClick(object sender, MouseEventArgs e)
         {
         }
+
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             var ar = _context.Users.FirstOrDefault(x => x.IdTaiKhoan == _id);
             decimal Gia;
             decimal.TryParse((txtGia.Text), out Gia);
-            var khachhang = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
+            var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
             if (khachhang == null)
             {
                 MessageBox.Show("khach hang nay chua duoc them vao data");
             }
-            var HoaDon = _context.Bills.FirstOrDefault(x => x.IdCustomer == khachhang.IdCustomer);
+            var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
+
             Detailedbill detailedbill = new Detailedbill
             {
                 ProductId = Convert.ToInt32(IdPro.Text),
@@ -107,9 +110,22 @@ namespace DUAN1.Nhân_Viên
             };
             _context.Detailedbills.Add(detailedbill);
             _context.SaveChanges();
+            hienthiview();
 
-
-
+        }
+        public void hienthiview()
+        {
+            var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
+            var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
+            var ds = (from a in _context.Products join b in _context.Detailedbills on a.ProductId equals b.ProductId join c in _context.Users on b.IdUser equals c.IdUser  where b.BillId == HoaDon.BillId select new
+            {
+                ProductName = a.ProductName,
+                NameUser = c.UserName,
+                Price = b.Price,
+                QuanTiTy = b.Quantity,
+            }).ToList();
+            view.DataSource = ds;
+           
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -136,9 +152,24 @@ namespace DUAN1.Nhân_Viên
                 CustomerGender = GioiTinh,
 
             };
-            _context.Customers.Add(customer);
-            _context.SaveChanges();
+            var checkTonTai = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
+            if (checkTonTai == null)
+            {
+                _context.Customers.Add(customer);
+                _context.SaveChanges();
+                ThemHoaDon();
+            }
+            else
+            {
+                ThemHoaDon();
+            }
 
+        }
+
+
+
+        public void ThemHoaDon()
+        {
             var IdHd = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
             Bill bill = new Bill
             {
@@ -150,8 +181,6 @@ namespace DUAN1.Nhân_Viên
             _context.Bills.Add(bill);
             _context.SaveChanges();
         }
-
-
         private void label10_Click(object sender, EventArgs e)
         {
 
