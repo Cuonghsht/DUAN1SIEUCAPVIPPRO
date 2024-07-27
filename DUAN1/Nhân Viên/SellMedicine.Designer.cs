@@ -740,7 +740,7 @@
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.label1);
             this.Name = "SellMedicine";
-            this.Text = "SellMedicine";
+            this.Text = "       ";
             this.Load += new System.EventHandler(this.SellMedicine_Load);
             ((System.ComponentModel.ISupportInitialize)(this.view)).EndInit();
             this.ResumeLayout(false);
