@@ -268,7 +268,7 @@
             this.ComboUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboUnit.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ComboUnit.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ComboUnit.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ComboUnit.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.ComboUnit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.ComboUnit.ItemHeight = 30;
             this.ComboUnit.Location = new System.Drawing.Point(628, 477);
