@@ -82,9 +82,9 @@
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.Black;
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.Location = new System.Drawing.Point(813, 588);
+            this.guna2Button1.Location = new System.Drawing.Point(826, 588);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(178, 72);
+            this.guna2Button1.Size = new System.Drawing.Size(130, 51);
             this.guna2Button1.TabIndex = 38;
             this.guna2Button1.Text = "Tải lại";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
@@ -104,9 +104,9 @@
             this.btnadd.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnadd.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnadd.Image = ((System.Drawing.Image)(resources.GetObject("btnadd.Image")));
-            this.btnadd.Location = new System.Drawing.Point(562, 588);
+            this.btnadd.Location = new System.Drawing.Point(598, 588);
             this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(178, 72);
+            this.btnadd.Size = new System.Drawing.Size(173, 51);
             this.btnadd.TabIndex = 37;
             this.btnadd.Text = "Add Medicine";
             this.btnadd.Click += new System.EventHandler(this.btnSigin_Click);

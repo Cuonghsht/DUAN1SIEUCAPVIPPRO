@@ -134,7 +134,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1207, 292);
+            this.label7.Location = new System.Drawing.Point(1207, 303);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 19);
             this.label7.TabIndex = 93;
@@ -215,7 +215,7 @@
             this.PricePro.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PricePro.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.PricePro.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PricePro.Location = new System.Drawing.Point(1211, 111);
+            this.PricePro.Location = new System.Drawing.Point(1203, 96);
             this.PricePro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PricePro.Name = "PricePro";
             this.PricePro.PasswordChar = '\0';
@@ -241,7 +241,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(875, 292);
+            this.label4.Location = new System.Drawing.Point(875, 303);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 19);
             this.label4.TabIndex = 86;
@@ -251,7 +251,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(875, 178);
+            this.label9.Location = new System.Drawing.Point(875, 190);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(87, 19);
             this.label9.TabIndex = 85;
@@ -281,7 +281,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(875, 64);
+            this.label2.Location = new System.Drawing.Point(875, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 19);
             this.label2.TabIndex = 83;
@@ -298,7 +298,7 @@
             this.IdPro.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.IdPro.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.IdPro.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.IdPro.Location = new System.Drawing.Point(879, 111);
+            this.IdPro.Location = new System.Drawing.Point(871, 96);
             this.IdPro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.IdPro.Name = "IdPro";
             this.IdPro.PasswordChar = '\0';
@@ -423,7 +423,7 @@
             this.NameCus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.NameCus.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.NameCus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.NameCus.Location = new System.Drawing.Point(535, 111);
+            this.NameCus.Location = new System.Drawing.Point(527, 96);
             this.NameCus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.NameCus.Name = "NameCus";
             this.NameCus.PasswordChar = '\0';
@@ -443,7 +443,7 @@
             this.SDTCus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SDTCus.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.SDTCus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SDTCus.Location = new System.Drawing.Point(535, 213);
+            this.SDTCus.Location = new System.Drawing.Point(527, 213);
             this.SDTCus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SDTCus.Name = "SDTCus";
             this.SDTCus.PasswordChar = '\0';
@@ -463,7 +463,7 @@
             this.DiaChiCus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.DiaChiCus.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DiaChiCus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.DiaChiCus.Location = new System.Drawing.Point(535, 297);
+            this.DiaChiCus.Location = new System.Drawing.Point(527, 326);
             this.DiaChiCus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DiaChiCus.Name = "DiaChiCus";
             this.DiaChiCus.PasswordChar = '\0';
@@ -509,7 +509,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(531, 178);
+            this.label12.Location = new System.Drawing.Point(531, 190);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(37, 19);
             this.label12.TabIndex = 83;
@@ -519,7 +519,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(531, 274);
+            this.label10.Location = new System.Drawing.Point(523, 303);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 19);
             this.label10.TabIndex = 83;
@@ -529,7 +529,7 @@
             // Namradio
             // 
             this.Namradio.AutoSize = true;
-            this.Namradio.Location = new System.Drawing.Point(541, 406);
+            this.Namradio.Location = new System.Drawing.Point(541, 446);
             this.Namradio.Name = "Namradio";
             this.Namradio.Size = new System.Drawing.Size(57, 20);
             this.Namradio.TabIndex = 105;
@@ -540,7 +540,7 @@
             // Nuradio
             // 
             this.Nuradio.AutoSize = true;
-            this.Nuradio.Location = new System.Drawing.Point(703, 406);
+            this.Nuradio.Location = new System.Drawing.Point(647, 446);
             this.Nuradio.Name = "Nuradio";
             this.Nuradio.Size = new System.Drawing.Size(45, 20);
             this.Nuradio.TabIndex = 105;
@@ -552,7 +552,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(531, 364);
+            this.label13.Location = new System.Drawing.Point(531, 404);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(74, 19);
             this.label13.TabIndex = 83;
