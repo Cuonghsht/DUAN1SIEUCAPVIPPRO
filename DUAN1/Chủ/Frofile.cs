@@ -30,6 +30,7 @@ namespace DUAN1.Chủ
             var hienthi = (from a in _context.Roles
                            join b in _context.TaiKhoans on a.IdRoles equals b.IdRoles
                            join c in _context.Users on b.IdTaiKhoan equals c.IdTaiKhoan
+                           where(c.IdTaiKhoan==id)
                            select new
                            {
                                users = c,
@@ -43,7 +44,7 @@ namespace DUAN1.Chủ
             DateTime dateee;
             DateTime.TryParse(hienthi.users.UserAge.ToString(), out dateee);
             Date.Value = dateee;
-            txtName.Text = hienthi.nameRole;
+           
 
         }
 
