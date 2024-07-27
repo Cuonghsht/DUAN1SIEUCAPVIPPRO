@@ -119,6 +119,12 @@
     <Compile Include="Nhân Viên\AddMedicine.Designer.cs">
       <DependentUpon>AddMedicine.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nhân Viên\Bill Information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nhân Viên\Bill Information.Designer.cs">
+      <DependentUpon>Bill Information.cs</DependentUpon>
+    </Compile>
     <Compile Include="Nhân Viên\Dasbord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nhân Viên\AddMedicine.resx">
       <DependentUpon>AddMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nhân Viên\Bill Information.resx">
+      <DependentUpon>Bill Information.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nhân Viên\Dasbord.resx">
       <DependentUpon>Dasbord.cs</DependentUpon>
