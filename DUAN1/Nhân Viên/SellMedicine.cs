@@ -6,8 +6,10 @@ using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DUAN1.Nhân_Viên
 {
@@ -23,7 +25,7 @@ namespace DUAN1.Nhân_Viên
             _id = idd;
             txtGia.Enabled = false;
             ListProduct();
-           
+
             PricePro.Enabled = false;
             IdPro.Enabled = false;
             NamePro.Enabled = false;
@@ -53,23 +55,25 @@ namespace DUAN1.Nhân_Viên
         {
 
         }
+        int id;
+
         private void listView1_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
                 ListViewItem listViewItem = listView1.SelectedItems[0];
                 IdPro.Text = listViewItem.Text;
-                int id;
+
                 int.TryParse(listViewItem.Text, out id);
-                var ThongTinSp = _context.Products.FirstOrDefault(x => x.ProductId == id);
-                NamePro.Text = ThongTinSp.ProductName;
-                PricePro.Text = ThongTinSp.ProductPrice.ToString();
+                var abc = _context.Products.FirstOrDefault(x => x.ProductId == id);
+                NamePro.Text = abc.ProductName;
+                PricePro.Text = abc.ProductPrice.ToString();
                 DateTime HSDpro;
-                DateTime.TryParse((ThongTinSp.ProductExpiry.ToString()), out HSDpro);
+                DateTime.TryParse((abc.ProductExpiry.ToString()), out HSDpro);
                 HSD.Value = HSDpro;
-                int sl;
-                int.TryParse(txtSl.Text, out sl);
-                if (ThongTinSp.ProductQuantity < sl)
+                int abcd;
+                int.TryParse(txtSl.Text, out abcd);
+                if (abc.ProductQuantity < abcd)
                 {
                     txtSl.BackColor = Color.Red;
                     danger.Visible = true;
@@ -78,9 +82,7 @@ namespace DUAN1.Nhân_Viên
                 {
                     danger.Visible = false;
                 }
-                decimal gia = ThongTinSp.ProductPrice;
-                decimal tong = sl * gia;
-                txtGia.Text = tong.ToString();
+
 
 
             }
@@ -101,9 +103,9 @@ namespace DUAN1.Nhân_Viên
             txtGia.Text = "";
             PricePro.Text = "";
         }
-        
 
 
+        int idhoadon;
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             if (IdPro.Text == "")
@@ -112,62 +114,75 @@ namespace DUAN1.Nhân_Viên
             }
             else
             {
-                var sl = Convert.ToInt32(txtSl.Text);
-                if (txtSl.Text == "" || !txtSl.Text.All(char.IsDigit) || sl <= 0)
+                int number;
+                if (!int.TryParse(txtSl.Text, out number))
                 {
-                    MessageBox.Show("ban ca nhap so luong dung cach");
+                    MessageBox.Show("Hay nhap 1 so nguyen vao day");
                 }
+
                 else
                 {
-                    var ar = _context.Users.FirstOrDefault(x => x.IdTaiKhoan == _id);
-                    decimal Gia;
-                    decimal.TryParse((txtGia.Text), out Gia);
-                    var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
-                    if (khachhang == null)
+                    var sl = Convert.ToInt32(txtSl.Text);
+                    if (txtSl.Text == "" || !txtSl.Text.All(char.IsDigit) || sl <= 0)
                     {
-                        MessageBox.Show("khach hang nay chua duoc them vao data");
+                        MessageBox.Show("ban ca nhap so luong dung cach");
                     }
                     else
                     {
-                        int ssl = Convert.ToInt32(txtSl.Text);
-                        var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
-                        if (!txtSl.Text.All(char.IsDigit))
+                        var ar = _context.Users.FirstOrDefault(x => x.IdTaiKhoan == _id);
+                        decimal Gia;
+                        decimal.TryParse((txtGia.Text), out Gia);
+                        var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
+                        if (khachhang == null)
                         {
-
-                            MessageBox.Show("so luong phair laf 1 so nguyen duong");
-                        }
-
-                        else if (ssl <= 0)
-                        {
-                            MessageBox.Show(" So luon phai la 1 so lon hon 0");
+                            MessageBox.Show("khach hang nay chua duoc them vao data");
                         }
                         else
                         {
-                            var v = Convert.ToInt32(IdPro.Text);
-                            var c = Convert.ToInt32(txtSl.Text);
-                            var kho = _context.Products.FirstOrDefault(x => x.ProductId == v);
-                            if (kho.ProductQuantity < c)
+                            int ssl = Convert.ToInt32(txtSl.Text);
+                            var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
+                            idhoadon = HoaDon.BillId;
+
+                            if (!txtSl.Text.All(char.IsDigit))
                             {
-                                MessageBox.Show(" so luong hang trong kho khongo con du");
+
+                                MessageBox.Show("so luong phair laf 1 so nguyen duong");
+                            }
+
+                            else if (ssl <= 0)
+                            {
+                                MessageBox.Show(" So luon phai la 1 so lon hon 0");
                             }
                             else
                             {
-                                Detailedbill detailedbill = new Detailedbill
+                                var v = Convert.ToInt32(IdPro.Text);
+                                var c = Convert.ToInt32(txtSl.Text);
+                                var kho = _context.Products.FirstOrDefault(x => x.ProductId == v);
+                                if (kho.ProductQuantity < c)
                                 {
-                                    ProductId = v,
-                                    BillId = Convert.ToInt32(HoaDon.BillId),
-                                    Quantity = c,
-                                    IdUser = ar.IdUser,
-                                    Price = Gia,
+                                    MessageBox.Show(" so luong hang trong kho khongo con du");
+                                }
+                                else
+                                {
+                                    Detailedbill detailedbill = new Detailedbill
+                                    {
+                                        ProductId = v,
+                                        BillId = Convert.ToInt32(HoaDon.BillId),
+                                        Quantity = c,
+                                        IdUser = ar.IdUser,
+                                        Price = Gia,
 
-                                };
-                                _context.Detailedbills.Add(detailedbill);
-                                kho.ProductQuantity = kho.ProductQuantity - v;
-                                HoaDon.PriceBill = HoaDon.PriceBill + Gia;
-                                _context.SaveChanges();
-                                hienthiview();
-                                clear();
-                                listView1_Click(sender, e);
+                                    };
+                                    _context.Detailedbills.Add(detailedbill);
+                                    kho.ProductQuantity = kho.ProductQuantity - v;
+                                    HoaDon.PriceBill = HoaDon.PriceBill + Gia;
+                                    _context.SaveChanges();
+                                    hienthiview();
+                                    clear();
+                                    listView1_Click(sender, e);
+                                    var tongtien = _context.Detailedbills.Where(x => x.BillId == HoaDon.BillId).Select(x => x.Price).ToList();
+                                    txttien.Text = tongtien.Sum().ToString();
+                                }
                             }
                         }
                     }
@@ -185,6 +200,7 @@ namespace DUAN1.Nhân_Viên
                       where b.BillId == HoaDon.BillId
                       select new
                       {
+                          ID = b.DetailedbillsId,
                           ProductName = a.ProductName,
                           NameUser = c.UserName,
                           Price = b.Price,
@@ -278,6 +294,130 @@ namespace DUAN1.Nhân_Viên
         private void label10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtSl_TextChanged(object sender, EventArgs e)
+        {
+            var tongtien = _context.Products.FirstOrDefault(x => x.ProductId == id);
+            decimal gia = tongtien.ProductPrice;
+            int sl;
+            int.TryParse(txtSl.Text, out sl);
+            decimal tong = sl * gia;
+            txtGia.Text = tong.ToString();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        int Idddd;
+        private void view_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var a = view.Rows[e.RowIndex];
+            Idddd = Convert.ToInt32(a.Cells["ID"].Value.ToString());
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            var delete = _context.Detailedbills.FirstOrDefault(x => x.DetailedbillsId == Idddd);
+            if (delete!=null) {
+                if (MessageBox.Show("Ban chac chan muon xoa san phan nay ra khoi hoa don khong", "Xac Nhan", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    _context.Detailedbills.Remove(delete);
+                    _context.SaveChanges();
+                    decimal canxoa = delete.Price;
+                    decimal tien;
+                    decimal.TryParse(txttien.Text, out tien);
+                    txttien.Text = (tien - canxoa).ToString();
+                    hienthiview();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ban can chon san phan cam xoa ");
+            }
+
+        }
+
+        private void txtkhachdua_TextChanged(object sender, EventArgs e)
+        {
+            decimal tiendua;
+            decimal tienHd;
+
+            decimal.TryParse(txttien.Text, out tienHd);
+            decimal.TryParse(txtkhachdua.Text, out tiendua);
+            decimal tienthua = tiendua - tienHd;
+            txtThua.Text = tienthua.ToString();
+            if (tiendua <tienHd)
+            {
+                meme.Visible = true;
+            }
+            else
+            {
+                meme.Visible = false;
+            }
+        }
+
+        private void txttimkiem_TextChanged(object sender, EventArgs e)
+        {
+            if (txttimkiem.Text == "")
+            {
+                listView1.Items.Clear();
+                var list = (from a in _context.Products select a).ToList();
+                foreach (var a in list)
+                {
+                    ListViewItem item = new ListViewItem(a.ProductId.ToString());
+
+                    item.SubItems.Add(a.ProductName);
+
+                    item.SubItems.Add(a.ProductPrice.ToString());
+
+                    listView1.Items.Add(item);
+                }
+            }
+            else
+            {
+                foreach (ListViewItem a in listView1.Items)
+                {
+                    bool match = a.SubItems[1].Text.ToLower().Contains(txttimkiem.Text);
+                    if (match)
+                    {
+                        a.BackColor = System.Drawing.Color.Yellow;  
+                        a.ForeColor = System.Drawing.Color.Black;   
+                    }
+                    else
+                    {
+                        a.BackColor = System.Drawing.Color.White;  
+                        a.ForeColor = System.Drawing.Color.Gray;    
+                    }
+                }
+               
+            }
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            decimal tiendua;
+            decimal tienthua;
+            decimal.TryParse(txtThua.Text, out tienthua);
+            decimal.TryParse(txtkhachdua.Text, out tiendua);
+
+            if (txtkhachdua.Text == "" || tiendua <= 0 || tienthua < 0)
+            {
+                MessageBox.Show("vui long kiem tra lai tien");
+            }
+            else
+            {
+                decimal TienCuoi;
+                decimal.TryParse(txttien.Text, out TienCuoi);
+                var a = _context.Bills.FirstOrDefault(x => x.BillId == idhoadon);
+                a.StatusId = 1;
+                a.PriceBill = TienCuoi;
+                _context.SaveChanges();
+                MessageBox.Show("Da thanh toan thnah cong");
+            }
         }
     }
 }

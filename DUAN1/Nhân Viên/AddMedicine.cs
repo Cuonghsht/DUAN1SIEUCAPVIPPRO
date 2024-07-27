@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -78,6 +79,58 @@ namespace DUAN1.Nhân_Viên
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             Reload();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            if (ComboDanhMuc.Text == "")
+            {
+                MessageBox.Show("Nhap day du thong tin");
+            }
+            else
+            {
+                Category category = new Category
+                {
+
+                    CategoryName = ComboDanhMuc.Text,
+                };
+                _context.Categories.Add(category);
+                _context.SaveChanges();
+                MessageBox.Show("them thanh cong");
+            }
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+
+            if (ComboUnit.Text == "")
+            {
+                MessageBox.Show("Nhap day du thong tin");
+            }
+            else
+            {
+                Unit unit = new Unit
+                {
+                    UnitName = ComboUnit.Text,
+                };
+                _context.Units.Add(unit);
+                _context.SaveChanges();
+                MessageBox.Show("them thanh cong");
+            }
+        }
+
+        private void ComboDanhMuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void ComboDanhMuc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

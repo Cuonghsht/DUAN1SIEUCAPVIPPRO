@@ -45,6 +45,8 @@
             this.TxtName = new Guna.UI2.WinForms.Guna2TextBox();
             this.ComboDanhMuc = new Guna.UI2.WinForms.Guna2ComboBox();
             this.ComboUnit = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // label1
@@ -205,7 +207,7 @@
             this.label9.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(77, 427);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(185, 24);
+            this.label9.Size = new System.Drawing.Size(148, 19);
             this.label9.TabIndex = 42;
             this.label9.Text = "Danh mục thuốc ";
             // 
@@ -256,6 +258,8 @@
             this.ComboDanhMuc.Name = "ComboDanhMuc";
             this.ComboDanhMuc.Size = new System.Drawing.Size(280, 36);
             this.ComboDanhMuc.TabIndex = 46;
+            this.ComboDanhMuc.SelectedIndexChanged += new System.EventHandler(this.ComboDanhMuc_SelectedIndexChanged);
+            this.ComboDanhMuc.TextChanged += new System.EventHandler(this.ComboDanhMuc_TextChanged);
             // 
             // ComboUnit
             // 
@@ -272,11 +276,43 @@
             this.ComboUnit.Size = new System.Drawing.Size(273, 36);
             this.ComboUnit.TabIndex = 46;
             // 
+            // guna2Button2
+            // 
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Location = new System.Drawing.Point(380, 480);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(51, 32);
+            this.guna2Button2.TabIndex = 47;
+            this.guna2Button2.Text = "+";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.Location = new System.Drawing.Point(926, 480);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Size = new System.Drawing.Size(48, 39);
+            this.guna2Button3.TabIndex = 48;
+            this.guna2Button3.Text = "+";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            // 
             // AddMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2088, 1331);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.guna2Button3);
+            this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.ComboUnit);
             this.Controls.Add(this.ComboDanhMuc);
             this.Controls.Add(this.TxtName);
@@ -320,5 +356,7 @@
         private Guna.UI2.WinForms.Guna2TextBox TxtName;
         private Guna.UI2.WinForms.Guna2ComboBox ComboDanhMuc;
         private Guna.UI2.WinForms.Guna2ComboBox ComboUnit;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }
