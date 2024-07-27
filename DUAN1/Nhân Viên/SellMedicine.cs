@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,12 +23,12 @@ namespace DUAN1.Nhân_Viên
             _id = idd;
             txtGia.Enabled = false;
             ListProduct();
-            hienthiview();
+           
             PricePro.Enabled = false;
             IdPro.Enabled = false;
             NamePro.Enabled = false;
             HSD.Enabled = false;
-           
+
         }
         public void ListProduct()
         {
@@ -90,6 +91,17 @@ namespace DUAN1.Nhân_Viên
         private void txtGia_MouseClick(object sender, MouseEventArgs e)
         {
         }
+        public void clear()
+        {
+            txtGia.Text = "";
+            txtSl.Text = "";
+            IdPro.Text = "";
+            NamePro.Text = "";
+            HSD.Value = DateTime.Now;
+            txtGia.Text = "";
+            PricePro.Text = "";
+        }
+        
 
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -101,7 +113,7 @@ namespace DUAN1.Nhân_Viên
             else
             {
                 var sl = Convert.ToInt32(txtSl.Text);
-                if(txtSl.Text==""||!txtSl.Text.All(char.IsDigit) || sl <= 0)
+                if (txtSl.Text == "" || !txtSl.Text.All(char.IsDigit) || sl <= 0)
                 {
                     MessageBox.Show("ban ca nhap so luong dung cach");
                 }
@@ -115,37 +127,71 @@ namespace DUAN1.Nhân_Viên
                     {
                         MessageBox.Show("khach hang nay chua duoc them vao data");
                     }
-                    var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
-
-                    Detailedbill detailedbill = new Detailedbill
+                    else
                     {
-                        ProductId = Convert.ToInt32(IdPro.Text),
-                        BillId = Convert.ToInt32(HoaDon.BillId),
-                        Quantity = Convert.ToInt32(txtSl.Text),
-                        IdUser = ar.IdUser,
-                        Price = Gia,
+                        int ssl = Convert.ToInt32(txtSl.Text);
+                        var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
+                        if (!txtSl.Text.All(char.IsDigit))
+                        {
 
-                    };
-                    _context.Detailedbills.Add(detailedbill);
-                    _context.SaveChanges();
-                    hienthiview();
+                            MessageBox.Show("so luong phair laf 1 so nguyen duong");
+                        }
+
+                        else if (ssl <= 0)
+                        {
+                            MessageBox.Show(" So luon phai la 1 so lon hon 0");
+                        }
+                        else
+                        {
+                            var v = Convert.ToInt32(IdPro.Text);
+                            var c = Convert.ToInt32(txtSl.Text);
+                            var kho = _context.Products.FirstOrDefault(x => x.ProductId == v);
+                            if (kho.ProductQuantity < c)
+                            {
+                                MessageBox.Show(" so luong hang trong kho khongo con du");
+                            }
+                            else
+                            {
+                                Detailedbill detailedbill = new Detailedbill
+                                {
+                                    ProductId = v,
+                                    BillId = Convert.ToInt32(HoaDon.BillId),
+                                    Quantity = c,
+                                    IdUser = ar.IdUser,
+                                    Price = Gia,
+
+                                };
+                                _context.Detailedbills.Add(detailedbill);
+                                kho.ProductQuantity = kho.ProductQuantity - v;
+                                HoaDon.PriceBill = HoaDon.PriceBill + Gia;
+                                _context.SaveChanges();
+                                hienthiview();
+                                clear();
+                                listView1_Click(sender, e);
+                            }
+                        }
+                    }
                 }
-            }
 
+            }
         }
         public void hienthiview()
         {
             var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
             var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
-            var ds = (from a in _context.Products join b in _context.Detailedbills on a.ProductId equals b.ProductId join c in _context.Users on b.IdUser equals c.IdUser  where b.BillId == HoaDon.BillId select new
-            {
-                ProductName = a.ProductName,
-                NameUser = c.UserName,
-                Price = b.Price,
-                QuanTiTy = b.Quantity,
-            }).ToList();
+            var ds = (from a in _context.Products
+                      join b in _context.Detailedbills on a.ProductId equals b.ProductId
+                      join c in _context.Users on b.IdUser equals c.IdUser
+                      where b.BillId == HoaDon.BillId
+                      select new
+                      {
+                          ProductName = a.ProductName,
+                          NameUser = c.UserName,
+                          Price = b.Price,
+                          QuanTiTy = b.Quantity,
+                      }).ToList();
             view.DataSource = ds;
-           
+
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -161,7 +207,7 @@ namespace DUAN1.Nhân_Viên
             }
             else
             {
-                if (SDTCus.TextLength != 10 || SDTCus.Text.Substring(0, 1) != "0"|| !SDTCus.Text.All(char.IsDigit))
+                if (SDTCus.TextLength != 10 || SDTCus.Text.Substring(0, 1) != "0" || !SDTCus.Text.All(char.IsDigit))
                 {
                     MessageBox.Show("Dinh danh Sdt chua chinh xac");
                 }
@@ -235,5 +281,4 @@ namespace DUAN1.Nhân_Viên
         }
     }
 }
-
 
