@@ -77,6 +77,12 @@
     <Compile Include="Chủ\AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Chủ\change Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chủ\change Password.Designer.cs">
+      <DependentUpon>change Password.cs</DependentUpon>
+    </Compile>
     <Compile Include="Chủ\Dashbord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,12 +145,6 @@
     </Compile>
     <Compile Include="Nhân Viên\Bill Information.Designer.cs">
       <DependentUpon>Bill Information.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Nhân Viên\Dasbord.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Nhân Viên\Dasbord.Designer.cs">
-      <DependentUpon>Dasbord.cs</DependentUpon>
     </Compile>
     <Compile Include="Nhân Viên\SellMedicine.cs">
       <SubType>Form</SubType>
@@ -214,6 +214,9 @@
     <EmbeddedResource Include="Chủ\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Chủ\change Password.resx">
+      <DependentUpon>change Password.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Chủ\Dashbord.resx">
       <DependentUpon>Dashbord.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,9 +237,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nhân Viên\Bill Information.resx">
       <DependentUpon>Bill Information.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Nhân Viên\Dasbord.resx">
-      <DependentUpon>Dasbord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nhân Viên\SellMedicine.resx">
       <DependentUpon>SellMedicine.cs</DependentUpon>

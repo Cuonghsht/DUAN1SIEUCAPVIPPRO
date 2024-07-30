@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DUAN1.Nhân_Viên
+namespace DUAN1.Chủ
 {
-    public partial class Dasbord : Form
+    public partial class change_Password : Form
     {
-        public Dasbord()
+        public change_Password()
         {
             InitializeComponent();
         }
