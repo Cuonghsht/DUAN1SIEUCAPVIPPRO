@@ -38,12 +38,12 @@ namespace DUAN1
             var DangNhap = dbContext.TaiKhoans.FirstOrDefault(x => x.NameTaiKhoan == txtTaiKhoan.Text && x.PassWordd == txtMatKhau.Text);
             if (txtMatKhau.Text==""||txtTaiKhoan.Text=="")
             {
-                MessageBox.Show("Ban can nhap day du thong tin");
+                MessageBox.Show("Bạn cần nhập đầy đủ thông tin", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else {
                 if (DangNhap == null || DangNhap.idtrangthai==2)
                 {
-                    MessageBox.Show("Dang Nhap that bai do tai khoan khong chinh xac Hoac tai khoan cua ban da dung haotj dong");
+                    MessageBox.Show("Đăng nhập thất bại do tài khoản không chính xác hoặc tài khoản của bạn đã dừng hoạt động", "Lỗi Đăng Nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 else
@@ -51,7 +51,7 @@ namespace DUAN1
                     var idd = DangNhap.IdTaiKhoan;
                     if (DangNhap.IdRoles == 2)
                     {
-                        MessageBox.Show("Day la chu");
+                        MessageBox.Show("Đây là chủ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         FrmAdmin admin = new FrmAdmin(dbContext, idd);
                         admin.FormClosed += (a, b) => this.Close();
                         admin.Show();
@@ -59,7 +59,7 @@ namespace DUAN1
                     }
                     else
                     {
-                        MessageBox.Show("day la nhan vien");
+                        MessageBox.Show("Đây là nhân viên", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Users us = new Users(dbContext,idd);
                         us.FormClosed += (a, b) => this.Close();
                         us.Show();
