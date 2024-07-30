@@ -72,5 +72,13 @@ namespace DUAN1
             f.Show();
             this.Hide();
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            change_Password f = new change_Password(_dbcontext, _idd);
+            f.FormClosed += (a, b) => this.Show();
+            f.Show();
+            this.Hide();
+        }
     }
 }
