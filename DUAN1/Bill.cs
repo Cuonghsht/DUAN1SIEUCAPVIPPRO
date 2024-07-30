@@ -25,10 +25,12 @@ namespace DUAN1
         public int IdCustomer { get; set; }
         public decimal PriceBill { get; set; }
         public System.DateTime DateBill { get; set; }
+        public Nullable<int> IdVoucher { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Statuss Statuss { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Detailedbill> Detailedbills { get; set; }
+        public virtual Voucher Voucher { get; set; }
     }
 }

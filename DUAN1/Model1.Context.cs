@@ -13,10 +13,10 @@ namespace DUAN1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuanLyHieuThuocEntities1 : DbContext
+    public partial class QuanLyHieuThuocEntities4 : DbContext
     {
-        public QuanLyHieuThuocEntities1()
-            : base("name=QuanLyHieuThuocEntities1")
+        public QuanLyHieuThuocEntities4()
+            : base("name=QuanLyHieuThuocEntities4")
         {
         }
     
@@ -34,7 +34,9 @@ namespace DUAN1
         public virtual DbSet<Statuss> Statusses { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
+        public virtual DbSet<TrangThaiHd> TrangThaiHds { get; set; }
         public virtual DbSet<Unit> Units { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Voucher> Vouchers { get; set; }
     }
 }

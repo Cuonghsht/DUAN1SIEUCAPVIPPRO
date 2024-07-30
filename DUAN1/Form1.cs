@@ -13,12 +13,12 @@ namespace DUAN1
 {
     public partial class Form1 : Form
     {
-         private QuanLyHieuThuocEntities1 dbContext;
+         private QuanLyHieuThuocEntities4 dbContext;
 
         public Form1()
         {
             InitializeComponent();
-            dbContext = new QuanLyHieuThuocEntities1();
+            dbContext = new QuanLyHieuThuocEntities4();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -39,10 +39,11 @@ namespace DUAN1
                 MessageBox.Show("Ban can nhap day du thong tin");
             }
             else {
-                if (DangNhap == null)
+                if (DangNhap == null || DangNhap.idtrangthai==2)
                 {
-                    MessageBox.Show("Dang Nhap that bai do tai khoan khong chinh xac");
+                    MessageBox.Show("Dang Nhap that bai do tai khoan khong chinh xac Hoac tai khoan cua ban da dung haotj dong");
                 }
+
                 else
                 {
                     var idd = DangNhap.IdTaiKhoan;

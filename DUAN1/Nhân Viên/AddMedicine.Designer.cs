@@ -43,10 +43,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.Date = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.TxtName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.ComboDanhMuc = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.ComboUnit = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.ComboDanhMuc = new System.Windows.Forms.ComboBox();
+            this.ComboUnit = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -244,38 +244,6 @@
             this.TxtName.Size = new System.Drawing.Size(273, 48);
             this.TxtName.TabIndex = 44;
             // 
-            // ComboDanhMuc
-            // 
-            this.ComboDanhMuc.BackColor = System.Drawing.Color.Transparent;
-            this.ComboDanhMuc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ComboDanhMuc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboDanhMuc.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ComboDanhMuc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ComboDanhMuc.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.ComboDanhMuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.ComboDanhMuc.ItemHeight = 30;
-            this.ComboDanhMuc.Location = new System.Drawing.Point(81, 477);
-            this.ComboDanhMuc.Name = "ComboDanhMuc";
-            this.ComboDanhMuc.Size = new System.Drawing.Size(280, 36);
-            this.ComboDanhMuc.TabIndex = 46;
-            this.ComboDanhMuc.SelectedIndexChanged += new System.EventHandler(this.ComboDanhMuc_SelectedIndexChanged);
-            this.ComboDanhMuc.TextChanged += new System.EventHandler(this.ComboDanhMuc_TextChanged);
-            // 
-            // ComboUnit
-            // 
-            this.ComboUnit.BackColor = System.Drawing.Color.Transparent;
-            this.ComboUnit.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ComboUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboUnit.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ComboUnit.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ComboUnit.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.ComboUnit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.ComboUnit.ItemHeight = 30;
-            this.ComboUnit.Location = new System.Drawing.Point(628, 477);
-            this.ComboUnit.Name = "ComboUnit";
-            this.ComboUnit.Size = new System.Drawing.Size(273, 36);
-            this.ComboUnit.TabIndex = 46;
-            // 
             // guna2Button2
             // 
             this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -284,7 +252,7 @@
             this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(380, 480);
+            this.guna2Button2.Location = new System.Drawing.Point(380, 458);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(51, 32);
             this.guna2Button2.TabIndex = 47;
@@ -299,22 +267,38 @@
             this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(926, 480);
+            this.guna2Button3.Location = new System.Drawing.Point(922, 458);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(48, 39);
             this.guna2Button3.TabIndex = 48;
             this.guna2Button3.Text = "+";
             this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
+            // ComboDanhMuc
+            // 
+            this.ComboDanhMuc.FormattingEnabled = true;
+            this.ComboDanhMuc.Location = new System.Drawing.Point(81, 458);
+            this.ComboDanhMuc.Name = "ComboDanhMuc";
+            this.ComboDanhMuc.Size = new System.Drawing.Size(280, 24);
+            this.ComboDanhMuc.TabIndex = 49;
+            // 
+            // ComboUnit
+            // 
+            this.ComboUnit.FormattingEnabled = true;
+            this.ComboUnit.Location = new System.Drawing.Point(628, 458);
+            this.ComboUnit.Name = "ComboUnit";
+            this.ComboUnit.Size = new System.Drawing.Size(273, 24);
+            this.ComboUnit.TabIndex = 50;
+            // 
             // AddMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
-            this.Controls.Add(this.guna2Button3);
-            this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.ComboUnit);
             this.Controls.Add(this.ComboDanhMuc);
+            this.Controls.Add(this.guna2Button3);
+            this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.TxtName);
             this.Controls.Add(this.Date);
             this.Controls.Add(this.label9);
@@ -354,9 +338,9 @@
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2DateTimePicker Date;
         private Guna.UI2.WinForms.Guna2TextBox TxtName;
-        private Guna.UI2.WinForms.Guna2ComboBox ComboDanhMuc;
-        private Guna.UI2.WinForms.Guna2ComboBox ComboUnit;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private System.Windows.Forms.ComboBox ComboDanhMuc;
+        private System.Windows.Forms.ComboBox ComboUnit;
     }
 }

@@ -13,8 +13,8 @@ namespace DUAN1.Chủ
 {
     public partial class AddUser : Form
     {
-        private readonly QuanLyHieuThuocEntities1 _dbcontext;
-        public AddUser(QuanLyHieuThuocEntities1 dbcontext)
+        private readonly QuanLyHieuThuocEntities4 _dbcontext;
+        public AddUser(QuanLyHieuThuocEntities4 dbcontext)
         {
             _dbcontext = dbcontext;
             InitializeComponent();
@@ -114,6 +114,7 @@ namespace DUAN1.Chủ
                                                             {
                                                                 NameTaiKhoan = TxtNameAccount.Text,
                                                                 PassWordd = txtPassword.Text,
+                                                                IdTaiKhoan = 1,
                                                                 IdRoles = ComBoVaiTro.SelectedIndex + 1
                                                             };
                                                             _dbcontext.TaiKhoans.Add(Ac);

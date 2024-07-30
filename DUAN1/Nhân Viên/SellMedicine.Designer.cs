@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SellMedicine));
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.thanhtona = new Guna.UI2.WinForms.Guna2Button();
+            this.xoa = new Guna.UI2.WinForms.Guna2Button();
             this.view = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.txtGia = new Guna.UI2.WinForms.Guna2TextBox();
@@ -46,7 +46,7 @@
             this.IdPro = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txttimkiem = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.themgio = new Guna.UI2.WinForms.Guna2Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,7 +55,7 @@
             this.NameCus = new Guna.UI2.WinForms.Guna2TextBox();
             this.SDTCus = new Guna.UI2.WinForms.Guna2TextBox();
             this.DiaChiCus = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
+            this.themadd = new Guna.UI2.WinForms.Guna2Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -69,54 +69,55 @@
             this.txttien = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.meme = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.IdHD = new Guna.UI2.WinForms.Guna2TextBox();
+            this.combovoucher = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.view)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2Button4
+            // thanhtona
             // 
-            this.guna2Button4.BorderRadius = 19;
-            this.guna2Button4.BorderThickness = 1;
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(118)))), ((int)(((byte)(255)))));
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
-            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.Image")));
-            this.guna2Button4.Location = new System.Drawing.Point(1315, 1007);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(188, 62);
-            this.guna2Button4.TabIndex = 96;
-            this.guna2Button4.Text = "Thanh toán và In";
-            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
+            this.thanhtona.BorderRadius = 19;
+            this.thanhtona.BorderThickness = 1;
+            this.thanhtona.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.thanhtona.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.thanhtona.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.thanhtona.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.thanhtona.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(118)))), ((int)(((byte)(255)))));
+            this.thanhtona.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thanhtona.ForeColor = System.Drawing.Color.White;
+            this.thanhtona.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
+            this.thanhtona.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.thanhtona.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.thanhtona.Image = ((System.Drawing.Image)(resources.GetObject("thanhtona.Image")));
+            this.thanhtona.Location = new System.Drawing.Point(1315, 1007);
+            this.thanhtona.Name = "thanhtona";
+            this.thanhtona.Size = new System.Drawing.Size(188, 62);
+            this.thanhtona.TabIndex = 96;
+            this.thanhtona.Text = "Thanh toán và In";
+            this.thanhtona.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
-            // guna2Button3
+            // xoa
             // 
-            this.guna2Button3.BorderRadius = 19;
-            this.guna2Button3.BorderThickness = 1;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(118)))), ((int)(((byte)(255)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
-            this.guna2Button3.Location = new System.Drawing.Point(1092, 1015);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(137, 54);
-            this.guna2Button3.TabIndex = 95;
-            this.guna2Button3.Text = "Loại Bỏ";
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            this.xoa.BorderRadius = 19;
+            this.xoa.BorderThickness = 1;
+            this.xoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.xoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.xoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.xoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.xoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(118)))), ((int)(((byte)(255)))));
+            this.xoa.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xoa.ForeColor = System.Drawing.Color.White;
+            this.xoa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
+            this.xoa.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.xoa.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.xoa.Image = ((System.Drawing.Image)(resources.GetObject("xoa.Image")));
+            this.xoa.Location = new System.Drawing.Point(1149, 1007);
+            this.xoa.Name = "xoa";
+            this.xoa.Size = new System.Drawing.Size(141, 65);
+            this.xoa.TabIndex = 95;
+            this.xoa.Text = "Loại Bỏ";
+            this.xoa.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // view
             // 
@@ -338,23 +339,23 @@
             this.txttimkiem.TabIndex = 80;
             this.txttimkiem.TextChanged += new System.EventHandler(this.txttimkiem_TextChanged);
             // 
-            // guna2Button2
+            // themgio
             // 
-            this.guna2Button2.BorderRadius = 19;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.MediumBlue;
-            this.guna2Button2.Font = new System.Drawing.Font("Century", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
-            this.guna2Button2.Location = new System.Drawing.Point(1281, 650);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(222, 45);
-            this.guna2Button2.TabIndex = 79;
-            this.guna2Button2.Text = "Thêm Vào Giỏ hàng";
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.themgio.BorderRadius = 19;
+            this.themgio.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.themgio.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.themgio.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.themgio.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.themgio.FillColor = System.Drawing.Color.MediumBlue;
+            this.themgio.Font = new System.Drawing.Font("Century", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.themgio.ForeColor = System.Drawing.Color.White;
+            this.themgio.Image = ((System.Drawing.Image)(resources.GetObject("themgio.Image")));
+            this.themgio.Location = new System.Drawing.Point(1281, 650);
+            this.themgio.Name = "themgio";
+            this.themgio.Size = new System.Drawing.Size(222, 45);
+            this.themgio.TabIndex = 79;
+            this.themgio.Text = "Thêm Vào Giỏ hàng";
+            this.themgio.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // listView1
             // 
@@ -365,6 +366,7 @@
             this.listView1.TabIndex = 78;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Tile;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.Click += new System.EventHandler(this.listView1_Click);
             // 
             // guna2Button1
@@ -472,27 +474,27 @@
             this.DiaChiCus.Size = new System.Drawing.Size(213, 48);
             this.DiaChiCus.TabIndex = 103;
             // 
-            // guna2Button5
+            // themadd
             // 
-            this.guna2Button5.BorderRadius = 19;
-            this.guna2Button5.BorderThickness = 1;
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.ForestGreen;
-            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button5.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
-            this.guna2Button5.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.guna2Button5.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button5.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button5.Image")));
-            this.guna2Button5.Location = new System.Drawing.Point(535, 640);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(157, 46);
-            this.guna2Button5.TabIndex = 104;
-            this.guna2Button5.Text = "Tạo hóa đơn";
-            this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
+            this.themadd.BorderRadius = 19;
+            this.themadd.BorderThickness = 1;
+            this.themadd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.themadd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.themadd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.themadd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.themadd.FillColor = System.Drawing.Color.ForestGreen;
+            this.themadd.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.themadd.ForeColor = System.Drawing.Color.White;
+            this.themadd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
+            this.themadd.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.themadd.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.themadd.Image = ((System.Drawing.Image)(resources.GetObject("themadd.Image")));
+            this.themadd.Location = new System.Drawing.Point(535, 640);
+            this.themadd.Name = "themadd";
+            this.themadd.Size = new System.Drawing.Size(157, 46);
+            this.themadd.TabIndex = 104;
+            this.themadd.Text = "Tạo hóa đơn";
+            this.themadd.Click += new System.EventHandler(this.guna2Button5_Click);
             // 
             // label11
             // 
@@ -540,7 +542,7 @@
             // Nuradio
             // 
             this.Nuradio.AutoSize = true;
-            this.Nuradio.Location = new System.Drawing.Point(647, 446);
+            this.Nuradio.Location = new System.Drawing.Point(659, 446);
             this.Nuradio.Name = "Nuradio";
             this.Nuradio.Size = new System.Drawing.Size(45, 20);
             this.Nuradio.TabIndex = 105;
@@ -631,7 +633,7 @@
             this.txttien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txttien.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txttien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttien.Location = new System.Drawing.Point(875, 640);
+            this.txttien.Location = new System.Drawing.Point(867, 640);
             this.txttien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txttien.Name = "txttien";
             this.txttien.PasswordChar = '\0';
@@ -645,7 +647,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(875, 617);
+            this.label8.Location = new System.Drawing.Point(867, 617);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(158, 19);
             this.label8.TabIndex = 93;
@@ -662,42 +664,57 @@
             this.meme.TabIndex = 107;
             this.meme.Text = "*Tiền khách đưa còn thiếu";
             // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(1211, 529);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(273, 54);
-            this.guna2TextBox1.TabIndex = 109;
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(1207, 504);
+            this.label16.Location = new System.Drawing.Point(531, 556);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(111, 19);
+            this.label16.Size = new System.Drawing.Size(79, 19);
             this.label16.TabIndex = 108;
-            this.label16.Text = "Voucher (%)";
+            this.label16.Text = "Voucher";
+            // 
+            // IdHD
+            // 
+            this.IdHD.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.IdHD.DefaultText = "";
+            this.IdHD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.IdHD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.IdHD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.IdHD.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.IdHD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.IdHD.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.IdHD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.IdHD.Location = new System.Drawing.Point(526, 490);
+            this.IdHD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.IdHD.Name = "IdHD";
+            this.IdHD.PasswordChar = '\0';
+            this.IdHD.PlaceholderText = "";
+            this.IdHD.SelectedText = "";
+            this.IdHD.Size = new System.Drawing.Size(213, 48);
+            this.IdHD.TabIndex = 84;
+            // 
+            // combovoucher
+            // 
+            this.combovoucher.BackColor = System.Drawing.Color.Transparent;
+            this.combovoucher.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.combovoucher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combovoucher.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.combovoucher.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.combovoucher.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.combovoucher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.combovoucher.ItemHeight = 30;
+            this.combovoucher.Location = new System.Drawing.Point(528, 575);
+            this.combovoucher.Name = "combovoucher";
+            this.combovoucher.Size = new System.Drawing.Size(211, 36);
+            this.combovoucher.TabIndex = 110;
             // 
             // SellMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1672, 1092);
-            this.Controls.Add(this.guna2TextBox1);
+            this.ClientSize = new System.Drawing.Size(1672, 1055);
+            this.Controls.Add(this.combovoucher);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.meme);
             this.Controls.Add(this.txttien);
@@ -705,13 +722,13 @@
             this.Controls.Add(this.txtkhachdua);
             this.Controls.Add(this.Nuradio);
             this.Controls.Add(this.Namradio);
-            this.Controls.Add(this.guna2Button5);
+            this.Controls.Add(this.themadd);
             this.Controls.Add(this.DiaChiCus);
             this.Controls.Add(this.SDTCus);
             this.Controls.Add(this.danger);
             this.Controls.Add(this.guna2Panel1);
-            this.Controls.Add(this.guna2Button4);
-            this.Controls.Add(this.guna2Button3);
+            this.Controls.Add(this.thanhtona);
+            this.Controls.Add(this.xoa);
             this.Controls.Add(this.view);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -723,6 +740,7 @@
             this.Controls.Add(this.HSD);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.IdHD);
             this.Controls.Add(this.NameCus);
             this.Controls.Add(this.NamePro);
             this.Controls.Add(this.label13);
@@ -735,7 +753,7 @@
             this.Controls.Add(this.IdPro);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txttimkiem);
-            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.themgio);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.label1);
@@ -749,8 +767,8 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button thanhtona;
+        private Guna.UI2.WinForms.Guna2Button xoa;
         private System.Windows.Forms.DataGridView view;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2TextBox txtGia;
@@ -766,7 +784,7 @@
         private Guna.UI2.WinForms.Guna2TextBox IdPro;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox txttimkiem;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button themgio;
         private System.Windows.Forms.ListView listView1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.Label label1;
@@ -775,7 +793,7 @@
         private Guna.UI2.WinForms.Guna2TextBox NameCus;
         private Guna.UI2.WinForms.Guna2TextBox SDTCus;
         private Guna.UI2.WinForms.Guna2TextBox DiaChiCus;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
+        private Guna.UI2.WinForms.Guna2Button themadd;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
@@ -789,7 +807,8 @@
         private Guna.UI2.WinForms.Guna2TextBox txttien;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2HtmlLabel meme;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Label label16;
+        private Guna.UI2.WinForms.Guna2TextBox IdHD;
+        private Guna.UI2.WinForms.Guna2ComboBox combovoucher;
     }
 }

@@ -13,8 +13,8 @@ namespace DUAN1.Nhân_Viên
 {
     public partial class AddMedicine : Form
     {
-        private readonly QuanLyHieuThuocEntities1 _context;
-        public AddMedicine(QuanLyHieuThuocEntities1 context)
+        private readonly QuanLyHieuThuocEntities4 _context;
+        public AddMedicine(QuanLyHieuThuocEntities4 context)
         {
             _context = context;
             InitializeComponent();

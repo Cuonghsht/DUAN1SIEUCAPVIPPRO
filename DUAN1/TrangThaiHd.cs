@@ -12,23 +12,18 @@ namespace DUAN1
     using System;
     using System.Collections.Generic;
     
-    public partial class TaiKhoan
+    public partial class TrangThaiHd
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TaiKhoan()
+        public TrangThaiHd()
         {
-            this.Users = new HashSet<User>();
+            this.TaiKhoans = new HashSet<TaiKhoan>();
         }
     
-        public int IdTaiKhoan { get; set; }
-        public string NameTaiKhoan { get; set; }
-        public int IdRoles { get; set; }
-        public string PassWordd { get; set; }
-        public int idtrangthai { get; set; }
+        public int TrangThaiId { get; set; }
+        public string TrangThaiName { get; set; }
     
-        public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
-        public virtual TrangThaiHd TrangThaiHd { get; set; }
+        public virtual ICollection<TaiKhoan> TaiKhoans { get; set; }
     }
 }

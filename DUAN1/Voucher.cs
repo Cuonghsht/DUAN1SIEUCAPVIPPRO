@@ -12,23 +12,22 @@ namespace DUAN1
     using System;
     using System.Collections.Generic;
     
-    public partial class TaiKhoan
+    public partial class Voucher
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TaiKhoan()
+        public Voucher()
         {
-            this.Users = new HashSet<User>();
+            this.Bills = new HashSet<Bill>();
         }
     
-        public int IdTaiKhoan { get; set; }
-        public string NameTaiKhoan { get; set; }
-        public int IdRoles { get; set; }
-        public string PassWordd { get; set; }
-        public int idtrangthai { get; set; }
+        public int IdVoucher { get; set; }
+        public string NameVoucher { get; set; }
+        public System.DateTime NSX { get; set; }
+        public System.DateTime HSD { get; set; }
+        public decimal VoucherValue { get; set; }
+        public int Quantity { get; set; }
     
-        public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
-        public virtual TrangThaiHd TrangThaiHd { get; set; }
+        public virtual ICollection<Bill> Bills { get; set; }
     }
 }

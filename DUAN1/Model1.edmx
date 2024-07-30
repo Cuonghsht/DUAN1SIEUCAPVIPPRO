@@ -14,6 +14,7 @@
           <Property Name="IdCustomer" Type="int" Nullable="false" />
           <Property Name="PriceBill" Type="money" Nullable="false" />
           <Property Name="DateBill" Type="datetime" Nullable="false" />
+          <Property Name="IdVoucher" Type="int" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -87,6 +88,14 @@
           <Property Name="NameTaiKhoan" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="IdRoles" Type="int" Nullable="false" />
           <Property Name="PassWordd" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="idtrangthai" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TrangThaiHd">
+          <Key>
+            <PropertyRef Name="TrangThaiId" />
+          </Key>
+          <Property Name="TrangThaiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrangThaiName" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Unit">
           <Key>
@@ -107,6 +116,17 @@
           <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="IdTaiKhoan" Type="int" Nullable="false" />
           <Property Name="UsesGend" Type="bit" />
+        </EntityType>
+        <EntityType Name="Vouchers">
+          <Key>
+            <PropertyRef Name="IdVoucher" />
+          </Key>
+          <Property Name="IdVoucher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameVoucher" Type="varchar(max)" Nullable="false" />
+          <Property Name="NSX" Type="datetime" Nullable="false" />
+          <Property Name="HSD" Type="datetime" Nullable="false" />
+          <Property Name="VoucherValue" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Bills__IdCustome__4CA06362">
           <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
@@ -216,6 +236,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Bills_Vouchers">
+          <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vouchers">
+              <PropertyRef Name="IdVoucher" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="IdVoucher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoan_TrangThai">
+          <End Role="TrangThaiHd" Type="Self.TrangThaiHd" Multiplicity="1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrangThaiHd">
+              <PropertyRef Name="TrangThaiId" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="idtrangthai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QuanLyHieuThuocModelStoreContainer">
           <EntitySet Name="Bills" EntityType="Self.Bills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
@@ -226,8 +270,10 @@
           <EntitySet Name="Statuss" EntityType="Self.Statuss" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrangThaiHd" EntityType="Self.TrangThaiHd" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vouchers" EntityType="Self.Vouchers" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Bills__IdCustome__4CA06362" Association="Self.FK__Bills__IdCustome__4CA06362">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Bills" EntitySet="Bills" />
@@ -264,6 +310,14 @@
             <End Role="TaiKhoan" EntitySet="TaiKhoan" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <AssociationSet Name="FK_Bills_Vouchers" Association="Self.FK_Bills_Vouchers">
+            <End Role="Vouchers" EntitySet="Vouchers" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoan_TrangThai" Association="Self.FK_TaiKhoan_TrangThai">
+            <End Role="TrangThaiHd" EntitySet="TrangThaiHd" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -279,9 +333,11 @@
           <Property Name="IdCustomer" Type="Int32" Nullable="false" />
           <Property Name="PriceBill" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="DateBill" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdVoucher" Type="Int32" />
           <NavigationProperty Name="Customer" Relationship="Self.FK__Bills__IdCustome__4CA06362" FromRole="Bills" ToRole="Customers" />
           <NavigationProperty Name="Statuss" Relationship="Self.FK__Bills__StatusId__4BAC3F29" FromRole="Bills" ToRole="Statuss" />
           <NavigationProperty Name="Detailedbills" Relationship="Self.FK__Detailedb__BillI__5165187F" FromRole="Bills" ToRole="Detailedbills" />
+          <NavigationProperty Name="Voucher" Relationship="Self.FK_Bills_Vouchers" FromRole="Bills" ToRole="Vouchers" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -365,8 +421,18 @@
           <Property Name="NameTaiKhoan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdRoles" Type="Int32" Nullable="false" />
           <Property Name="PassWordd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idtrangthai" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Role" Relationship="Self.FK__TaiKhoan__IdRole__398D8EEE" FromRole="TaiKhoan" ToRole="Roles" />
           <NavigationProperty Name="Users" Relationship="Self.FK__Users__IdTaiKhoa__3D5E1FD2" FromRole="TaiKhoan" ToRole="Users" />
+          <NavigationProperty Name="TrangThaiHd" Relationship="Self.FK_TaiKhoan_TrangThai" FromRole="TaiKhoan" ToRole="TrangThaiHd" />
+        </EntityType>
+        <EntityType Name="TrangThaiHd">
+          <Key>
+            <PropertyRef Name="TrangThaiId" />
+          </Key>
+          <Property Name="TrangThaiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrangThaiName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TaiKhoans" Relationship="Self.FK_TaiKhoan_TrangThai" FromRole="TrangThaiHd" ToRole="TaiKhoan" />
         </EntityType>
         <EntityType Name="Unit">
           <Key>
@@ -390,6 +456,18 @@
           <Property Name="UsesGend" Type="Boolean" />
           <NavigationProperty Name="Detailedbills" Relationship="Self.FK__Detailedb__IdUse__5070F446" FromRole="Users" ToRole="Detailedbills" />
           <NavigationProperty Name="TaiKhoan" Relationship="Self.FK__Users__IdTaiKhoa__3D5E1FD2" FromRole="Users" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityType Name="Voucher">
+          <Key>
+            <PropertyRef Name="IdVoucher" />
+          </Key>
+          <Property Name="IdVoucher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameVoucher" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NSX" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HSD" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="VoucherValue" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bills" Relationship="Self.FK_Bills_Vouchers" FromRole="Vouchers" ToRole="Bills" />
         </EntityType>
         <Association Name="FK__Bills__IdCustome__4CA06362">
           <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
@@ -424,6 +502,18 @@
             </Principal>
             <Dependent Role="Detailedbills">
               <PropertyRef Name="BillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bills_Vouchers">
+          <End Role="Vouchers" Type="Self.Voucher" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vouchers">
+              <PropertyRef Name="IdVoucher" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="IdVoucher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -499,7 +589,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QuanLyHieuThuocEntities1" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_TaiKhoan_TrangThai">
+          <End Role="TrangThaiHd" Type="Self.TrangThaiHd" Multiplicity="1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrangThaiHd">
+              <PropertyRef Name="TrangThaiId" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="idtrangthai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyHieuThuocEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bills" EntityType="Self.Bill" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
@@ -509,8 +611,10 @@
           <EntitySet Name="Statusses" EntityType="Self.Statuss" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
+          <EntitySet Name="TrangThaiHds" EntityType="Self.TrangThaiHd" />
           <EntitySet Name="Units" EntityType="Self.Unit" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Vouchers" EntityType="Self.Voucher" />
           <AssociationSet Name="FK__Bills__IdCustome__4CA06362" Association="Self.FK__Bills__IdCustome__4CA06362">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Bills" EntitySet="Bills" />
@@ -522,6 +626,10 @@
           <AssociationSet Name="FK__Detailedb__BillI__5165187F" Association="Self.FK__Detailedb__BillI__5165187F">
             <End Role="Bills" EntitySet="Bills" />
             <End Role="Detailedbills" EntitySet="Detailedbills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bills_Vouchers" Association="Self.FK_Bills_Vouchers">
+            <End Role="Vouchers" EntitySet="Vouchers" />
+            <End Role="Bills" EntitySet="Bills" />
           </AssociationSet>
           <AssociationSet Name="FK__Product__IdCateg__45F365D3" Association="Self.FK__Product__IdCateg__45F365D3">
             <End Role="Category" EntitySet="Categories" />
@@ -547,13 +655,17 @@
             <End Role="TaiKhoan" EntitySet="TaiKhoans" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoan_TrangThai" Association="Self.FK_TaiKhoan_TrangThai">
+            <End Role="TrangThaiHd" EntitySet="TrangThaiHds" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuanLyHieuThuocModelStoreContainer" CdmEntityContainer="QuanLyHieuThuocEntities1">
+        <EntityContainerMapping StorageEntityContainer="QuanLyHieuThuocModelStoreContainer" CdmEntityContainer="QuanLyHieuThuocEntities4">
           <EntitySetMapping Name="Bills">
             <EntityTypeMapping TypeName="QuanLyHieuThuocModel.Bill">
               <MappingFragment StoreEntitySet="Bills">
@@ -562,6 +674,7 @@
                 <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
                 <ScalarProperty Name="PriceBill" ColumnName="PriceBill" />
                 <ScalarProperty Name="DateBill" ColumnName="DateBill" />
+                <ScalarProperty Name="IdVoucher" ColumnName="IdVoucher" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -643,6 +756,15 @@
                 <ScalarProperty Name="NameTaiKhoan" ColumnName="NameTaiKhoan" />
                 <ScalarProperty Name="IdRoles" ColumnName="IdRoles" />
                 <ScalarProperty Name="PassWordd" ColumnName="PassWordd" />
+                <ScalarProperty Name="idtrangthai" ColumnName="idtrangthai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrangThaiHds">
+            <EntityTypeMapping TypeName="QuanLyHieuThuocModel.TrangThaiHd">
+              <MappingFragment StoreEntitySet="TrangThaiHd">
+                <ScalarProperty Name="TrangThaiId" ColumnName="TrangThaiId" />
+                <ScalarProperty Name="TrangThaiName" ColumnName="TrangThaiName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -665,6 +787,18 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="IdTaiKhoan" ColumnName="IdTaiKhoan" />
                 <ScalarProperty Name="UsesGend" ColumnName="UsesGend" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vouchers">
+            <EntityTypeMapping TypeName="QuanLyHieuThuocModel.Voucher">
+              <MappingFragment StoreEntitySet="Vouchers">
+                <ScalarProperty Name="IdVoucher" ColumnName="IdVoucher" />
+                <ScalarProperty Name="NameVoucher" ColumnName="NameVoucher" />
+                <ScalarProperty Name="NSX" ColumnName="NSX" />
+                <ScalarProperty Name="HSD" ColumnName="HSD" />
+                <ScalarProperty Name="VoucherValue" ColumnName="VoucherValue" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

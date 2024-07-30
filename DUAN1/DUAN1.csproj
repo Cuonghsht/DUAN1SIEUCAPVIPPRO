@@ -66,10 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bill.cs">
-      <DependentUpon>QuanLyHieuThuocEntities.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Category.cs">
-      <DependentUpon>QuanLyHieuThuocEntities.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Chủ\AddUser.cs">
       <SubType>Form</SubType>
@@ -96,10 +96,10 @@
       <DependentUpon>ViewUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs">
-      <DependentUpon>QuanLyHieuThuocEntities.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Detailedbill.cs">
-      <DependentUpon>QuanLyHieuThuocEntities.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -112,6 +112,21 @@
     </Compile>
     <Compile Include="FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Nhân Viên\AddMedicine.cs">
       <SubType>Form</SubType>
@@ -162,48 +177,39 @@
       <DependentUpon>ViewMedicine.cs</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>QuanLyHieuThuocEntities.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLyHieuThuocEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyHieuThuocEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyHieuThuocEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyHieuThuocEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLyHieuThuocEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyHieuThuocEntities.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Role.cs">
-      <DependentUpon>QuanLyHieuThuocEntities.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Statuss.cs">
-      <DependentUpon>QuanLyHieuThuocEntities.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>QuanLyHieuThuocEntities.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="TaiKhoan.cs">
-      <DependentUpon>QuanLyHieuThuocEntities.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrangThaiHd.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Unit.cs">
-      <DependentUpon>QuanLyHieuThuocEntities.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>QuanLyHieuThuocEntities.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Voucher.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Chủ\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
@@ -259,6 +265,13 @@
     <EmbeddedResource Include="Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -269,13 +282,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="QuanLyHieuThuocEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuanLyHieuThuocEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="QuanLyHieuThuocEntities.edmx.diagram">
-      <DependentUpon>QuanLyHieuThuocEntities.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -284,15 +290,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="QuanLyHieuThuocEntities.Context.tt">
+    <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyHieuThuocEntities.edmx</DependentUpon>
-      <LastGenOutput>QuanLyHieuThuocEntities.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="QuanLyHieuThuocEntities.tt">
+    <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyHieuThuocEntities.edmx</DependentUpon>
-      <LastGenOutput>QuanLyHieuThuocEntities.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

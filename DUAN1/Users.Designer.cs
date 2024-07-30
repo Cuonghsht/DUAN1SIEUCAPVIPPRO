@@ -32,12 +32,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblUserName = new System.Windows.Forms.Label();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
-            this.btnProfile = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnviewbill = new Guna.UI2.WinForms.Guna2Button();
             this.btnViewUser = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddUser = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashbord = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +49,9 @@
             this.panel1.BackColor = System.Drawing.Color.DarkOrange;
             this.panel1.Controls.Add(this.lblUserName);
             this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.btnProfile);
+            this.panel1.Controls.Add(this.guna2Button1);
+            this.panel1.Controls.Add(this.guna2Button2);
+            this.panel1.Controls.Add(this.btnviewbill);
             this.panel1.Controls.Add(this.btnViewUser);
             this.panel1.Controls.Add(this.btnAddUser);
             this.panel1.Controls.Add(this.btnDashbord);
@@ -61,7 +65,7 @@
             // lblUserName
             // 
             this.lblUserName.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(3, 612);
+            this.lblUserName.Location = new System.Drawing.Point(3, 714);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(250, 81);
             this.lblUserName.TabIndex = 7;
@@ -77,28 +81,45 @@
             this.btnLogout.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
-            this.btnLogout.Location = new System.Drawing.Point(0, 520);
+            this.btnLogout.Location = new System.Drawing.Point(0, 644);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(256, 45);
             this.btnLogout.TabIndex = 6;
             this.btnLogout.Text = "LogOut";
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnProfile
+            // guna2Button1
             // 
-            this.btnProfile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnProfile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnProfile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnProfile.FillColor = System.Drawing.Color.SteelBlue;
-            this.btnProfile.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfile.ForeColor = System.Drawing.Color.White;
-            this.btnProfile.Image = ((System.Drawing.Image)(resources.GetObject("btnProfile.Image")));
-            this.btnProfile.Location = new System.Drawing.Point(0, 455);
-            this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(256, 45);
-            this.btnProfile.TabIndex = 5;
-            this.btnProfile.Text = "Medicine Validity";
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.SteelBlue;
+            this.guna2Button1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.Location = new System.Drawing.Point(0, 462);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(256, 45);
+            this.guna2Button1.TabIndex = 5;
+            this.guna2Button1.Text = "Medicine Validity";
+            // 
+            // btnviewbill
+            // 
+            this.btnviewbill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnviewbill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnviewbill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnviewbill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnviewbill.FillColor = System.Drawing.Color.SteelBlue;
+            this.btnviewbill.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnviewbill.ForeColor = System.Drawing.Color.White;
+            this.btnviewbill.Image = ((System.Drawing.Image)(resources.GetObject("btnviewbill.Image")));
+            this.btnviewbill.Location = new System.Drawing.Point(0, 513);
+            this.btnviewbill.Name = "btnviewbill";
+            this.btnviewbill.Size = new System.Drawing.Size(256, 45);
+            this.btnviewbill.TabIndex = 5;
+            this.btnviewbill.Text = "ViewBill";
+            this.btnviewbill.Click += new System.EventHandler(this.btnviewbill_Click);
             // 
             // btnViewUser
             // 
@@ -173,6 +194,23 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // guna2Button2
+            // 
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.SteelBlue;
+            this.guna2Button2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
+            this.guna2Button2.Location = new System.Drawing.Point(0, 579);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(256, 45);
+            this.guna2Button2.TabIndex = 5;
+            this.guna2Button2.Text = "Account";
+            this.guna2Button2.Click += new System.EventHandler(this.btnviewbill_Click);
+            // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -195,11 +233,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblUserName;
         private Guna.UI2.WinForms.Guna2Button btnLogout;
-        private Guna.UI2.WinForms.Guna2Button btnProfile;
+        private Guna.UI2.WinForms.Guna2Button btnviewbill;
         private Guna.UI2.WinForms.Guna2Button btnViewUser;
         private Guna.UI2.WinForms.Guna2Button btnAddUser;
         private Guna.UI2.WinForms.Guna2Button btnDashbord;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }

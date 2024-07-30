@@ -12,11 +12,22 @@ namespace DUAN1.Nhân_Viên
 {
     public partial class ViewMedicine : Form
     {
-        private readonly QuanLyHieuThuocEntities1 _context;
-        public ViewMedicine(QuanLyHieuThuocEntities1 context)
+        private readonly QuanLyHieuThuocEntities4 _context;
+        public ViewMedicine(QuanLyHieuThuocEntities4 context)
         {
             _context = context;
             InitializeComponent();
+            
+            var cate = (from c in _context.Categories select c).ToList();
+            var unit = (from a in _context.Units select a).ToList();
+            foreach (var i in unit)
+            {
+                UnitPro.Items.Add(i.UnitName);
+            }
+            foreach (var item in cate)
+            {
+                CatePro.Items.Add(item.CategoryName);
+            }
             HienThiView();
         }
 
@@ -118,6 +129,10 @@ namespace DUAN1.Nhân_Viên
                 }
             }
 
+
+        }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

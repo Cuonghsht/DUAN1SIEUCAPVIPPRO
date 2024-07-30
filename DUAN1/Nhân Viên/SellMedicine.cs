@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
+using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
@@ -15,21 +17,61 @@ namespace DUAN1.Nhân_Viên
 {
     public partial class SellMedicine : Form
     {
-        private readonly QuanLyHieuThuocEntities1 _context;
-        private int _id;
-        private List<Customer> khachhang;
-        public SellMedicine(QuanLyHieuThuocEntities1 context, int idd)
+        private readonly QuanLyHieuThuocEntities4 _context;
+        private int iid;
+        private int iddd;
+        public SellMedicine(QuanLyHieuThuocEntities4 context, int idd, int ids)
         {
             InitializeComponent();
             _context = context;
-            _id = idd;
+            iid = idd;
             txtGia.Enabled = false;
             ListProduct();
-
+            iddd = ids;
             PricePro.Enabled = false;
             IdPro.Enabled = false;
             NamePro.Enabled = false;
             HSD.Enabled = false;
+            if (iddd != 0)
+            {
+                var HienThiBenKiaQua = (from m in _context.Customers
+                                        join n in _context.Bills on m.IdCustomer equals n.IdCustomer
+                                        join b in _context.Detailedbills on n.BillId equals b.BillId
+                                        join v in _context.Products on b.ProductId equals v.ProductId
+                                        where n.BillId == iddd
+                                        select new
+                                        {
+                                            Cus = m,
+                                            Bil = n,
+                                            Del = b,
+                                            pro = v
+                                        }).ToList();
+                var checkhoadon = _context.Bills.FirstOrDefault(x => x.BillId == iddd);
+                if (checkhoadon.StatusId == 1)
+                {
+                    themgio.Enabled = false;
+                    xoa.Enabled = false;
+                    thanhtona.Enabled = false;
+                }
+                SDTCus.Enabled = false;
+                NameCus.Enabled = false;
+                DiaChiCus.Enabled = false;
+                IdHD.Enabled = false;
+                Namradio.Enabled = false;
+                Nuradio.Enabled = false;
+                var idhds = HienThiBenKiaQua.FirstOrDefault();
+                NameCus.Text = idhds.Cus.CustomerName;
+                SDTCus.Text = idhds.Cus.SDT;
+                IdHD.Text = idhds.Bil.BillId.ToString();
+                hienthiview();
+                themadd.Enabled = false;
+
+            }
+            var voucher = _context.Vouchers.Where(x=>x.HSD > DateTime.Now && x.Quantity>0).ToList();
+            foreach(var item in voucher)
+            {
+                combovoucher.Items.Add(item.NameVoucher);
+            }
 
         }
         public void ListProduct()
@@ -38,7 +80,6 @@ namespace DUAN1.Nhân_Viên
             listView1.Columns.Add("ID", 30);
             listView1.Columns.Add("Name", 170);
             listView1.Columns.Add("Price", 130);
-
             var list = (from a in _context.Products select a).ToList();
             foreach (var a in list)
             {
@@ -56,7 +97,6 @@ namespace DUAN1.Nhân_Viên
 
         }
         int id;
-
         private void listView1_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
@@ -82,9 +122,6 @@ namespace DUAN1.Nhân_Viên
                 {
                     danger.Visible = false;
                 }
-
-
-
             }
         }
         private void txtGia_TextChanged(object sender, EventArgs e)
@@ -104,10 +141,10 @@ namespace DUAN1.Nhân_Viên
             PricePro.Text = "";
         }
 
-
         int idhoadon;
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+
             if (IdPro.Text == "")
             {
                 MessageBox.Show("Vui long chon san pham ban can them vao gio hang");
@@ -129,7 +166,7 @@ namespace DUAN1.Nhân_Viên
                     }
                     else
                     {
-                        var ar = _context.Users.FirstOrDefault(x => x.IdTaiKhoan == _id);
+                        var ar = _context.Users.FirstOrDefault(x => x.IdTaiKhoan == iid);
                         decimal Gia;
                         decimal.TryParse((txtGia.Text), out Gia);
                         var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
@@ -146,7 +183,7 @@ namespace DUAN1.Nhân_Viên
                             if (!txtSl.Text.All(char.IsDigit))
                             {
 
-                                MessageBox.Show("so luong phair laf 1 so nguyen duong");
+                                MessageBox.Show("so luong phair la 1 so nguyen duong");
                             }
 
                             else if (ssl <= 0)
@@ -164,57 +201,100 @@ namespace DUAN1.Nhân_Viên
                                 }
                                 else
                                 {
-                                    Detailedbill detailedbill = new Detailedbill
+                                    decimal a;
+                                    decimal.TryParse(txttien.Text, out a);
+                                    decimal b;
+                                    decimal.TryParse(txtGia.Text, out b);
+                                    decimal r = a + b;
+                                    txttien.Text = r.ToString();
+                                    if (iddd != 0)
                                     {
-                                        ProductId = v,
-                                        BillId = Convert.ToInt32(HoaDon.BillId),
-                                        Quantity = c,
-                                        IdUser = ar.IdUser,
-                                        Price = Gia,
+                                        var idhd1 = Convert.ToInt32(IdHD.Text);
+                                        var tien = _context.Bills.FirstOrDefault(x => x.BillId == idhd1);
+                                        
+                                        Detailedbill aa = new Detailedbill
+                                        {
+                                            ProductId = v,
+                                            BillId = Convert.ToInt32(IdHD.Text),
+                                            Quantity = c,
+                                            IdUser = ar.IdUser,
+                                            Price = Gia,
+                                        };
+                                        _context.Detailedbills.Add(aa);
+                                        tien.PriceBill = r;
+                                        _context.SaveChanges();
+                                       
+                                    }
+                                    else 
+                                    {
+                                        Detailedbill detailedbill = new Detailedbill
+                                        {
+                                            ProductId = v,
+                                            BillId = Convert.ToInt32(HoaDon.BillId),
+                                            Quantity = c,
+                                            IdUser = ar.IdUser,
+                                            Price = Gia,
 
-                                    };
-                                    _context.Detailedbills.Add(detailedbill);
-                                    kho.ProductQuantity = kho.ProductQuantity - v;
-                                    HoaDon.PriceBill = HoaDon.PriceBill + Gia;
-                                    _context.SaveChanges();
-                                    hienthiview();
-                                    clear();
-                                    listView1_Click(sender, e);
-                                    var tongtien = _context.Detailedbills.Where(x => x.BillId == HoaDon.BillId).Select(x => x.Price).ToList();
-                                    txttien.Text = tongtien.Sum().ToString();
+                                        };
+                                        _context.Detailedbills.Add(detailedbill);
+                                        HoaDon.PriceBill = r;
+                                        _context.SaveChanges();
+                                        clear();
+                                        listView1_Click(sender, e);
+                                    }
+                                     kho.ProductQuantity = kho.ProductQuantity - c;
+                                      hienthiview();
                                 }
                             }
                         }
                     }
                 }
-
             }
+
         }
         public void hienthiview()
         {
-            var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
-            var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
-            var ds = (from a in _context.Products
-                      join b in _context.Detailedbills on a.ProductId equals b.ProductId
-                      join c in _context.Users on b.IdUser equals c.IdUser
-                      where b.BillId == HoaDon.BillId
-                      select new
-                      {
-                          ID = b.DetailedbillsId,
-                          ProductName = a.ProductName,
-                          NameUser = c.UserName,
-                          Price = b.Price,
-                          QuanTiTy = b.Quantity,
-                      }).ToList();
-            view.DataSource = ds;
-
+            if (iddd != 0)
+            {
+                var listSp = (from a in _context.Products
+                              join b in _context.Detailedbills on a.ProductId equals b.ProductId
+                              join c in _context.Users on b.IdUser equals c.IdUser
+                              where b.BillId == iddd
+                              select new
+                              {
+                                  ID = b.DetailedbillsId,
+                                  ProductName = a.ProductName,
+                                  NameUser = c.UserName,
+                                  Price = b.Price,
+                                  QuanTiTy = b.Quantity,
+                              }).ToList(); ;
+                view.DataSource = listSp;
+                var tinhtien = _context.Detailedbills.Where(x => x.BillId == iddd).Select(x => x.Price).ToList();
+                txttien.Text = tinhtien.Sum().ToString();
+            }
+            else
+            {
+                var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
+                var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
+                var ds = (from a in _context.Products
+                          join b in _context.Detailedbills on a.ProductId equals b.ProductId
+                          join c in _context.Users on b.IdUser equals c.IdUser
+                          where b.BillId == HoaDon.BillId
+                          select new
+                          {
+                              ID = b.DetailedbillsId,
+                              ProductName = a.ProductName,
+                              NameUser = c.UserName,
+                              Price = b.Price,
+                              QuanTiTy = b.Quantity,
+                          }).ToList();
+                view.DataSource = ds;
+            }
         }
-
         private void label11_Click(object sender, EventArgs e)
         {
 
         }
-
         private void guna2Button5_Click(object sender, EventArgs e)
         {
             if (SDTCus.Text == "")
@@ -229,54 +309,61 @@ namespace DUAN1.Nhân_Viên
                 }
                 else
                 {
-                    if (MessageBox.Show("Ban co chac chan muon them hoa don cho khach hang nay khong", " Xac nhan", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        bool GioiTinh;
-                        if (Namradio.Checked)
-                        {
-                            GioiTinh = true;
-                        }
-                        else
-                        {
-                            GioiTinh = false;
-                        }
-                        Customer customer = new Customer
-                        {
-                            CustomerName = NameCus.Text,
-                            SDT = SDTCus.Text,
-                            CustomerAddress = DiaChiCus.Text,
-                            CustomerGender = GioiTinh,
 
-                        };
-                        var checkTonTai = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
-                        if (checkTonTai == null)
+                    var voucher = _context.Vouchers.Where(x => x.HSD > DateTime.Now && x.Quantity > 0).ToList();
+
+                   
+                   
+
+
+                        if (MessageBox.Show("Ban co chac chan muon them hoa don cho khach hang nay khong", " Xac nhan", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            _context.Customers.Add(customer);
-                            _context.SaveChanges();
-                            ThemHoaDon();
-                        }
-                        else
-                        {
-                            var b = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
-                            NameCus.Text = b.CustomerName;
-                            DiaChiCus.Text = b.CustomerAddress;
-                            if (b.CustomerGender == true)
+                            bool GioiTinh;
+                            if (Namradio.Checked)
                             {
-                                Namradio.Checked = true;
+                                GioiTinh = true;
                             }
                             else
                             {
-                                Nuradio.Checked = true;
+                                GioiTinh = false;
                             }
-                            MessageBox.Show("Khach hang nay da tung mua san pham o day");
-                            ThemHoaDon();
+                            Customer customer = new Customer
+                            {
+                                CustomerName = NameCus.Text,
+                                SDT = SDTCus.Text,
+                                CustomerAddress = DiaChiCus.Text,
+                                CustomerGender = GioiTinh,
+
+                            };
+                            var checkTonTai = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
+                            if (checkTonTai == null)
+                            {
+                                MessageBox.Show("Khach hang moi");
+                                _context.Customers.Add(customer);
+                                _context.SaveChanges();
+                                ThemHoaDon();
+                            }
+                            else
+                            {
+                                var b = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
+                                NameCus.Text = b.CustomerName;
+                                DiaChiCus.Text = b.CustomerAddress;
+                                if (b.CustomerGender == true)
+                                {
+                                    Namradio.Checked = true;
+                                }
+                                else
+                                {
+                                    Nuradio.Checked = true;
+                                }
+                                MessageBox.Show("Khach hang nay da tung mua san pham o day");
+                                ThemHoaDon();
+                            }
                         }
-                    }
+                    
                 }
             }
         }
-
-
 
         public void ThemHoaDon()
         {
@@ -285,6 +372,7 @@ namespace DUAN1.Nhân_Viên
             {
                 IdCustomer = IdHd.IdCustomer,
                 PriceBill = 0,
+                IdVoucher = combovoucher.SelectedIndex+1,
                 DateBill = DateTime.Now.Date,
                 StatusId = 2,
             };
@@ -295,7 +383,6 @@ namespace DUAN1.Nhân_Viên
         {
 
         }
-
         private void txtSl_TextChanged(object sender, EventArgs e)
         {
             var tongtien = _context.Products.FirstOrDefault(x => x.ProductId == id);
@@ -305,7 +392,6 @@ namespace DUAN1.Nhân_Viên
             decimal tong = sl * gia;
             txtGia.Text = tong.ToString();
         }
-
         private void label7_Click(object sender, EventArgs e)
         {
 
@@ -318,20 +404,24 @@ namespace DUAN1.Nhân_Viên
             Idddd = Convert.ToInt32(a.Cells["ID"].Value.ToString());
 
         }
-
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             var delete = _context.Detailedbills.FirstOrDefault(x => x.DetailedbillsId == Idddd);
-            if (delete!=null) {
+            var hoadonanhhuong = _context.Bills.FirstOrDefault(x => x.BillId == delete.BillId);
+            if (delete != null)
+            {
                 if (MessageBox.Show("Ban chac chan muon xoa san phan nay ra khoi hoa don khong", "Xac Nhan", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    _context.Detailedbills.Remove(delete);
-                    _context.SaveChanges();
+                   
+                    hoadonanhhuong.PriceBill = hoadonanhhuong.PriceBill - delete.Price;
                     decimal canxoa = delete.Price;
                     decimal tien;
                     decimal.TryParse(txttien.Text, out tien);
                     txttien.Text = (tien - canxoa).ToString();
+                    _context.Detailedbills.Remove(delete);
+                    _context.SaveChanges();
                     hienthiview();
+
                 }
             }
             else
@@ -340,7 +430,6 @@ namespace DUAN1.Nhân_Viên
             }
 
         }
-
         private void txtkhachdua_TextChanged(object sender, EventArgs e)
         {
             decimal tiendua;
@@ -350,7 +439,7 @@ namespace DUAN1.Nhân_Viên
             decimal.TryParse(txtkhachdua.Text, out tiendua);
             decimal tienthua = tiendua - tienHd;
             txtThua.Text = tienthua.ToString();
-            if (tiendua <tienHd)
+            if (tiendua < tienHd)
             {
                 meme.Visible = true;
             }
@@ -359,7 +448,6 @@ namespace DUAN1.Nhân_Viên
                 meme.Visible = false;
             }
         }
-
         private void txttimkiem_TextChanged(object sender, EventArgs e)
         {
             if (txttimkiem.Text == "")
@@ -384,16 +472,16 @@ namespace DUAN1.Nhân_Viên
                     bool match = a.SubItems[1].Text.ToLower().Contains(txttimkiem.Text);
                     if (match)
                     {
-                        a.BackColor = System.Drawing.Color.Yellow;  
-                        a.ForeColor = System.Drawing.Color.Black;   
+                        a.BackColor = System.Drawing.Color.Yellow;
+                        a.ForeColor = System.Drawing.Color.Black;
                     }
                     else
                     {
-                        a.BackColor = System.Drawing.Color.White;  
-                        a.ForeColor = System.Drawing.Color.Gray;    
+                        a.BackColor = System.Drawing.Color.White;
+                        a.ForeColor = System.Drawing.Color.Gray;
                     }
                 }
-               
+
             }
         }
 
@@ -412,12 +500,26 @@ namespace DUAN1.Nhân_Viên
             {
                 decimal TienCuoi;
                 decimal.TryParse(txttien.Text, out TienCuoi);
-                var a = _context.Bills.FirstOrDefault(x => x.BillId == idhoadon);
-                a.StatusId = 1;
-                a.PriceBill = TienCuoi;
+                if (iddd != 0)
+                {
+                    var capnhat = _context.Bills.FirstOrDefault(x => x.BillId == iddd);
+                    capnhat.StatusId = 1;
+                    capnhat.PriceBill = TienCuoi;
+                }
+                else
+                {
+                    var a = _context.Bills.FirstOrDefault(x => x.BillId == idhoadon);
+                    a.StatusId = 1;
+                    a.PriceBill = TienCuoi;
+                }
                 _context.SaveChanges();
                 MessageBox.Show("Da thanh toan thnah cong");
             }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
