@@ -31,6 +31,8 @@ namespace DUAN1
 
         }
 
+        //sadlkfhjksldasadlkfjskadlfjisladfhjlksdahfjkosdahf
+        // Comment 2, etst
         private void btnSigin_Click(object sender, EventArgs e)
         {
             var DangNhap = dbContext.TaiKhoans.FirstOrDefault(x => x.NameTaiKhoan == txtTaiKhoan.Text && x.PassWordd == txtMatKhau.Text);
