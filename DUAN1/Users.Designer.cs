@@ -33,13 +33,13 @@
             this.lblUserName = new System.Windows.Forms.Label();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.btnviewbill = new Guna.UI2.WinForms.Guna2Button();
             this.btnViewUser = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddUser = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashbord = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Account = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -47,10 +47,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel1.Controls.Add(this.Account);
             this.panel1.Controls.Add(this.lblUserName);
             this.panel1.Controls.Add(this.btnLogout);
             this.panel1.Controls.Add(this.guna2Button1);
-            this.panel1.Controls.Add(this.guna2Button2);
             this.panel1.Controls.Add(this.btnviewbill);
             this.panel1.Controls.Add(this.btnViewUser);
             this.panel1.Controls.Add(this.btnAddUser);
@@ -103,23 +103,6 @@
             this.guna2Button1.Size = new System.Drawing.Size(256, 45);
             this.guna2Button1.TabIndex = 5;
             this.guna2Button1.Text = "Medicine Validity";
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.SteelBlue;
-            this.guna2Button2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
-            this.guna2Button2.Location = new System.Drawing.Point(0, 579);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(256, 45);
-            this.guna2Button2.TabIndex = 5;
-            this.guna2Button2.Text = "Account";
-            this.guna2Button2.Click += new System.EventHandler(this.btnviewbill_Click);
             // 
             // btnviewbill
             // 
@@ -211,6 +194,23 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // Account
+            // 
+            this.Account.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Account.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Account.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Account.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Account.FillColor = System.Drawing.Color.SteelBlue;
+            this.Account.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Account.ForeColor = System.Drawing.Color.White;
+            this.Account.Image = ((System.Drawing.Image)(resources.GetObject("Account.Image")));
+            this.Account.Location = new System.Drawing.Point(0, 581);
+            this.Account.Name = "Account";
+            this.Account.Size = new System.Drawing.Size(256, 45);
+            this.Account.TabIndex = 8;
+            this.Account.Text = "Account";
+            this.Account.Click += new System.EventHandler(this.Account_Click);
+            // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -240,6 +240,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button Account;
     }
 }

@@ -35,51 +35,51 @@ namespace DUAN1.Chủ
             var Tuoi18 = DateTime.Now.Year - 18;
             if (txtAddress.Text == "" || txtEmail.Text == "" || txtPassword.Text == "" || txtPhone.Text == "" || TxtNameAccount.Text == "" || txtNameUser.Text == "")
             {
-                MessageBox.Show("Ban can nhap day du thong tin vao cac o");
+                MessageBox.Show("Bạn cần nhập đầy đủ thông tin vào các ô");
             }
             else
             {
                 if (RadioNam.Checked == false && RadioNu.Checked == false)
                 {
-                    MessageBox.Show("Vui long chon gioi tinh");
+                    MessageBox.Show("Vui lòng chọn giới tính");
                 }
                 else
                 {
                     if (DateUser.Value.Year > Tuoi18)
                     {
-                        MessageBox.Show("Nguoi dung phai lon hon 18 tuoi");
+                        MessageBox.Show("Người dùng phải lớn hơn 18 tuổi");
                     }
                     else
                     {
                         if (ComBoVaiTro.SelectedIndex < 0)
                         {
-                            MessageBox.Show("Vui long chon vai tro");
+                            MessageBox.Show("Vui lòng chọn vai trò");
                         }
                         else
                         {
                             if (txtPhone.TextLength != 10)
                             {
-                                MessageBox.Show("So dien thoai bao gom 10 ki tu va bat dau bang so 0");
+                                MessageBox.Show("Số điện thoại bao gồm 10 kí tự và bắt đầu bằng số 0 ");
                             }
                             else
                             {
                                 if (txtPhone.Text.Substring(0, 1) != "0")
                                 {
-                                    MessageBox.Show("So dien thoai bat dau bang So 0");
+                                    MessageBox.Show("Số điện thoại phải bắt đầu bằng số 0 ");
 
                                 }
                                 else
                                 {
 
-                                    if (txtPhone.Text.Any(char.IsDigit) == false)
+                                    if (txtPhone.Text.All(char.IsDigit) == false)
                                     {
-                                        MessageBox.Show("So dien thoai la day so tu 0-9");
+                                        MessageBox.Show("Số điện thoại gòm các số tự nhiên 0-9");
                                     }
                                     else
                                     {
                                         if (txtEmail.TextLength < 11)
                                         {
-                                            MessageBox.Show("Email chua dung dinh  dang");
+                                            MessageBox.Show("Email chưa đúng định dạng ");
 
                                         }
                                         else
@@ -90,7 +90,7 @@ namespace DUAN1.Chủ
                                             var sosanh = txtEmail.Text.Substring(loai, 10);
                                             if (sosanh != "@gmail.com")
                                             {
-                                                MessageBox.Show("Duoi phai la @gmail.com");
+                                                MessageBox.Show("Đuôi của email phải là  @gmail.com");
                                             }
 
                                             else
@@ -98,17 +98,17 @@ namespace DUAN1.Chủ
                                                 var a = _dbcontext.TaiKhoans.FirstOrDefault(x => x.NameTaiKhoan == TxtNameAccount.Text);
                                                 if (a != null)
                                                 {
-                                                    MessageBox.Show("ten tai khoan nay da ton tai");
+                                                    MessageBox.Show("tên tài khoản này đã tồn tại");
                                                 }
                                                 else
                                                 {
-                                                    if (txtPassword.Text.Any(char.IsDigit) ==false || txtPassword.Text.Any(char.IsLetter)==false)
+                                                    if (txtPassword.Text.Any(char.IsDigit) ==false || txtPassword.Text.Any(char.IsLetter)==false || txtPassword.TextLength<10)
                                                     {
-                                                        MessageBox.Show("Mat khau bao gom ca so va ki tu");
+                                                        MessageBox.Show("Mật khẩu phải bao gồm số ,kí tự và phải dài hơn 10 kí tự");
                                                     }
                                                     else
                                                     {
-                                                        if (MessageBox.Show("Xac Nhan", "Ban co chac chan muon them khong", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                                        if (MessageBox.Show("Bạn có chắc chắn muốn thêm người này vào không", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                                         {
                                                             var Ac = new TaiKhoan
                                                             {
