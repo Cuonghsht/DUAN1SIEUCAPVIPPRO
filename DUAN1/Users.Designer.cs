@@ -28,210 +28,198 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblUserName = new System.Windows.Forms.Label();
-            this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnviewbill = new Guna.UI2.WinForms.Guna2Button();
-            this.btnViewUser = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAddUser = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDashbord = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DarkOrange;
-            this.panel1.Controls.Add(this.lblUserName);
-            this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.guna2Button1);
-            this.panel1.Controls.Add(this.guna2Button2);
-            this.panel1.Controls.Add(this.btnviewbill);
-            this.panel1.Controls.Add(this.btnViewUser);
-            this.panel1.Controls.Add(this.btnAddUser);
-            this.panel1.Controls.Add(this.btnDashbord);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(256, 1100);
-            this.panel1.TabIndex = 1;
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(3, 714);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(250, 81);
-            this.lblUserName.TabIndex = 7;
-            this.lblUserName.Text = "label2";
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLogout.FillColor = System.Drawing.Color.SteelBlue;
-            this.btnLogout.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
-            this.btnLogout.Location = new System.Drawing.Point(0, 644);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(256, 45);
-            this.btnLogout.TabIndex = 6;
-            this.btnLogout.Text = "LogOut";
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.SteelBlue;
-            this.guna2Button1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.Location = new System.Drawing.Point(0, 462);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(256, 45);
-            this.guna2Button1.TabIndex = 5;
-            this.guna2Button1.Text = "Medicine Validity";
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.SteelBlue;
-            this.guna2Button2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
-            this.guna2Button2.Location = new System.Drawing.Point(0, 579);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(256, 45);
-            this.guna2Button2.TabIndex = 5;
-            this.guna2Button2.Text = "Account";
-            this.guna2Button2.Click += new System.EventHandler(this.btnviewbill_Click);
-            // 
-            // btnviewbill
-            // 
-            this.btnviewbill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnviewbill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnviewbill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnviewbill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnviewbill.FillColor = System.Drawing.Color.SteelBlue;
-            this.btnviewbill.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnviewbill.ForeColor = System.Drawing.Color.White;
-            this.btnviewbill.Image = ((System.Drawing.Image)(resources.GetObject("btnviewbill.Image")));
-            this.btnviewbill.Location = new System.Drawing.Point(0, 513);
-            this.btnviewbill.Name = "btnviewbill";
-            this.btnviewbill.Size = new System.Drawing.Size(256, 45);
-            this.btnviewbill.TabIndex = 5;
-            this.btnviewbill.Text = "ViewBill";
-            this.btnviewbill.Click += new System.EventHandler(this.btnviewbill_Click);
-            // 
-            // btnViewUser
-            // 
-            this.btnViewUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnViewUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnViewUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnViewUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewUser.FillColor = System.Drawing.Color.SteelBlue;
-            this.btnViewUser.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewUser.ForeColor = System.Drawing.Color.White;
-            this.btnViewUser.Image = ((System.Drawing.Image)(resources.GetObject("btnViewUser.Image")));
-            this.btnViewUser.Location = new System.Drawing.Point(0, 394);
-            this.btnViewUser.Name = "btnViewUser";
-            this.btnViewUser.Size = new System.Drawing.Size(256, 45);
-            this.btnViewUser.TabIndex = 4;
-            this.btnViewUser.Text = "View Medicine";
-            this.btnViewUser.Click += new System.EventHandler(this.btnViewUser_Click);
-            // 
-            // btnAddUser
-            // 
-            this.btnAddUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddUser.FillColor = System.Drawing.Color.SteelBlue;
-            this.btnAddUser.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddUser.ForeColor = System.Drawing.Color.White;
-            this.btnAddUser.Image = ((System.Drawing.Image)(resources.GetObject("btnAddUser.Image")));
-            this.btnAddUser.Location = new System.Drawing.Point(0, 332);
-            this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(256, 45);
-            this.btnAddUser.TabIndex = 3;
-            this.btnAddUser.Text = "Add Medicine";
-            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
-            // 
-            // btnDashbord
-            // 
-            this.btnDashbord.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDashbord.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDashbord.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDashbord.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDashbord.FillColor = System.Drawing.Color.SteelBlue;
-            this.btnDashbord.Font = new System.Drawing.Font("Century", 12F);
-            this.btnDashbord.ForeColor = System.Drawing.Color.White;
-            this.btnDashbord.Image = ((System.Drawing.Image)(resources.GetObject("btnDashbord.Image")));
-            this.btnDashbord.Location = new System.Drawing.Point(0, 272);
-            this.btnDashbord.Name = "btnDashbord";
-            this.btnDashbord.Size = new System.Drawing.Size(256, 45);
-            this.btnDashbord.TabIndex = 2;
-            this.btnDashbord.Text = "Dashbord";
-            this.btnDashbord.Click += new System.EventHandler(this.btnDashbord_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(75, 198);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 49);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "User";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(51, 35);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Users
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1667, 1102);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Users";
-            this.Text = "Users";
-            this.Load += new System.EventHandler(this.Users_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
+			this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+			this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+			this.btnviewbill = new Guna.UI2.WinForms.Guna2Button();
+			this.btnViewUser = new Guna.UI2.WinForms.Guna2Button();
+			this.btnAddUser = new Guna.UI2.WinForms.Guna2Button();
+			this.btnDashbord = new Guna.UI2.WinForms.Guna2Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// panel1
+			// 
+			this.panel1.BackColor = System.Drawing.Color.DarkOrange;
+			this.panel1.Controls.Add(this.btnLogout);
+			this.panel1.Controls.Add(this.guna2Button1);
+			this.panel1.Controls.Add(this.guna2Button2);
+			this.panel1.Controls.Add(this.btnviewbill);
+			this.panel1.Controls.Add(this.btnViewUser);
+			this.panel1.Controls.Add(this.btnAddUser);
+			this.panel1.Controls.Add(this.btnDashbord);
+			this.panel1.Controls.Add(this.label1);
+			this.panel1.Controls.Add(this.pictureBox1);
+			this.panel1.Location = new System.Drawing.Point(0, 0);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(256, 1100);
+			this.panel1.TabIndex = 1;
+			// 
+			// btnLogout
+			// 
+			this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+			this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+			this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+			this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+			this.btnLogout.FillColor = System.Drawing.Color.SteelBlue;
+			this.btnLogout.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnLogout.ForeColor = System.Drawing.Color.White;
+			this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+			this.btnLogout.Location = new System.Drawing.Point(0, 644);
+			this.btnLogout.Name = "btnLogout";
+			this.btnLogout.Size = new System.Drawing.Size(256, 45);
+			this.btnLogout.TabIndex = 6;
+			this.btnLogout.Text = "LogOut";
+			this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+			// 
+			// guna2Button1
+			// 
+			this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+			this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+			this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+			this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+			this.guna2Button1.FillColor = System.Drawing.Color.SteelBlue;
+			this.guna2Button1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.guna2Button1.ForeColor = System.Drawing.Color.White;
+			this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+			this.guna2Button1.Location = new System.Drawing.Point(0, 462);
+			this.guna2Button1.Name = "guna2Button1";
+			this.guna2Button1.Size = new System.Drawing.Size(256, 45);
+			this.guna2Button1.TabIndex = 5;
+			this.guna2Button1.Text = "Medicine Validity";
+			// 
+			// guna2Button2
+			// 
+			this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+			this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+			this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+			this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+			this.guna2Button2.FillColor = System.Drawing.Color.SteelBlue;
+			this.guna2Button2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.guna2Button2.ForeColor = System.Drawing.Color.White;
+			this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
+			this.guna2Button2.Location = new System.Drawing.Point(0, 579);
+			this.guna2Button2.Name = "guna2Button2";
+			this.guna2Button2.Size = new System.Drawing.Size(256, 45);
+			this.guna2Button2.TabIndex = 5;
+			this.guna2Button2.Text = "Account";
+			this.guna2Button2.Click += new System.EventHandler(this.btnviewbill_Click);
+			// 
+			// btnviewbill
+			// 
+			this.btnviewbill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+			this.btnviewbill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+			this.btnviewbill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+			this.btnviewbill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+			this.btnviewbill.FillColor = System.Drawing.Color.SteelBlue;
+			this.btnviewbill.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnviewbill.ForeColor = System.Drawing.Color.White;
+			this.btnviewbill.Image = ((System.Drawing.Image)(resources.GetObject("btnviewbill.Image")));
+			this.btnviewbill.Location = new System.Drawing.Point(0, 513);
+			this.btnviewbill.Name = "btnviewbill";
+			this.btnviewbill.Size = new System.Drawing.Size(256, 45);
+			this.btnviewbill.TabIndex = 5;
+			this.btnviewbill.Text = "ViewBill";
+			this.btnviewbill.Click += new System.EventHandler(this.btnviewbill_Click);
+			// 
+			// btnViewUser
+			// 
+			this.btnViewUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+			this.btnViewUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+			this.btnViewUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+			this.btnViewUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+			this.btnViewUser.FillColor = System.Drawing.Color.SteelBlue;
+			this.btnViewUser.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnViewUser.ForeColor = System.Drawing.Color.White;
+			this.btnViewUser.Image = ((System.Drawing.Image)(resources.GetObject("btnViewUser.Image")));
+			this.btnViewUser.Location = new System.Drawing.Point(0, 394);
+			this.btnViewUser.Name = "btnViewUser";
+			this.btnViewUser.Size = new System.Drawing.Size(256, 45);
+			this.btnViewUser.TabIndex = 4;
+			this.btnViewUser.Text = "View Medicine";
+			this.btnViewUser.Click += new System.EventHandler(this.btnViewUser_Click);
+			// 
+			// btnAddUser
+			// 
+			this.btnAddUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+			this.btnAddUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+			this.btnAddUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+			this.btnAddUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+			this.btnAddUser.FillColor = System.Drawing.Color.SteelBlue;
+			this.btnAddUser.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnAddUser.ForeColor = System.Drawing.Color.White;
+			this.btnAddUser.Image = ((System.Drawing.Image)(resources.GetObject("btnAddUser.Image")));
+			this.btnAddUser.Location = new System.Drawing.Point(0, 332);
+			this.btnAddUser.Name = "btnAddUser";
+			this.btnAddUser.Size = new System.Drawing.Size(256, 45);
+			this.btnAddUser.TabIndex = 3;
+			this.btnAddUser.Text = "Add Medicine";
+			this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+			// 
+			// btnDashbord
+			// 
+			this.btnDashbord.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+			this.btnDashbord.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+			this.btnDashbord.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+			this.btnDashbord.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+			this.btnDashbord.FillColor = System.Drawing.Color.SteelBlue;
+			this.btnDashbord.Font = new System.Drawing.Font("Century", 12F);
+			this.btnDashbord.ForeColor = System.Drawing.Color.White;
+			this.btnDashbord.Image = ((System.Drawing.Image)(resources.GetObject("btnDashbord.Image")));
+			this.btnDashbord.Location = new System.Drawing.Point(0, 272);
+			this.btnDashbord.Name = "btnDashbord";
+			this.btnDashbord.Size = new System.Drawing.Size(256, 45);
+			this.btnDashbord.TabIndex = 2;
+			this.btnDashbord.Text = "Dashbord";
+			this.btnDashbord.Click += new System.EventHandler(this.btnDashbord_Click);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.Color.White;
+			this.label1.Location = new System.Drawing.Point(75, 198);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(98, 49);
+			this.label1.TabIndex = 1;
+			this.label1.Text = "User";
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(51, 35);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(150, 150);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox1.TabIndex = 0;
+			this.pictureBox1.TabStop = false;
+			// 
+			// Users
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(1667, 1102);
+			this.Controls.Add(this.panel1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.Name = "Users";
+			this.Text = "Users";
+			this.Load += new System.EventHandler(this.Users_Load);
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.ResumeLayout(false);
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblUserName;
         private Guna.UI2.WinForms.Guna2Button btnLogout;
         private Guna.UI2.WinForms.Guna2Button btnviewbill;
         private Guna.UI2.WinForms.Guna2Button btnViewUser;
