@@ -14,10 +14,10 @@ namespace DUAN1
 {
     public partial class Users : Form
     {
-        private readonly QuanLyHieuThuocEntities4 aa;
+        private readonly QuanLyHieuThuocEntities5 aa;
         private int idd;
 
-        public Users(QuanLyHieuThuocEntities4 dbContext, int id)
+        public Users(QuanLyHieuThuocEntities5 dbContext, int id)
         {
             InitializeComponent();
             idd = id;

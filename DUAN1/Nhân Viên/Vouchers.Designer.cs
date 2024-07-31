@@ -44,6 +44,10 @@
             this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.trangthai = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.VoucherName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +107,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(371, 139);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 24);
+            this.label1.Size = new System.Drawing.Size(121, 19);
             this.label1.TabIndex = 9;
             this.label1.Text = "Mệnh giá: (%)";
             // 
@@ -157,7 +161,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(366, 250);
+            this.label5.Location = new System.Drawing.Point(371, 250);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 19);
             this.label5.TabIndex = 15;
@@ -255,17 +259,76 @@
             this.dataGridView1.Size = new System.Drawing.Size(1248, 365);
             this.dataGridView1.TabIndex = 23;
             // 
+            // trangthai
+            // 
+            this.trangthai.BackColor = System.Drawing.Color.Transparent;
+            this.trangthai.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.trangthai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.trangthai.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.trangthai.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.trangthai.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.trangthai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.trangthai.ItemHeight = 30;
+            this.trangthai.Location = new System.Drawing.Point(721, 174);
+            this.trangthai.Name = "trangthai";
+            this.trangthai.Size = new System.Drawing.Size(293, 36);
+            this.trangthai.TabIndex = 24;
+            // 
+            // VoucherName
+            // 
+            this.VoucherName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.VoucherName.DefaultText = "";
+            this.VoucherName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.VoucherName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.VoucherName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.VoucherName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.VoucherName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.VoucherName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.VoucherName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.VoucherName.Location = new System.Drawing.Point(730, 273);
+            this.VoucherName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.VoucherName.Name = "VoucherName";
+            this.VoucherName.PasswordChar = '\0';
+            this.VoucherName.PlaceholderText = "";
+            this.VoucherName.SelectedText = "";
+            this.VoucherName.Size = new System.Drawing.Size(284, 48);
+            this.VoucherName.TabIndex = 25;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(726, 250);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(140, 24);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Tên Voucher";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(717, 147);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(110, 24);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Trạng Thái";
+            // 
             // Vouchers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1327, 836);
+            this.Controls.Add(this.VoucherName);
+            this.Controls.Add(this.trangthai);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.guna2TextBox4);
             this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateHD);
             this.Controls.Add(this.label4);
@@ -301,5 +364,9 @@
 		private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
 		private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private Guna.UI2.WinForms.Guna2ComboBox trangthai;
+        private Guna.UI2.WinForms.Guna2TextBox VoucherName;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
     }
 }

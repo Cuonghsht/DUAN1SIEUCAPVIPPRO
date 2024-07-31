@@ -17,10 +17,10 @@ namespace DUAN1.Nhân_Viên
 {
     public partial class SellMedicine : Form
     {
-        private readonly QuanLyHieuThuocEntities4 _context;
+        private readonly QuanLyHieuThuocEntities5 _context;
         private int iid;
         private int iddd;
-        public SellMedicine(QuanLyHieuThuocEntities4 context, int idd, int ids)
+        public SellMedicine(QuanLyHieuThuocEntities5 context, int idd, int ids)
         {
             InitializeComponent();
             _context = context;

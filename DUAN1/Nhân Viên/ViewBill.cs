@@ -13,11 +13,11 @@ namespace DUAN1.Nhân_Viên
 {
     public partial class ViewBill : Form
     {
-        private readonly QuanLyHieuThuocEntities4 _context;
+        private readonly QuanLyHieuThuocEntities5 _context;
         public int ids;
         public int idddd;
         public int Id;
-        public ViewBill(QuanLyHieuThuocEntities4 context, int idd, int iddd)
+        public ViewBill(QuanLyHieuThuocEntities5 context, int idd, int iddd)
         {
             _context = context;
             ids = idd;

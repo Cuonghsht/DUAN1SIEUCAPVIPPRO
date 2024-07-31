@@ -12,10 +12,10 @@ namespace DUAN1.Chủ
 {
     public partial class change_Password : Form
     {
-        public readonly QuanLyHieuThuocEntities4 _context;
+        public readonly QuanLyHieuThuocEntities5 _context;
         public int idtk;
 
-        public change_Password(QuanLyHieuThuocEntities4 context, int iddtk)
+        public change_Password(QuanLyHieuThuocEntities5 context, int iddtk)
         {
             _context = context;
             idtk = iddtk;

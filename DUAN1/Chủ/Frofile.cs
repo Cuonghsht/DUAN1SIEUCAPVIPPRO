@@ -12,9 +12,9 @@ namespace DUAN1.Chủ
 {
     public partial class Frofile : Form
     {
-        public readonly QuanLyHieuThuocEntities4 _context;
+        public readonly QuanLyHieuThuocEntities5 _context;
         public int id;
-        public Frofile(QuanLyHieuThuocEntities4 context, int _idd)
+        public Frofile(QuanLyHieuThuocEntities5 context, int _idd)
         {
             InitializeComponent();
             _context = context;

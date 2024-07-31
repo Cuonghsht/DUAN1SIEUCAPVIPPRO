@@ -97,6 +97,13 @@
           <Property Name="TrangThaiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TrangThaiName" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="TrangThaiVoucher">
+          <Key>
+            <PropertyRef Name="idtt" />
+          </Key>
+          <Property Name="idtt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Namett" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="Unit">
           <Key>
             <PropertyRef Name="IdUnit" />
@@ -127,6 +134,7 @@
           <Property Name="HSD" Type="datetime" Nullable="false" />
           <Property Name="VoucherValue" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="idtt" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Bills__IdCustome__4CA06362">
           <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
@@ -260,6 +268,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Voucher_TrangThaiVoucher">
+          <End Role="TrangThaiVoucher" Type="Self.TrangThaiVoucher" Multiplicity="1" />
+          <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrangThaiVoucher">
+              <PropertyRef Name="idtt" />
+            </Principal>
+            <Dependent Role="Vouchers">
+              <PropertyRef Name="idtt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QuanLyHieuThuocModelStoreContainer">
           <EntitySet Name="Bills" EntityType="Self.Bills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
@@ -271,6 +291,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TrangThaiHd" EntityType="Self.TrangThaiHd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrangThaiVoucher" EntityType="Self.TrangThaiVoucher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vouchers" EntityType="Self.Vouchers" Schema="dbo" store:Type="Tables" />
@@ -317,6 +338,10 @@
           <AssociationSet Name="FK_TaiKhoan_TrangThai" Association="Self.FK_TaiKhoan_TrangThai">
             <End Role="TrangThaiHd" EntitySet="TrangThaiHd" />
             <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voucher_TrangThaiVoucher" Association="Self.FK_Voucher_TrangThaiVoucher">
+            <End Role="TrangThaiVoucher" EntitySet="TrangThaiVoucher" />
+            <End Role="Vouchers" EntitySet="Vouchers" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -434,6 +459,14 @@
           <Property Name="TrangThaiName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="TaiKhoans" Relationship="Self.FK_TaiKhoan_TrangThai" FromRole="TrangThaiHd" ToRole="TaiKhoan" />
         </EntityType>
+        <EntityType Name="TrangThaiVoucher">
+          <Key>
+            <PropertyRef Name="idtt" />
+          </Key>
+          <Property Name="idtt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Namett" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Vouchers" Relationship="Self.FK_Voucher_TrangThaiVoucher" FromRole="TrangThaiVoucher" ToRole="Vouchers" />
+        </EntityType>
         <EntityType Name="Unit">
           <Key>
             <PropertyRef Name="IdUnit" />
@@ -467,7 +500,9 @@
           <Property Name="HSD" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="VoucherValue" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="idtt" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Bills" Relationship="Self.FK_Bills_Vouchers" FromRole="Vouchers" ToRole="Bills" />
+          <NavigationProperty Name="TrangThaiVoucher" Relationship="Self.FK_Voucher_TrangThaiVoucher" FromRole="Vouchers" ToRole="TrangThaiVoucher" />
         </EntityType>
         <Association Name="FK__Bills__IdCustome__4CA06362">
           <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
@@ -601,7 +636,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QuanLyHieuThuocEntities4" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_Voucher_TrangThaiVoucher">
+          <End Role="TrangThaiVoucher" Type="Self.TrangThaiVoucher" Multiplicity="1" />
+          <End Role="Vouchers" Type="Self.Voucher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrangThaiVoucher">
+              <PropertyRef Name="idtt" />
+            </Principal>
+            <Dependent Role="Vouchers">
+              <PropertyRef Name="idtt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyHieuThuocEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bills" EntityType="Self.Bill" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
@@ -612,6 +659,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
           <EntitySet Name="TrangThaiHds" EntityType="Self.TrangThaiHd" />
+          <EntitySet Name="TrangThaiVouchers" EntityType="Self.TrangThaiVoucher" />
           <EntitySet Name="Units" EntityType="Self.Unit" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Vouchers" EntityType="Self.Voucher" />
@@ -659,13 +707,17 @@
             <End Role="TrangThaiHd" EntitySet="TrangThaiHds" />
             <End Role="TaiKhoan" EntitySet="TaiKhoans" />
           </AssociationSet>
+          <AssociationSet Name="FK_Voucher_TrangThaiVoucher" Association="Self.FK_Voucher_TrangThaiVoucher">
+            <End Role="TrangThaiVoucher" EntitySet="TrangThaiVouchers" />
+            <End Role="Vouchers" EntitySet="Vouchers" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuanLyHieuThuocModelStoreContainer" CdmEntityContainer="QuanLyHieuThuocEntities4">
+        <EntityContainerMapping StorageEntityContainer="QuanLyHieuThuocModelStoreContainer" CdmEntityContainer="QuanLyHieuThuocEntities5">
           <EntitySetMapping Name="Bills">
             <EntityTypeMapping TypeName="QuanLyHieuThuocModel.Bill">
               <MappingFragment StoreEntitySet="Bills">
@@ -768,6 +820,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TrangThaiVouchers">
+            <EntityTypeMapping TypeName="QuanLyHieuThuocModel.TrangThaiVoucher">
+              <MappingFragment StoreEntitySet="TrangThaiVoucher">
+                <ScalarProperty Name="idtt" ColumnName="idtt" />
+                <ScalarProperty Name="Namett" ColumnName="Namett" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Units">
             <EntityTypeMapping TypeName="QuanLyHieuThuocModel.Unit">
               <MappingFragment StoreEntitySet="Unit">
@@ -799,6 +859,7 @@
                 <ScalarProperty Name="HSD" ColumnName="HSD" />
                 <ScalarProperty Name="VoucherValue" ColumnName="VoucherValue" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="idtt" ColumnName="idtt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

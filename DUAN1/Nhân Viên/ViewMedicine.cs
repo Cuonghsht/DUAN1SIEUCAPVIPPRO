@@ -12,8 +12,8 @@ namespace DUAN1.Nhân_Viên
 {
     public partial class ViewMedicine : Form
     {
-        private readonly QuanLyHieuThuocEntities4 _context;
-        public ViewMedicine(QuanLyHieuThuocEntities4 context)
+        private readonly QuanLyHieuThuocEntities5 _context;
+        public ViewMedicine(QuanLyHieuThuocEntities5 context)
         {
             _context = context;
             InitializeComponent();

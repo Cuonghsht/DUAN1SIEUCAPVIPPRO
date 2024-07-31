@@ -13,8 +13,8 @@ namespace DUAN1.Chủ
 {
     public partial class AddUser : Form
     {
-        private readonly QuanLyHieuThuocEntities4 _dbcontext;
-        public AddUser(QuanLyHieuThuocEntities4 dbcontext)
+        private readonly QuanLyHieuThuocEntities5 _dbcontext;
+        public AddUser(QuanLyHieuThuocEntities5 dbcontext)
         {
             _dbcontext = dbcontext;
             InitializeComponent();

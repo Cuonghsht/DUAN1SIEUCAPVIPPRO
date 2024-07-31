@@ -13,12 +13,12 @@ namespace DUAN1
 {
     public partial class Form1 : Form
     {
-         private QuanLyHieuThuocEntities4 dbContext;
+         private QuanLyHieuThuocEntities5 dbContext;
 
         public Form1()
         {
             InitializeComponent();
-            dbContext = new QuanLyHieuThuocEntities4();
+            dbContext = new QuanLyHieuThuocEntities5();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
