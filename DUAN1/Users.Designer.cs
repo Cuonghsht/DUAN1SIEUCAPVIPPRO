@@ -231,7 +231,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblUserName;
         private Guna.UI2.WinForms.Guna2Button btnLogout;
         private Guna.UI2.WinForms.Guna2Button btnviewbill;
         private Guna.UI2.WinForms.Guna2Button btnViewUser;

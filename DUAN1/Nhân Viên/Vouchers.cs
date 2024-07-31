@@ -10,16 +10,12 @@ using System.Windows.Forms;
 
 namespace DUAN1.Nhân_Viên
 {
-    public partial class ViewCheckValidity : Form
-    {
-        public ViewCheckValidity()
-        {
-            InitializeComponent();
-        }
-
-		private void label2_Click(object sender, EventArgs e)
+	public partial class Vouchers : Form
+	{
+		public Vouchers()
 		{
-
+			InitializeComponent();
 		}
+
 	}
 }
