@@ -434,7 +434,6 @@ namespace DUAN1.Nhân_Viên
         {
             decimal tiendua;
             decimal tienHd;
-
             decimal.TryParse(txttien.Text, out tienHd);
             decimal.TryParse(txtkhachdua.Text, out tiendua);
             decimal tienthua = tiendua - tienHd;
