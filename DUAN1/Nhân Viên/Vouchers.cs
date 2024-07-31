@@ -29,8 +29,11 @@ namespace DUAN1.Nhân_Viên
             var a = (from b in _context.Vouchers join c in _context.TrangThaiVouchers on b.idtt equals c.idtt select new
             {
                 Name = b.NameVoucher,
-
-                tt = c
+                DateSX = b.NSX, 
+                DateSD = b.HSD,
+                Quantity = b.Quantity,
+                Value = b.VoucherValue,
+                 Status = c.Namett
             }).ToList();
             dataGridView1.DataSource = a;
         }
