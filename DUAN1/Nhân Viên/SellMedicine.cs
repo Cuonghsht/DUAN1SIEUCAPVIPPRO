@@ -147,14 +147,14 @@ namespace DUAN1.Nhân_Viên
 
             if (IdPro.Text == "")
             {
-                MessageBox.Show("Vui long chon san pham ban can them vao gio hang");
+                MessageBox.Show("Vui lòng chọn sản phẩn cần thêm");
             }
             else
             {
                 int number;
                 if (!int.TryParse(txtSl.Text, out number))
                 {
-                    MessageBox.Show("Hay nhap 1 so nguyen vao day");
+                    MessageBox.Show("Số lượng phải là 1 số nguyên dương");
                 }
 
                 else
@@ -162,7 +162,7 @@ namespace DUAN1.Nhân_Viên
                     var sl = Convert.ToInt32(txtSl.Text);
                     if (txtSl.Text == "" || !txtSl.Text.All(char.IsDigit) || sl <= 0)
                     {
-                        MessageBox.Show("ban ca nhap so luong dung cach");
+                        MessageBox.Show("Nhập lại phần số lượng ");
                     }
                     else
                     {
@@ -172,7 +172,7 @@ namespace DUAN1.Nhân_Viên
                         var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
                         if (khachhang == null)
                         {
-                            MessageBox.Show("khach hang nay chua duoc them vao data");
+                            MessageBox.Show("Khách hàng và hóa đơn này không tồn tại hãy chọn thêm hóa đơn ");
                         }
                         else
                         {
@@ -183,12 +183,12 @@ namespace DUAN1.Nhân_Viên
                             if (!txtSl.Text.All(char.IsDigit))
                             {
 
-                                MessageBox.Show("so luong phair la 1 so nguyen duong");
+                                MessageBox.Show("Số lượng phải là 1 số tự nhiên lớn hơn 0");
                             }
 
                             else if (ssl <= 0)
                             {
-                                MessageBox.Show(" So luon phai la 1 so lon hon 0");
+                                MessageBox.Show("Số lượng phải là 1 số tự nhiên lớn hơn 0");
                             }
                             else
                             {
@@ -197,7 +197,7 @@ namespace DUAN1.Nhân_Viên
                                 var kho = _context.Products.FirstOrDefault(x => x.ProductId == v);
                                 if (kho.ProductQuantity < c)
                                 {
-                                    MessageBox.Show(" so luong hang trong kho khongo con du");
+                                    MessageBox.Show("Số lượng sản phẩm trong kho không đủ");
                                 }
                                 else
                                 {
@@ -299,13 +299,13 @@ namespace DUAN1.Nhân_Viên
         {
             if (SDTCus.Text == "")
             {
-                MessageBox.Show(" o SDT khong duoc de trong");
+                MessageBox.Show("Bạn cần nhập vào đây số điện thoại của  khách hàng ");
             }
             else
             {
                 if (SDTCus.TextLength != 10 || SDTCus.Text.Substring(0, 1) != "0" || !SDTCus.Text.All(char.IsDigit))
                 {
-                    MessageBox.Show("Dinh danh Sdt chua chinh xac");
+                    MessageBox.Show("Định danh số điện thoại chưa chính xác ");
                 }
                 else
                 {
@@ -316,7 +316,7 @@ namespace DUAN1.Nhân_Viên
                    
 
 
-                        if (MessageBox.Show("Ban co chac chan muon them hoa don cho khach hang nay khong", " Xac nhan", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (MessageBox.Show("Bạn có chắc chắn muốn thêm hóa đơn này không", " Xác nhận ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             bool GioiTinh;
                             if (Namradio.Checked)
@@ -338,7 +338,7 @@ namespace DUAN1.Nhân_Viên
                             var checkTonTai = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
                             if (checkTonTai == null)
                             {
-                                MessageBox.Show("Khach hang moi");
+                                MessageBox.Show("Khách hàng mới");
                                 _context.Customers.Add(customer);
                                 _context.SaveChanges();
                                 ThemHoaDon();
@@ -356,7 +356,7 @@ namespace DUAN1.Nhân_Viên
                                 {
                                     Nuradio.Checked = true;
                                 }
-                                MessageBox.Show("Khach hang nay da tung mua san pham o day");
+                                MessageBox.Show("Khách hàng đã từng mua sản phẩm ở đây");
                                 ThemHoaDon();
                             }
                         }
