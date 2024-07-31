@@ -1,4 +1,5 @@
 ﻿using DUAN1.Chủ;
+using DUAN1.Nhân_Viên;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,6 +77,14 @@ namespace DUAN1
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             change_Password f = new change_Password(_dbcontext, _idd);
+            f.FormClosed += (a, b) => this.Show();
+            f.Show();
+            this.Hide();
+        }
+
+        private void Voucher_Click(object sender, EventArgs e)
+        {
+            Vouchers f = new Vouchers(_dbcontext);
             f.FormClosed += (a, b) => this.Show();
             f.Show();
             this.Hide();

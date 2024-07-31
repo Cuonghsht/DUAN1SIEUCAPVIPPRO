@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblUserName = new System.Windows.Forms.Label();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnviewbill = new Guna.UI2.WinForms.Guna2Button();
@@ -48,7 +47,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkOrange;
             this.panel1.Controls.Add(this.Account);
-            this.panel1.Controls.Add(this.lblUserName);
             this.panel1.Controls.Add(this.btnLogout);
             this.panel1.Controls.Add(this.guna2Button1);
             this.panel1.Controls.Add(this.btnviewbill);
@@ -64,12 +62,7 @@
             // 
             // lblUserName
             // 
-            this.lblUserName.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(3, 714);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(250, 81);
-            this.lblUserName.TabIndex = 7;
-            this.lblUserName.Text = "label2";
+          
             // 
             // btnLogout
             // 
