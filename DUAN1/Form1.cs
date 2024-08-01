@@ -19,6 +19,7 @@ namespace DUAN1
         {
             InitializeComponent();
             dbContext = new QuanLyHieuThuocEntities5();
+            txtMatKhau.UseSystemPasswordChar = true;
         }
 
         private void btnExit_Click(object sender, EventArgs e)

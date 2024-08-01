@@ -115,7 +115,8 @@ namespace DUAN1.Chủ
                                                                 NameTaiKhoan = TxtNameAccount.Text,
                                                                 PassWordd = txtPassword.Text,
                                                                 IdTaiKhoan = 1,
-                                                                IdRoles = ComBoVaiTro.SelectedIndex + 1
+                                                                IdRoles = ComBoVaiTro.SelectedIndex + 1,
+                                                                idtrangthai = 1,
                                                             };
                                                             _dbcontext.TaiKhoans.Add(Ac);
                                                             bool gioitinnh;

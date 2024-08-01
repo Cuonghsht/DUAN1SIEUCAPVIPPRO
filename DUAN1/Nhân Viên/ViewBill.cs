@@ -38,7 +38,8 @@ namespace DUAN1.Nhân_Viên
                              join b in _context.Detailedbills on a.IdUser equals b.IdUser
                              join c in _context.Bills on b.BillId equals c.BillId
                              join d in _context.Statusses on c.StatusId equals d.StatusId
-                             join v in _context.Vouchers on c.IdVoucher equals v.IdVoucher 
+                             join v in _context.Vouchers on c.IdVoucher equals v.IdVoucher into vouchers
+                             from v in vouchers.DefaultIfEmpty()
                              select new
                              {
                                  IdBills = c.BillId,
@@ -46,8 +47,7 @@ namespace DUAN1.Nhân_Viên
                                  Price = c.PriceBill,
                                  Date = c.DateBill,
                                  StaTus = d.StatusName,
-                                 VoucherName =  v.NameVoucher,
-
+                                 VoucherName = v != null ? v.NameVoucher : null,
                              }).Distinct().ToList();
             dataGridView1.DataSource = viewwwwww;
 

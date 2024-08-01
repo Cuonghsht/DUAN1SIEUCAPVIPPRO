@@ -141,7 +141,7 @@ namespace DUAN1.Nhân_Viên
             PricePro.Text = "";
         }
 
-        int idhoadon;
+        int idhdss;
         private void guna2Button2_Click(object sender, EventArgs e)
         {
 
@@ -178,7 +178,6 @@ namespace DUAN1.Nhân_Viên
                         {
                             int ssl = Convert.ToInt32(txtSl.Text);
                             var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
-                            idhoadon = HoaDon.BillId;
 
                             if (!txtSl.Text.All(char.IsDigit))
                             {
@@ -211,7 +210,6 @@ namespace DUAN1.Nhân_Viên
                                     {
                                         var idhd1 = Convert.ToInt32(IdHD.Text);
                                         var tien = _context.Bills.FirstOrDefault(x => x.BillId == idhd1);
-                                        
                                         Detailedbill aa = new Detailedbill
                                         {
                                             ProductId = v,
@@ -223,7 +221,6 @@ namespace DUAN1.Nhân_Viên
                                         _context.Detailedbills.Add(aa);
                                         tien.PriceBill = r;
                                         _context.SaveChanges();
-                                       
                                     }
                                     else 
                                     {
@@ -234,7 +231,6 @@ namespace DUAN1.Nhân_Viên
                                             Quantity = c,
                                             IdUser = ar.IdUser,
                                             Price = Gia,
-
                                         };
                                         _context.Detailedbills.Add(detailedbill);
                                         HoaDon.PriceBill = r;
@@ -311,11 +307,6 @@ namespace DUAN1.Nhân_Viên
                 {
 
                     var voucher = _context.Vouchers.Where(x => x.HSD > DateTime.Now && x.Quantity > 0).ToList();
-
-                   
-                   
-
-
                         if (MessageBox.Show("Bạn có chắc chắn muốn thêm hóa đơn này không", " Xác nhận ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             bool GioiTinh;
@@ -359,8 +350,11 @@ namespace DUAN1.Nhân_Viên
                                 MessageBox.Show("Khách hàng đã từng mua sản phẩm ở đây");
                                 ThemHoaDon();
                             }
+                             var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
+                             var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
+                             idhdss = HoaDon.BillId;
                         }
-                    
+
                 }
             }
         }
@@ -372,7 +366,7 @@ namespace DUAN1.Nhân_Viên
             {
                 IdCustomer = IdHd.IdCustomer,
                 PriceBill = 0,
-                IdVoucher = combovoucher.SelectedIndex+1,
+                IdVoucher =  combovoucher.SelectedIndex >= 0 ? combovoucher.SelectedIndex + 1 : (int?)null,
                 DateBill = DateTime.Now.Date,
                 StatusId = 2,
             };
@@ -402,7 +396,6 @@ namespace DUAN1.Nhân_Viên
         {
             var a = view.Rows[e.RowIndex];
             Idddd = Convert.ToInt32(a.Cells["ID"].Value.ToString());
-
         }
         private void guna2Button3_Click(object sender, EventArgs e)
         {
@@ -412,7 +405,6 @@ namespace DUAN1.Nhân_Viên
             {
                 if (MessageBox.Show("Ban chac chan muon xoa san phan nay ra khoi hoa don khong", "Xac Nhan", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                   
                     hoadonanhhuong.PriceBill = hoadonanhhuong.PriceBill - delete.Price;
                     decimal canxoa = delete.Price;
                     decimal tien;
@@ -421,12 +413,11 @@ namespace DUAN1.Nhân_Viên
                     _context.Detailedbills.Remove(delete);
                     _context.SaveChanges();
                     hienthiview();
-
                 }
             }
             else
             {
-                MessageBox.Show("Ban can chon san phan cam xoa ");
+                MessageBox.Show("Bạn cần chọn sản phẩm cần xóa ");
             }
 
         }
@@ -456,11 +447,8 @@ namespace DUAN1.Nhân_Viên
                 foreach (var a in list)
                 {
                     ListViewItem item = new ListViewItem(a.ProductId.ToString());
-
                     item.SubItems.Add(a.ProductName);
-
                     item.SubItems.Add(a.ProductPrice.ToString());
-
                     listView1.Items.Add(item);
                 }
             }
@@ -493,7 +481,7 @@ namespace DUAN1.Nhân_Viên
 
             if (txtkhachdua.Text == "" || tiendua <= 0 || tienthua < 0)
             {
-                MessageBox.Show("vui long kiem tra lai tien");
+                MessageBox.Show("Vui lòng kiểm tra lại tiền ");
             }
             else
             {
@@ -502,17 +490,44 @@ namespace DUAN1.Nhân_Viên
                 if (iddd != 0)
                 {
                     var capnhat = _context.Bills.FirstOrDefault(x => x.BillId == iddd);
-                    capnhat.StatusId = 1;
-                    capnhat.PriceBill = TienCuoi;
+                     var Kiemtragiohang = _context.Detailedbills.FirstOrDefault(x => x.BillId==capnhat.BillId);
+                    if (Kiemtragiohang == null)
+                    {
+                        MessageBox.Show("Chưa có sản phâmr nào trong giỏ hàng");
+                    }
+                    else
+                    {
+                        capnhat.StatusId = 1;
+                        capnhat.PriceBill = TienCuoi;
+                        _context.SaveChanges();
+                        MessageBox.Show("Đã thanh toán thành công ");
+                    }
                 }
                 else
                 {
-                    var a = _context.Bills.FirstOrDefault(x => x.BillId == idhoadon);
-                    a.StatusId = 1;
-                    a.PriceBill = TienCuoi;
+                    var a = _context.Bills.FirstOrDefault(x => x.BillId == idhdss);
+                    if (a == null)
+                    {
+                        MessageBox.Show("Hóa đơn chưa được tạo");
+                    }
+                    else
+                    {
+                        var b = _context.Detailedbills.FirstOrDefault(x=>x.BillId == a.BillId);
+                        if (b == null)
+                        {
+                            MessageBox.Show("Chưa có sản phẩm trong giỏ hàng");
+                        }
+                        else
+                        {
+                            a.StatusId = 1;
+                            a.PriceBill = TienCuoi;
+                            MessageBox.Show("Đã thanh toán thành công ");
+                            _context.SaveChanges();
+
+                        }
+                    }
                 }
-                _context.SaveChanges();
-                MessageBox.Show("Da thanh toan thnah cong");
+                
             }
         }
 

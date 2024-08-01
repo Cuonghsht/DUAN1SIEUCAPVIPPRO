@@ -90,7 +90,7 @@
             this.thanhtona.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.thanhtona.HoverState.ForeColor = System.Drawing.Color.Black;
             this.thanhtona.Image = ((System.Drawing.Image)(resources.GetObject("thanhtona.Image")));
-            this.thanhtona.Location = new System.Drawing.Point(1315, 1007);
+            this.thanhtona.Location = new System.Drawing.Point(1315, 556);
             this.thanhtona.Name = "thanhtona";
             this.thanhtona.Size = new System.Drawing.Size(188, 62);
             this.thanhtona.TabIndex = 96;
@@ -112,7 +112,7 @@
             this.xoa.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.xoa.HoverState.ForeColor = System.Drawing.Color.Black;
             this.xoa.Image = ((System.Drawing.Image)(resources.GetObject("xoa.Image")));
-            this.xoa.Location = new System.Drawing.Point(1149, 1007);
+            this.xoa.Location = new System.Drawing.Point(1149, 556);
             this.xoa.Name = "xoa";
             this.xoa.Size = new System.Drawing.Size(141, 65);
             this.xoa.TabIndex = 95;
