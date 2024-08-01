@@ -183,6 +183,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(180, 45);
             this.guna2Button1.TabIndex = 18;
             this.guna2Button1.Text = "Cập nhật";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2Button2
             // 
@@ -218,6 +219,7 @@
             this.guna2Button3.Size = new System.Drawing.Size(139, 45);
             this.guna2Button3.TabIndex = 20;
             this.guna2Button3.Text = "Xóa";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // guna2TextBox4
             // 
@@ -259,6 +261,8 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(1248, 365);
             this.dataGridView1.TabIndex = 23;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView1_RowPrePaint);
             // 
             // trangthai
             // 
@@ -301,7 +305,7 @@
             this.label6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(726, 250);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 24);
+            this.label6.Size = new System.Drawing.Size(112, 19);
             this.label6.TabIndex = 15;
             this.label6.Text = "Tên Voucher";
             // 
@@ -311,7 +315,7 @@
             this.label8.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(717, 147);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(110, 24);
+            this.label8.Size = new System.Drawing.Size(88, 19);
             this.label8.TabIndex = 15;
             this.label8.Text = "Trạng Thái";
             // 

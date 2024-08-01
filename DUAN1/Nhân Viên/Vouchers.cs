@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace DUAN1.Nhân_Viên
 {
@@ -24,19 +26,7 @@ namespace DUAN1.Nhân_Viên
                 trangthai.Items.Add(i.Namett);
             }
         }
-        public void HienThi()
-        {
-            var a = (from b in _context.Vouchers join c in _context.TrangThaiVouchers on b.idtt equals c.idtt select new
-            {
-                Name = b.NameVoucher,
-                DateSX = b.NSX, 
-                DateSD = b.HSD,
-                Quantity = b.Quantity,
-                Value = b.VoucherValue,
-                 Status = c.Namett
-            }).ToList();
-            dataGridView1.DataSource = a;
-        }
+
         private void Vouchers_Load(object sender, EventArgs e)
         {
 
@@ -109,6 +99,104 @@ namespace DUAN1.Nhân_Viên
                     HienThi();
                 }
             }
+        }
+        public void HienThi()
+        {
+            var a = (from b in _context.Vouchers
+                     join c in _context.TrangThaiVouchers on b.idtt equals c.idtt
+                     select new
+                     {
+                         IdVoucher = b.IdVoucher,
+                         Name = b.NameVoucher,
+                         DateSX = b.NSX,
+                         DateSD = b.HSD,
+                         Quantity = b.Quantity,
+                         Value = b.VoucherValue,
+                         Status = c.Namett,
+                        
+                     }).ToList();
+            dataGridView1.DataSource = a;
+            
+          
+        }
+        int idCapNhat;
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                MessageBox.Show("Vui lòng chọn dòng hợp lệ ạ ");
+            }
+            else
+            {
+                DateTime nsx;
+                DateTime hsd;
+                var a = dataGridView1.Rows[e.RowIndex];
+                idCapNhat = Convert.ToInt32(a.Cells["IdVoucher"].Value.ToString());
+                txtPhanTram.Text = (a.Cells["Value"].Value.ToString());
+                txtSoLuong.Text = a.Cells["Quantity"].Value.ToString();
+                VoucherName.Text = a.Cells["Name"].Value.ToString();
+                DateTime.TryParse(a.Cells["DateSX"].Value.ToString(), out nsx);
+                DateTime.TryParse(a.Cells["DateSD"].Value.ToString(), out hsd);
+                var tragthai = _context.Vouchers.FirstOrDefault(x => x.IdVoucher == idCapNhat);
+                trangthai.SelectedIndex = tragthai.idtt-1;
+            }
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            if (Validate())
+            {
+                if (MessageBox.Show("Bạn có chắc chắn muốn câp nhật thông tin của voucher không ạ ", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    int soluong;
+                    int value;
+                    int.TryParse(txtSoLuong.Text, out soluong);
+                    int.TryParse(txtPhanTram.Text, out value);
+                    var ThongTinVoucher = _context.Vouchers.FirstOrDefault(x => x.IdVoucher == idCapNhat);
+                    ThongTinVoucher.NSX = dateSX.Value.Date;
+                    ThongTinVoucher.HSD = dateHD.Value.Date;
+                    ThongTinVoucher.NameVoucher = VoucherName.Text.ToString();
+                    ThongTinVoucher.Quantity = soluong;
+                    ThongTinVoucher.VoucherValue = value;
+                    ThongTinVoucher.idtt = trangthai.SelectedIndex + 1;
+                    _context.SaveChanges();
+                }
+            }
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            var VoucherDung = _context.Vouchers.FirstOrDefault(x => x.IdVoucher == idCapNhat);
+            if (MessageBox.Show("Bạn có chắc chắn muốn Voucher này ngưng hoạt động không ạ","Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                VoucherDung.idtt = 2;
+                _context.SaveChanges();
+            }
+        }
+
+        private void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+
+            var tragthai = (from r in _context.Vouchers where(r.idtt==2) select r).ToList();
+            List<int> mausac = new List<int>();
+            foreach(var i in tragthai)
+            {
+                if (i.idtt == 2)
+                {
+                    mausac.Add(i.IdVoucher);
+                }
+            }
+            var Ss = dataGridView1.Rows[e.RowIndex];
+            var a = Convert.ToInt32(Ss.Cells["IdVoucher"].Value.ToString());
+            foreach (var i in mausac)
+            {
+                if (a == i)
+                {
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+
+
         }
     }
 }

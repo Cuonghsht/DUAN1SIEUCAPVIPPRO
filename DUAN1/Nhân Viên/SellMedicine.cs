@@ -67,7 +67,7 @@ namespace DUAN1.Nhân_Viên
                 themadd.Enabled = false;
 
             }
-            var voucher = _context.Vouchers.Where(x=>x.HSD > DateTime.Now && x.Quantity>0).ToList();
+            var voucher = _context.Vouchers.Where(x=>x.HSD > DateTime.Now && x.Quantity>0&& x.idtt==1).ToList();
             foreach(var item in voucher)
             {
                 combovoucher.Items.Add(item.NameVoucher);
