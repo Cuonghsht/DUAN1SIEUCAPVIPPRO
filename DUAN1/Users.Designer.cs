@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Account = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnviewbill = new Guna.UI2.WinForms.Guna2Button();
@@ -38,7 +39,6 @@
             this.btnDashbord = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Account = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -60,9 +60,22 @@
             this.panel1.Size = new System.Drawing.Size(256, 1100);
             this.panel1.TabIndex = 1;
             // 
-            // lblUserName
+            // Account
             // 
-          
+            this.Account.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Account.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Account.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Account.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Account.FillColor = System.Drawing.Color.SteelBlue;
+            this.Account.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Account.ForeColor = System.Drawing.Color.White;
+            this.Account.Image = ((System.Drawing.Image)(resources.GetObject("Account.Image")));
+            this.Account.Location = new System.Drawing.Point(0, 581);
+            this.Account.Name = "Account";
+            this.Account.Size = new System.Drawing.Size(256, 45);
+            this.Account.TabIndex = 8;
+            this.Account.Text = "Account";
+            this.Account.Click += new System.EventHandler(this.Account_Click);
             // 
             // btnLogout
             // 
@@ -170,11 +183,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(75, 198);
+            this.label1.Location = new System.Drawing.Point(72, 200);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 49);
+            this.label1.Size = new System.Drawing.Size(99, 49);
             this.label1.TabIndex = 1;
-            this.label1.Text = "User";
+            this.label1.Text = "Staff";
             // 
             // pictureBox1
             // 
@@ -186,23 +199,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // Account
-            // 
-            this.Account.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Account.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Account.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Account.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Account.FillColor = System.Drawing.Color.SteelBlue;
-            this.Account.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Account.ForeColor = System.Drawing.Color.White;
-            this.Account.Image = ((System.Drawing.Image)(resources.GetObject("Account.Image")));
-            this.Account.Location = new System.Drawing.Point(0, 581);
-            this.Account.Name = "Account";
-            this.Account.Size = new System.Drawing.Size(256, 45);
-            this.Account.TabIndex = 8;
-            this.Account.Text = "Account";
-            this.Account.Click += new System.EventHandler(this.Account_Click);
             // 
             // Users
             // 
