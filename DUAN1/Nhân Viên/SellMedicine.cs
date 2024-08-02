@@ -213,14 +213,26 @@ namespace DUAN1.Nhân_Viên
                                 }
                                 else
                                 {
+
+                                    decimal tienc;
+                                    decimal.TryParse(txttien.Text, out tienc);
+                                    decimal gia;
+                                    decimal.TryParse(txtGia.Text, out gia);
+                                    decimal phantram;
+                                    decimal.TryParse(phamtramgiam.Text, out phantram);
+                                    txttien.Text = (gia +tienc).ToString();
+                                    decimal tiensaucong;
+                                    decimal.TryParse(txttien.Text, out tiensaucong);
+                                    txttien.Text = tiensaucong.ToString();
+                                    decimal voucher = (tiensaucong * (phantram / 100));
+                                    TxtVoucher.Text = voucher.ToString();
                                     decimal a;
-                                    decimal.TryParse(txttien.Text, out a);
-                                    decimal b;
-                                    decimal.TryParse(txtGia.Text, out b);
-                                    decimal r = a + b;
-                                    decimal d;
-                                    decimal.TryParse(TxtGiaCuoiCung.Text, out d);
-                                    txttien.Text = r.ToString();
+                                    decimal tientongket;
+                                    decimal.TryParse(TxtGiaCuoiCung.Text, out tientongket);
+                                    a = tiensaucong - voucher;
+                                    TxtGiaCuoiCung.Text = a.ToString();
+
+                                    //txttien.Text = r.ToString();
                                     if (iddd != 0)
                                     {
                                         var idhd1 = Convert.ToInt32(IdHD.Text);
@@ -234,7 +246,7 @@ namespace DUAN1.Nhân_Viên
                                             Price = Gia,
                                         };
                                         _context.Detailedbills.Add(aa);
-                                        tien.PriceBill = d;
+                                        tien.PriceBill = a;
                                         _context.SaveChanges();
                                     }
                                     else
@@ -248,13 +260,14 @@ namespace DUAN1.Nhân_Viên
                                             Price = Gia,
                                         };
                                         _context.Detailedbills.Add(detailedbill);
-                                        HoaDon.PriceBill = d;
+                                        HoaDon.PriceBill = a;
                                         _context.SaveChanges();
                                         clear();
                                         listView1_Click(sender, e);
                                     }
                                     kho.ProductQuantity = kho.ProductQuantity - c;
-                                    TinhToan();
+                                    
+                                    clear();
                                     hienthiview();
                                     listView1.Clear();
                                     ListProduct();
@@ -266,6 +279,7 @@ namespace DUAN1.Nhân_Viên
             }
 
         }
+        decimal tongtien;
         public void hienthiview()
         {
             if (iddd != 0)
@@ -285,6 +299,7 @@ namespace DUAN1.Nhân_Viên
                 view.DataSource = listSp;
                 var tinhtien = _context.Detailedbills.Where(x => x.BillId == iddd).Select(x => x.Price).ToList();
                 txttien.Text = tinhtien.Sum().ToString();
+                tongtien = tinhtien.Sum();
             }
             else
             {
@@ -435,6 +450,9 @@ namespace DUAN1.Nhân_Viên
             int.TryParse(txtSl.Text, out sl);
             decimal tong = sl * gia;
             txtGia.Text = tong.ToString();
+            
+
+            
         }
         private void label7_Click(object sender, EventArgs e)
         {
@@ -460,20 +478,37 @@ namespace DUAN1.Nhân_Viên
                 var hoadonanhhuong = _context.Bills.FirstOrDefault(x => x.BillId == delete.BillId);
                 if (delete != null)
                 {
-                    if (MessageBox.Show("Ban chac chan muon xoa san phan nay ra khoi hoa don khong", "Xac Nhan", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show("Bạn có chắc chắn muốn loại bỏ sản phẩm ra khỏi hóa đơn không", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         var SanPhamHoiQuantity = _context.Products.FirstOrDefault(x => x.ProductId == delete.ProductId);
                         int  Quantity = SanPhamHoiQuantity.ProductQuantity + delete.Quantity;
                         SanPhamHoiQuantity.ProductQuantity = Quantity;
-                        hoadonanhhuong.PriceBill = hoadonanhhuong.PriceBill - delete.Price;
+                       
                         decimal canxoa = delete.Price;
                         decimal tien;
                         decimal.TryParse(txttien.Text, out tien);
                         txttien.Text = (tien - canxoa).ToString();
+                        decimal tienc;
+                        decimal.TryParse(txttien.Text, out tienc);
+                        decimal gia;
+                        decimal.TryParse(txtGia.Text, out gia);
+                        decimal phantram;
+                        decimal.TryParse(phamtramgiam.Text, out phantram);
+                        txttien.Text = (gia + tienc).ToString();
+                        decimal tiensaucong;
+                        decimal.TryParse(txttien.Text, out tiensaucong);
+                        txttien.Text = tiensaucong.ToString();
+                        decimal voucher = (tiensaucong * (phantram / 100));
+                        TxtVoucher.Text = voucher.ToString();
+                        decimal a;
+                        decimal tientongket;
+                        decimal.TryParse(TxtGiaCuoiCung.Text, out tientongket);
+                        a = tiensaucong - voucher;
+                        TxtGiaCuoiCung.Text=a.ToString();
+                        hoadonanhhuong.PriceBill = a;
                         _context.Detailedbills.Remove(delete);
                         _context.SaveChanges();
                         listView1.Clear();
-                        TinhToan();
                         ListProduct();
                         hienthiview();
                     }
@@ -488,7 +523,7 @@ namespace DUAN1.Nhân_Viên
         {
             decimal tiendua;
             decimal tienHd;
-            decimal.TryParse(txttien.Text, out tienHd);
+            decimal.TryParse(TxtGiaCuoiCung.Text, out tienHd);
             decimal.TryParse(txtkhachdua.Text, out tiendua);
             decimal tienthua = tiendua - tienHd;
             txtThua.Text = tienthua.ToString();

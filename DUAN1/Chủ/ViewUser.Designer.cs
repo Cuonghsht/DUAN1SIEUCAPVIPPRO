@@ -147,6 +147,7 @@
             this.View.Size = new System.Drawing.Size(1581, 464);
             this.View.TabIndex = 22;
             this.View.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.View_CellClick_1);
+            this.View.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.View_RowPrePaint);
             // 
             // txtNameUser
             // 
@@ -322,7 +323,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(23, 107);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 20);
+            this.label4.Size = new System.Drawing.Size(41, 16);
             this.label4.TabIndex = 27;
             this.label4.Text = "Email";
             // 
@@ -331,7 +332,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(23, 159);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 20);
+            this.label5.Size = new System.Drawing.Size(35, 16);
             this.label5.TabIndex = 27;
             this.label5.Text = "SDT";
             // 
@@ -340,7 +341,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(365, 57);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 20);
+            this.label6.Size = new System.Drawing.Size(58, 16);
             this.label6.TabIndex = 27;
             this.label6.Text = "Address";
             // 
@@ -349,7 +350,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(365, 107);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 20);
+            this.label7.Size = new System.Drawing.Size(55, 16);
             this.label7.TabIndex = 27;
             this.label7.Text = "Account";
             // 
@@ -358,7 +359,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(365, 159);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 20);
+            this.label8.Size = new System.Drawing.Size(67, 16);
             this.label8.TabIndex = 27;
             this.label8.Text = "Password";
             // 

@@ -197,5 +197,10 @@ namespace DUAN1.Nhân_Viên
             }
 
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

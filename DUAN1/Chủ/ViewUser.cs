@@ -73,7 +73,7 @@ namespace DUAN1.Chủ
                                UserGend = (bool)a.UsesGend ? "Nam" : "Nữ",
                                UserAddress = a.UserAddress,
                                UserRole = c.NameRoles,
-
+                               idtk = b.IdTaiKhoan
                            }).ToList();
                 View.DataSource = Tim;
             }
@@ -88,7 +88,7 @@ namespace DUAN1.Chủ
         {
             if (e.RowIndex < 0)
             {
-                MessageBox.Show("Ban can chon nguoi dung cu the");
+                MessageBox.Show("Bạn cần chọn người cụ thể ");
             }
             else
             {
@@ -124,7 +124,7 @@ namespace DUAN1.Chủ
         {
             if (a == 0)
             {
-                MessageBox.Show(" Ban can chon nguoi can xoa");
+                MessageBox.Show(" Bạn cần chọn đúng người để cấm ");
             }
             else
             {
@@ -132,11 +132,11 @@ namespace DUAN1.Chủ
                 var DeleteAc = _context.TaiKhoans.FirstOrDefault(x => x.IdTaiKhoan == delete.IdTaiKhoan);
                 if (delete == null)
                 {
-                    MessageBox.Show(" Nguoi nay khong ton tai");
+                    MessageBox.Show(" Người này không tồn tại");
                 }
                 else
                 {
-                    if (MessageBox.Show("Ban co chac chan muon tai khoan nay dung hoat dong khong", "Xac nhan", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show("Bạn có chắc chắn muốn tài khoản này dưng hoạt động không ", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         DeleteAc.idtrangthai = 2;
                         _context.SaveChanges();
@@ -173,37 +173,37 @@ namespace DUAN1.Chủ
             var Tuoi18 = DateTime.Now.Year - 18;
             if (txtAddress.Text == "" || txtEmail.Text == "" || txtPhone.Text == "" || txtNameUser.Text == "")
             {
-                MessageBox.Show("Ban can nhap day du thong tin vao cac o");
+                MessageBox.Show("Bạn càn nhập đầy đủ thông tin vào các ô");
             }
             else
             {
                 if (RadioNam.Checked == false && RadioNu.Checked == false)
                 {
-                    MessageBox.Show("Vui long chon gioi tinh");
+                    MessageBox.Show("Vui lòng chọn giới tính ");
                 }
                 else
                 {
                     if (DateUser.Value.Year > Tuoi18)
                     {
-                        MessageBox.Show("Nguoi dung phai lon hon 18 tuoi");
+                        MessageBox.Show("Người dùng phải lớn hơn 18 tuổi");
                     }
                     else
                     {
                         if (ComBoVaiTro.SelectedIndex < 0)
                         {
-                            MessageBox.Show("Vui long chon vai tro");
+                            MessageBox.Show("Vui lòng chọn vai trò");
                         }
                         else
                         {
                             if (txtPhone.TextLength != 10)
                             {
-                                MessageBox.Show("So dien thoai bao gom 10 ki tu va bat dau bang so 0");
+                                MessageBox.Show("Số điện thoại bao gồm 10 kí tự và bắt đầu bằng số 0");
                             }
                             else
                             {
                                 if (txtPhone.Text.Substring(0, 1) != "0")
                                 {
-                                    MessageBox.Show("So dien thoai bat dau bang So 0");
+                                    MessageBox.Show("Số điện thoại bắt đầu bằng số  0");
 
                                 }
                                 else
@@ -211,13 +211,13 @@ namespace DUAN1.Chủ
 
                                     if (txtPhone.Text.Any(char.IsDigit) == false)
                                     {
-                                        MessageBox.Show("So dien thoai la day so tu 0-9");
+                                        MessageBox.Show("Số điện thoại phải là dãy số từ 0-9");
                                     }
                                     else
                                     {
                                         if (txtEmail.TextLength < 11)
                                         {
-                                            MessageBox.Show("Email chua dung dinh  dang");
+                                            MessageBox.Show("Email chưa đúng định dạng");
 
                                         }
                                         else
@@ -228,14 +228,14 @@ namespace DUAN1.Chủ
                                             var sosanh = txtEmail.Text.Substring(loai, 10);
                                             if (sosanh != "@gmail.com")
                                             {
-                                                MessageBox.Show("Duoi phai la @gmail.com");
+                                                MessageBox.Show("Đuôi phải là  @gmail.com");
                                             }
 
                                             else
                                             {
-                                                
 
-                                                if (MessageBox.Show("Ban co chac chan muon cap nhat khong", "Xac nhan", MessageBoxButtons.YesNo) == DialogResult.Yes)
+
+                                                if (MessageBox.Show("Bạn có chắc chắn muốn cập nhật không ", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                                 {
 
                                                     bool gioitinnh;
@@ -269,7 +269,38 @@ namespace DUAN1.Chủ
                 }
             }
         }
+
+        private void View_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            var trangthai = (from a in _context.TaiKhoans
+                             join b in _context.Users on a.IdTaiKhoan equals b.IdTaiKhoan
+                             where a.idtrangthai == 2
+                             select new
+                             {
+                                 tk = a,
+                                 us = b
+                             }
+                             ).ToList();
+            List<int> bicam = new List<int>();
+            foreach (var i in trangthai)
+            {
+                if (i.tk.idtrangthai == 2)
+                {
+                    bicam.Add(i.us.IdUser);
+                }
+            }
+            var dong = View.Rows[e.RowIndex];
+            var y = Convert.ToInt32(dong.Cells["IdUser"].Value.ToString());
+            foreach (var i in bicam)
+            {
+                if (y == i)
+                {
+                    View.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+
+                }
+            }
+        }
     }
 }
-    
+
 
