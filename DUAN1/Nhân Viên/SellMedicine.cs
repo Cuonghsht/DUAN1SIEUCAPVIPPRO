@@ -38,13 +38,15 @@ namespace DUAN1.Nhân_Viên
                                         join n in _context.Bills on m.IdCustomer equals n.IdCustomer
                                         join b in _context.Detailedbills on n.BillId equals b.BillId
                                         join v in _context.Products on b.ProductId equals v.ProductId
+                                        join e in _context.Vouchers on n.IdVoucher equals e.IdVoucher
                                         where n.BillId == iddd
                                         select new
                                         {
                                             Cus = m,
                                             Bil = n,
                                             Del = b,
-                                            pro = v
+                                            pro = v,
+                                            vou = e
                                         }).ToList();
                 var checkhoadon = _context.Bills.FirstOrDefault(x => x.BillId == iddd);
                 if (checkhoadon.StatusId == 1)
@@ -63,32 +65,43 @@ namespace DUAN1.Nhân_Viên
                 NameCus.Text = idhds.Cus.CustomerName;
                 SDTCus.Text = idhds.Cus.SDT;
                 IdHD.Text = idhds.Bil.BillId.ToString();
+                var voucheri = _context.Vouchers.FirstOrDefault(x=>x.IdVoucher==idhds.Bil.IdVoucher);
+                phamtramgiam.Text=voucheri.VoucherValue.ToString();
                 hienthiview();
                 themadd.Enabled = false;
+                datavoucher.Enabled = false;
+                TinhToan();
 
             }
-            var voucher = _context.Vouchers.Where(x=>x.HSD > DateTime.Now && x.Quantity>0&& x.idtt==1).ToList();
-            foreach(var item in voucher)
-            {
-                combovoucher.Items.Add(item.NameVoucher);
-            }
+            var voucher = (from v in _context.Vouchers
+                           where (v.HSD > DateTime.Now && v.Quantity > 0 && v.idtt == 1)
+                           select new
+                           {
+                               ID = v.IdVoucher,
+                               Name = v.NameVoucher
+                           }).ToList();
+             datavoucher.DataSource = voucher;
+            txttien.Enabled = false;
+            TxtVoucher.Enabled = false;
+            TxtGiaCuoiCung.Enabled = false;
+            phamtramgiam.Enabled = false;
 
         }
         public void ListProduct()
         {
             listView1.View = View.Details;
             listView1.Columns.Add("ID", 30);
-            listView1.Columns.Add("Name", 170);
-            listView1.Columns.Add("Price", 130);
+            listView1.Columns.Add("Name", 120);
+            listView1.Columns.Add("Price", 100);
+            listView1.Columns.Add("Quantity", 40);
             var list = (from a in _context.Products select a).ToList();
             foreach (var a in list)
             {
                 ListViewItem item = new ListViewItem(a.ProductId.ToString());
 
                 item.SubItems.Add(a.ProductName);
-
                 item.SubItems.Add(a.ProductPrice.ToString());
-
+                item.SubItems.Add(a.ProductQuantity.ToString());
                 listView1.Items.Add(item);
             }
         }
@@ -205,6 +218,8 @@ namespace DUAN1.Nhân_Viên
                                     decimal b;
                                     decimal.TryParse(txtGia.Text, out b);
                                     decimal r = a + b;
+                                    decimal d;
+                                    decimal.TryParse(TxtGiaCuoiCung.Text, out d);
                                     txttien.Text = r.ToString();
                                     if (iddd != 0)
                                     {
@@ -219,10 +234,10 @@ namespace DUAN1.Nhân_Viên
                                             Price = Gia,
                                         };
                                         _context.Detailedbills.Add(aa);
-                                        tien.PriceBill = r;
+                                        tien.PriceBill = d;
                                         _context.SaveChanges();
                                     }
-                                    else 
+                                    else
                                     {
                                         Detailedbill detailedbill = new Detailedbill
                                         {
@@ -233,13 +248,16 @@ namespace DUAN1.Nhân_Viên
                                             Price = Gia,
                                         };
                                         _context.Detailedbills.Add(detailedbill);
-                                        HoaDon.PriceBill = r;
+                                        HoaDon.PriceBill = d;
                                         _context.SaveChanges();
                                         clear();
                                         listView1_Click(sender, e);
                                     }
-                                     kho.ProductQuantity = kho.ProductQuantity - c;
-                                      hienthiview();
+                                    kho.ProductQuantity = kho.ProductQuantity - c;
+                                    TinhToan();
+                                    hienthiview();
+                                    listView1.Clear();
+                                    ListProduct();
                                 }
                             }
                         }
@@ -306,59 +324,91 @@ namespace DUAN1.Nhân_Viên
                 else
                 {
 
-                    var voucher = _context.Vouchers.Where(x => x.HSD > DateTime.Now && x.Quantity > 0).ToList();
-                        if (MessageBox.Show("Bạn có chắc chắn muốn thêm hóa đơn này không", " Xác nhận ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    var voucher = _context.Vouchers.Where(x => x.HSD > DateTime.Now && x.Quantity > 0 && x.idtt == 1).ToList();
+                    if (voucher != null && idvouchers==null)
+                    {
+                        if(MessageBox.Show("Trong kho vẫn còn voucher bạn có muốn thêm voucher cho hóa đơn này không","Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            bool GioiTinh;
-                            if (Namradio.Checked)
-                            {
-                                GioiTinh = true;
-                            }
-                            else
-                            {
-                                GioiTinh = false;
-                            }
-                            Customer customer = new Customer
-                            {
-                                CustomerName = NameCus.Text,
-                                SDT = SDTCus.Text,
-                                CustomerAddress = DiaChiCus.Text,
-                                CustomerGender = GioiTinh,
 
-                            };
-                            var checkTonTai = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
-                            if (checkTonTai == null)
-                            {
-                                MessageBox.Show("Khách hàng mới");
-                                _context.Customers.Add(customer);
-                                _context.SaveChanges();
-                                ThemHoaDon();
-                            }
-                            else
-                            {
-                                var b = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
-                                NameCus.Text = b.CustomerName;
-                                DiaChiCus.Text = b.CustomerAddress;
-                                if (b.CustomerGender == true)
-                                {
-                                    Namradio.Checked = true;
-                                }
-                                else
-                                {
-                                    Nuradio.Checked = true;
-                                }
-                                MessageBox.Show("Khách hàng đã từng mua sản phẩm ở đây");
-                                ThemHoaDon();
-                            }
-                             var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
-                             var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
-                             idhdss = HoaDon.BillId;
                         }
+                        else
+                        {
+                            AddbillAndVoucher();
+                        }
+                    }
+                    else
+                    {
+                        AddbillAndVoucher();
+                    }
 
+          //          var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
+      //              var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
+   //                 idhdss = HoaDon.BillId;
                 }
+
             }
         }
+        public void TinhToan()
+        {
+            decimal GiaGoc;
+            decimal PhanTram;
+            decimal.TryParse(txttien.Text, out GiaGoc);
+            decimal.TryParse(phamtramgiam.Text, out PhanTram);
+            TxtVoucher.Text = (GiaGoc * (PhanTram / 100)).ToString();
+            decimal GiaCGiam;
+            decimal.TryParse(TxtVoucher.Text, out GiaCGiam);
+            TxtGiaCuoiCung.Text = (GiaGoc-GiaCGiam).ToString();
 
+        }
+
+        public void AddbillAndVoucher()
+        {
+            if (MessageBox.Show("Bạn có chắc chắn muốn thêm hóa đơn này không", " Xác nhận ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                bool GioiTinh;
+                if (Namradio.Checked)
+                {
+                    GioiTinh = true;
+                }
+                else
+                {
+                    GioiTinh = false;
+                }
+                Customer customer = new Customer
+                {
+                    CustomerName = NameCus.Text,
+                    SDT = SDTCus.Text,
+                    CustomerAddress = DiaChiCus.Text,
+                    CustomerGender = GioiTinh,
+
+                };
+                var checkTonTai = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
+                if (checkTonTai == null)
+                {
+                    MessageBox.Show("Khách hàng mới");
+                    _context.Customers.Add(customer);
+                    _context.SaveChanges();
+                    ThemHoaDon();
+                }
+                else
+                {
+                    var b = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
+                    NameCus.Text = b.CustomerName;
+                    DiaChiCus.Text = b.CustomerAddress;
+                    if (b.CustomerGender == true)
+                    {
+                        Namradio.Checked = true;
+                    }
+                    else
+                    {
+                        Nuradio.Checked = true;
+                    }
+                    MessageBox.Show("Khách hàng đã từng mua sản phẩm ở đây");
+                    ThemHoaDon();
+                }
+            }
+
+        }
         public void ThemHoaDon()
         {
             var IdHd = _context.Customers.FirstOrDefault(x => x.SDT == SDTCus.Text);
@@ -366,8 +416,8 @@ namespace DUAN1.Nhân_Viên
             {
                 IdCustomer = IdHd.IdCustomer,
                 PriceBill = 0,
-                IdVoucher =  combovoucher.SelectedIndex >= 0 ? combovoucher.SelectedIndex + 1 : (int?)null,
-                DateBill = DateTime.Now.Date,
+               IdVoucher = idvouchers > 0 ? idvouchers : null,
+            DateBill = DateTime.Now.Date,
                 StatusId = 2,
             };
             _context.Bills.Add(bill);
@@ -399,27 +449,40 @@ namespace DUAN1.Nhân_Viên
         }
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            var delete = _context.Detailedbills.FirstOrDefault(x => x.DetailedbillsId == Idddd);
-            var hoadonanhhuong = _context.Bills.FirstOrDefault(x => x.BillId == delete.BillId);
-            if (delete != null)
+            
+            if (Idddd == null)
             {
-                if (MessageBox.Show("Ban chac chan muon xoa san phan nay ra khoi hoa don khong", "Xac Nhan", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    hoadonanhhuong.PriceBill = hoadonanhhuong.PriceBill - delete.Price;
-                    decimal canxoa = delete.Price;
-                    decimal tien;
-                    decimal.TryParse(txttien.Text, out tien);
-                    txttien.Text = (tien - canxoa).ToString();
-                    _context.Detailedbills.Remove(delete);
-                    _context.SaveChanges();
-                    hienthiview();
-                }
+                MessageBox.Show("Vui lòng chọn sản phẩm cần loại bỏ ra khỏi hóa đơn");
             }
             else
             {
-                MessageBox.Show("Bạn cần chọn sản phẩm cần xóa ");
+                var delete = _context.Detailedbills.FirstOrDefault(x => x.DetailedbillsId == Idddd);
+                var hoadonanhhuong = _context.Bills.FirstOrDefault(x => x.BillId == delete.BillId);
+                if (delete != null)
+                {
+                    if (MessageBox.Show("Ban chac chan muon xoa san phan nay ra khoi hoa don khong", "Xac Nhan", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        var SanPhamHoiQuantity = _context.Products.FirstOrDefault(x => x.ProductId == delete.ProductId);
+                        int  Quantity = SanPhamHoiQuantity.ProductQuantity + delete.Quantity;
+                        SanPhamHoiQuantity.ProductQuantity = Quantity;
+                        hoadonanhhuong.PriceBill = hoadonanhhuong.PriceBill - delete.Price;
+                        decimal canxoa = delete.Price;
+                        decimal tien;
+                        decimal.TryParse(txttien.Text, out tien);
+                        txttien.Text = (tien - canxoa).ToString();
+                        _context.Detailedbills.Remove(delete);
+                        _context.SaveChanges();
+                        listView1.Clear();
+                        TinhToan();
+                        ListProduct();
+                        hienthiview();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Bạn cần chọn sản phẩm cần xóa ");
+                }
             }
-
         }
         private void txtkhachdua_TextChanged(object sender, EventArgs e)
         {
@@ -486,11 +549,11 @@ namespace DUAN1.Nhân_Viên
             else
             {
                 decimal TienCuoi;
-                decimal.TryParse(txttien.Text, out TienCuoi);
+                decimal.TryParse(TxtGiaCuoiCung.Text, out TienCuoi);
                 if (iddd != 0)
                 {
                     var capnhat = _context.Bills.FirstOrDefault(x => x.BillId == iddd);
-                     var Kiemtragiohang = _context.Detailedbills.FirstOrDefault(x => x.BillId==capnhat.BillId);
+                    var Kiemtragiohang = _context.Detailedbills.FirstOrDefault(x => x.BillId == capnhat.BillId);
                     if (Kiemtragiohang == null)
                     {
                         MessageBox.Show("Chưa có sản phâmr nào trong giỏ hàng");
@@ -512,7 +575,7 @@ namespace DUAN1.Nhân_Viên
                     }
                     else
                     {
-                        var b = _context.Detailedbills.FirstOrDefault(x=>x.BillId == a.BillId);
+                        var b = _context.Detailedbills.FirstOrDefault(x => x.BillId == a.BillId);
                         if (b == null)
                         {
                             MessageBox.Show("Chưa có sản phẩm trong giỏ hàng");
@@ -527,13 +590,30 @@ namespace DUAN1.Nhân_Viên
                         }
                     }
                 }
-                
+
             }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        private void combovoucher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var vou = _context.Vouchers.FirstOrDefault(x => x.IdVoucher == idvouchers);
+            phamtramgiam.Text= vou.VoucherValue.ToString();
+            
+        }
+        int? idvouchers;
+        private void datavoucher_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+             var a = datavoucher.Rows[e.RowIndex];
+              idvouchers = Convert.ToInt32(a.Cells["ID"].Value.ToString());
+            if (idvouchers != null)
+            {
+                var valuevocher = _context.Vouchers.FirstOrDefault(x=>x.IdVoucher == idvouchers);
+                phamtramgiam.Text = valuevocher.VoucherValue.ToString();
+            }
         }
     }
 }

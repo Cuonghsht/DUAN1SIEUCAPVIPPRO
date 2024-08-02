@@ -71,8 +71,14 @@
             this.meme = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label16 = new System.Windows.Forms.Label();
             this.IdHD = new Guna.UI2.WinForms.Guna2TextBox();
-            this.combovoucher = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.TxtVoucher = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.TxtGiaCuoiCung = new Guna.UI2.WinForms.Guna2TextBox();
+            this.phamtramgiam = new Guna.UI2.WinForms.Guna2TextBox();
+            this.datavoucher = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.view)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datavoucher)).BeginInit();
             this.SuspendLayout();
             // 
             // thanhtona
@@ -112,7 +118,7 @@
             this.xoa.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.xoa.HoverState.ForeColor = System.Drawing.Color.Black;
             this.xoa.Image = ((System.Drawing.Image)(resources.GetObject("xoa.Image")));
-            this.xoa.Location = new System.Drawing.Point(1149, 556);
+            this.xoa.Location = new System.Drawing.Point(1119, 546);
             this.xoa.Name = "xoa";
             this.xoa.Size = new System.Drawing.Size(141, 65);
             this.xoa.TabIndex = 95;
@@ -362,7 +368,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(17, 190);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(425, 630);
+            this.listView1.Size = new System.Drawing.Size(425, 435);
             this.listView1.TabIndex = 78;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Tile;
@@ -633,7 +639,7 @@
             this.txttien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txttien.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txttien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttien.Location = new System.Drawing.Point(867, 640);
+            this.txttien.Location = new System.Drawing.Point(1525, 90);
             this.txttien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txttien.Name = "txttien";
             this.txttien.PasswordChar = '\0';
@@ -647,11 +653,11 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(867, 617);
+            this.label8.Location = new System.Drawing.Point(1521, 190);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(158, 19);
+            this.label8.Size = new System.Drawing.Size(199, 24);
             this.label8.TabIndex = 93;
-            this.label8.Text = "Tổng Giá Hóa Đơn";
+            this.label8.Text = "Tiền Voucher giảm";
             this.label8.Click += new System.EventHandler(this.label7_Click);
             // 
             // meme
@@ -670,9 +676,9 @@
             this.label16.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(531, 556);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(79, 19);
+            this.label16.Size = new System.Drawing.Size(133, 24);
             this.label16.TabIndex = 108;
-            this.label16.Text = "Voucher";
+            this.label16.Text = "Voucher(%)";
             // 
             // IdHD
             // 
@@ -694,27 +700,110 @@
             this.IdHD.Size = new System.Drawing.Size(213, 48);
             this.IdHD.TabIndex = 84;
             // 
-            // combovoucher
+            // label17
             // 
-            this.combovoucher.BackColor = System.Drawing.Color.Transparent;
-            this.combovoucher.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.combovoucher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combovoucher.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.combovoucher.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.combovoucher.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.combovoucher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.combovoucher.ItemHeight = 30;
-            this.combovoucher.Location = new System.Drawing.Point(528, 575);
-            this.combovoucher.Name = "combovoucher";
-            this.combovoucher.Size = new System.Drawing.Size(211, 36);
-            this.combovoucher.TabIndex = 110;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(1521, 64);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(158, 19);
+            this.label17.TabIndex = 93;
+            this.label17.Text = "Tổng Giá Hóa Đơn";
+            this.label17.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // TxtVoucher
+            // 
+            this.TxtVoucher.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TxtVoucher.DefaultText = "";
+            this.TxtVoucher.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TxtVoucher.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TxtVoucher.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtVoucher.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtVoucher.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtVoucher.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TxtVoucher.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtVoucher.Location = new System.Drawing.Point(1525, 218);
+            this.TxtVoucher.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtVoucher.Name = "TxtVoucher";
+            this.TxtVoucher.PasswordChar = '\0';
+            this.TxtVoucher.PlaceholderText = "";
+            this.TxtVoucher.SelectedText = "";
+            this.TxtVoucher.Size = new System.Drawing.Size(277, 54);
+            this.TxtVoucher.TabIndex = 111;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(1521, 298);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(134, 19);
+            this.label18.TabIndex = 93;
+            this.label18.Text = "Giá Cuối Cùng ";
+            this.label18.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // TxtGiaCuoiCung
+            // 
+            this.TxtGiaCuoiCung.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TxtGiaCuoiCung.DefaultText = "";
+            this.TxtGiaCuoiCung.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TxtGiaCuoiCung.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TxtGiaCuoiCung.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtGiaCuoiCung.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtGiaCuoiCung.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtGiaCuoiCung.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TxtGiaCuoiCung.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtGiaCuoiCung.Location = new System.Drawing.Point(1525, 326);
+            this.TxtGiaCuoiCung.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtGiaCuoiCung.Name = "TxtGiaCuoiCung";
+            this.TxtGiaCuoiCung.PasswordChar = '\0';
+            this.TxtGiaCuoiCung.PlaceholderText = "";
+            this.TxtGiaCuoiCung.SelectedText = "";
+            this.TxtGiaCuoiCung.Size = new System.Drawing.Size(277, 54);
+            this.TxtGiaCuoiCung.TabIndex = 112;
+            // 
+            // phamtramgiam
+            // 
+            this.phamtramgiam.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.phamtramgiam.DefaultText = "";
+            this.phamtramgiam.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.phamtramgiam.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.phamtramgiam.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.phamtramgiam.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.phamtramgiam.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.phamtramgiam.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.phamtramgiam.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.phamtramgiam.Location = new System.Drawing.Point(535, 582);
+            this.phamtramgiam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.phamtramgiam.Name = "phamtramgiam";
+            this.phamtramgiam.PasswordChar = '\0';
+            this.phamtramgiam.PlaceholderText = "";
+            this.phamtramgiam.SelectedText = "";
+            this.phamtramgiam.Size = new System.Drawing.Size(163, 36);
+            this.phamtramgiam.TabIndex = 113;
+            // 
+            // datavoucher
+            // 
+            this.datavoucher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datavoucher.Location = new System.Drawing.Point(21, 661);
+            this.datavoucher.Name = "datavoucher";
+            this.datavoucher.RowHeadersWidth = 51;
+            this.datavoucher.RowTemplate.Height = 24;
+            this.datavoucher.Size = new System.Drawing.Size(420, 192);
+            this.datavoucher.TabIndex = 114;
+            this.datavoucher.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datavoucher_CellClick);
             // 
             // SellMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1672, 1055);
-            this.Controls.Add(this.combovoucher);
+            this.ClientSize = new System.Drawing.Size(1845, 1055);
+            this.Controls.Add(this.datavoucher);
+            this.Controls.Add(this.phamtramgiam);
+            this.Controls.Add(this.TxtGiaCuoiCung);
+            this.Controls.Add(this.TxtVoucher);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.meme);
             this.Controls.Add(this.txttien);
@@ -730,6 +819,8 @@
             this.Controls.Add(this.thanhtona);
             this.Controls.Add(this.xoa);
             this.Controls.Add(this.view);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtGia);
@@ -761,6 +852,7 @@
             this.Text = "       ";
             this.Load += new System.EventHandler(this.SellMedicine_Load);
             ((System.ComponentModel.ISupportInitialize)(this.view)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datavoucher)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -809,6 +901,11 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel meme;
         private System.Windows.Forms.Label label16;
         private Guna.UI2.WinForms.Guna2TextBox IdHD;
-        private Guna.UI2.WinForms.Guna2ComboBox combovoucher;
+        private System.Windows.Forms.Label label17;
+        private Guna.UI2.WinForms.Guna2TextBox TxtVoucher;
+        private System.Windows.Forms.Label label18;
+        private Guna.UI2.WinForms.Guna2TextBox TxtGiaCuoiCung;
+        private Guna.UI2.WinForms.Guna2TextBox phamtramgiam;
+        private System.Windows.Forms.DataGridView datavoucher;
     }
 }
