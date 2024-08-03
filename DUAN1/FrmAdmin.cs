@@ -89,5 +89,13 @@ namespace DUAN1
             f.Show();
             this.Hide();
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            SellMedicine f = new SellMedicine(_dbcontext,_idd, 0);
+            f.FormClosed += (a, b) => this.Show();
+            f.Show();
+            this.Hide();
+        }
     }
 }

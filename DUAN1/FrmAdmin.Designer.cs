@@ -34,6 +34,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdmin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Voucher = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.btnProfile = new Guna.UI2.WinForms.Guna2Button();
@@ -44,7 +45,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.Voucher = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -54,6 +55,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel1.Controls.Add(this.guna2Button2);
             this.panel1.Controls.Add(this.Voucher);
             this.panel1.Controls.Add(this.guna2Button1);
             this.panel1.Controls.Add(this.btnLogout);
@@ -67,6 +69,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(256, 1100);
             this.panel1.TabIndex = 0;
+            // 
+            // Voucher
+            // 
+            this.Voucher.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Voucher.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Voucher.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Voucher.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Voucher.FillColor = System.Drawing.Color.Black;
+            this.Voucher.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Voucher.ForeColor = System.Drawing.Color.White;
+            this.Voucher.Image = ((System.Drawing.Image)(resources.GetObject("Voucher.Image")));
+            this.Voucher.Location = new System.Drawing.Point(-3, 564);
+            this.Voucher.Name = "Voucher";
+            this.Voucher.Size = new System.Drawing.Size(256, 45);
+            this.Voucher.TabIndex = 9;
+            this.Voucher.Text = "Voucher";
+            this.Voucher.Click += new System.EventHandler(this.Voucher_Click);
             // 
             // guna2Button1
             // 
@@ -95,7 +114,7 @@
             this.btnLogout.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
-            this.btnLogout.Location = new System.Drawing.Point(-3, 618);
+            this.btnLogout.Location = new System.Drawing.Point(-3, 675);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(256, 45);
             this.btnLogout.TabIndex = 6;
@@ -224,22 +243,22 @@
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
-            // Voucher
+            // guna2Button2
             // 
-            this.Voucher.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Voucher.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Voucher.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Voucher.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Voucher.FillColor = System.Drawing.Color.Black;
-            this.Voucher.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Voucher.ForeColor = System.Drawing.Color.White;
-            this.Voucher.Image = ((System.Drawing.Image)(resources.GetObject("Voucher.Image")));
-            this.Voucher.Location = new System.Drawing.Point(-3, 564);
-            this.Voucher.Name = "Voucher";
-            this.Voucher.Size = new System.Drawing.Size(256, 45);
-            this.Voucher.TabIndex = 9;
-            this.Voucher.Text = "Voucher";
-            this.Voucher.Click += new System.EventHandler(this.Voucher_Click);
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.Black;
+            this.guna2Button2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
+            this.guna2Button2.Location = new System.Drawing.Point(-3, 615);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(256, 45);
+            this.guna2Button2.TabIndex = 10;
+            this.guna2Button2.Text = "Add Bills";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // FrmAdmin
             // 
@@ -279,5 +298,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button Voucher;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -65,8 +66,8 @@ namespace DUAN1.Nhân_Viên
                 NameCus.Text = idhds.Cus.CustomerName;
                 SDTCus.Text = idhds.Cus.SDT;
                 IdHD.Text = idhds.Bil.BillId.ToString();
-                var voucheri = _context.Vouchers.FirstOrDefault(x=>x.IdVoucher==idhds.Bil.IdVoucher);
-                phamtramgiam.Text=voucheri.VoucherValue.ToString();
+                var voucheri = _context.Vouchers.FirstOrDefault(x => x.IdVoucher == idhds.Bil.IdVoucher);
+                phamtramgiam.Text = voucheri.VoucherValue.ToString();
                 hienthiview();
                 themadd.Enabled = false;
                 datavoucher.Enabled = false;
@@ -80,7 +81,7 @@ namespace DUAN1.Nhân_Viên
                                ID = v.IdVoucher,
                                Name = v.NameVoucher
                            }).ToList();
-             datavoucher.DataSource = voucher;
+            datavoucher.DataSource = voucher;
             txttien.Enabled = false;
             TxtVoucher.Enabled = false;
             TxtGiaCuoiCung.Enabled = false;
@@ -220,7 +221,7 @@ namespace DUAN1.Nhân_Viên
                                     decimal.TryParse(txtGia.Text, out gia);
                                     decimal phantram;
                                     decimal.TryParse(phamtramgiam.Text, out phantram);
-                                    txttien.Text = (gia +tienc).ToString();
+                                    txttien.Text = (gia + tienc).ToString();
                                     decimal tiensaucong;
                                     decimal.TryParse(txttien.Text, out tiensaucong);
                                     txttien.Text = tiensaucong.ToString();
@@ -266,7 +267,7 @@ namespace DUAN1.Nhân_Viên
                                         listView1_Click(sender, e);
                                     }
                                     kho.ProductQuantity = kho.ProductQuantity - c;
-                                    
+
                                     clear();
                                     hienthiview();
                                     listView1.Clear();
@@ -340,9 +341,9 @@ namespace DUAN1.Nhân_Viên
                 {
 
                     var voucher = _context.Vouchers.Where(x => x.HSD > DateTime.Now && x.Quantity > 0 && x.idtt == 1).ToList();
-                    if (voucher != null && idvouchers==null)
+                    if (voucher != null && idvouchers == null)
                     {
-                        if(MessageBox.Show("Trong kho vẫn còn voucher bạn có muốn thêm voucher cho hóa đơn này không","Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (MessageBox.Show("Trong kho vẫn còn voucher bạn có muốn thêm voucher cho hóa đơn này không", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
 
                         }
@@ -356,9 +357,9 @@ namespace DUAN1.Nhân_Viên
                         AddbillAndVoucher();
                     }
 
-          //          var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
-      //              var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
-   //                 idhdss = HoaDon.BillId;
+                    var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
+                    var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
+                    idhdss = HoaDon.BillId;
                 }
 
             }
@@ -372,7 +373,7 @@ namespace DUAN1.Nhân_Viên
             TxtVoucher.Text = (GiaGoc * (PhanTram / 100)).ToString();
             decimal GiaCGiam;
             decimal.TryParse(TxtVoucher.Text, out GiaCGiam);
-            TxtGiaCuoiCung.Text = (GiaGoc-GiaCGiam).ToString();
+            TxtGiaCuoiCung.Text = (GiaGoc - GiaCGiam).ToString();
 
         }
 
@@ -431,8 +432,8 @@ namespace DUAN1.Nhân_Viên
             {
                 IdCustomer = IdHd.IdCustomer,
                 PriceBill = 0,
-               IdVoucher = idvouchers > 0 ? idvouchers : null,
-            DateBill = DateTime.Now.Date,
+                IdVoucher = idvouchers > 0 ? idvouchers : null,
+                DateBill = DateTime.Now.Date,
                 StatusId = 2,
             };
             _context.Bills.Add(bill);
@@ -450,9 +451,9 @@ namespace DUAN1.Nhân_Viên
             int.TryParse(txtSl.Text, out sl);
             decimal tong = sl * gia;
             txtGia.Text = tong.ToString();
-            
 
-            
+
+
         }
         private void label7_Click(object sender, EventArgs e)
         {
@@ -467,7 +468,7 @@ namespace DUAN1.Nhân_Viên
         }
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            
+
             if (Idddd == null)
             {
                 MessageBox.Show("Vui lòng chọn sản phẩm cần loại bỏ ra khỏi hóa đơn");
@@ -481,9 +482,9 @@ namespace DUAN1.Nhân_Viên
                     if (MessageBox.Show("Bạn có chắc chắn muốn loại bỏ sản phẩm ra khỏi hóa đơn không", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         var SanPhamHoiQuantity = _context.Products.FirstOrDefault(x => x.ProductId == delete.ProductId);
-                        int  Quantity = SanPhamHoiQuantity.ProductQuantity + delete.Quantity;
+                        int Quantity = SanPhamHoiQuantity.ProductQuantity + delete.Quantity;
                         SanPhamHoiQuantity.ProductQuantity = Quantity;
-                       
+
                         decimal canxoa = delete.Price;
                         decimal tien;
                         decimal.TryParse(txttien.Text, out tien);
@@ -504,7 +505,7 @@ namespace DUAN1.Nhân_Viên
                         decimal tientongket;
                         decimal.TryParse(TxtGiaCuoiCung.Text, out tientongket);
                         a = tiensaucong - voucher;
-                        TxtGiaCuoiCung.Text=a.ToString();
+                        TxtGiaCuoiCung.Text = a.ToString();
                         hoadonanhhuong.PriceBill = a;
                         _context.Detailedbills.Remove(delete);
                         _context.SaveChanges();
@@ -580,6 +581,7 @@ namespace DUAN1.Nhân_Viên
             if (txtkhachdua.Text == "" || tiendua <= 0 || tienthua < 0)
             {
                 MessageBox.Show("Vui lòng kiểm tra lại tiền ");
+
             }
             else
             {
@@ -597,6 +599,7 @@ namespace DUAN1.Nhân_Viên
                     {
                         capnhat.StatusId = 1;
                         capnhat.PriceBill = TienCuoi;
+                        InHoaDon(iddd, 0);
                         _context.SaveChanges();
                         MessageBox.Show("Đã thanh toán thành công ");
                     }
@@ -607,6 +610,7 @@ namespace DUAN1.Nhân_Viên
                     if (a == null)
                     {
                         MessageBox.Show("Hóa đơn chưa được tạo");
+
                     }
                     else
                     {
@@ -619,8 +623,11 @@ namespace DUAN1.Nhân_Viên
                         {
                             a.StatusId = 1;
                             a.PriceBill = TienCuoi;
+                            InHoaDon(0, idhdss);
                             MessageBox.Show("Đã thanh toán thành công ");
+
                             _context.SaveChanges();
+
 
                         }
                     }
@@ -628,6 +635,65 @@ namespace DUAN1.Nhân_Viên
 
             }
         }
+        public void InHoaDon(int a, int b)
+        {
+            int idhoadon;
+            if (a == 0)
+            {
+                idhoadon = b;
+            }
+            else
+            {
+                idhoadon = a;
+            }
+            var Thongtinhoadon = (from c in _context.Bills
+                                 join d in _context.Detailedbills on c.BillId equals d.BillId
+                                 join e in _context.Customers on c.IdCustomer equals e.IdCustomer
+                                 join p in _context.Products on d.ProductId equals p.ProductId
+                                 join u in _context.Units on p.IdUnit equals u.IdUnit
+                                 where (c.BillId == idhoadon)
+                                 select new
+                                 {
+                                     bill = c,
+                                     det = d,
+                                     cus = e,
+                                     pro =p,
+                                     unit = u,
+                                 }).ToList();
+            string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"Hoadon{idhoadon}");
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine("Thăng Long Medicine khính chào quý khách");
+                writer.WriteLine("Đc:An Khánh , Hoài Đức");
+                writer.WriteLine();
+                writer.WriteLine();
+                writer.WriteLine();
+                var ttSp = Thongtinhoadon.Select(x => x.pro).ToList();
+                writer.WriteLine("Tên sản phẩm".PadRight(30) + "Số lượng".PadRight(10) + "Đơn vị".PadRight(10) + "Giá thành".PadRight(15));
+                writer.WriteLine(new string('-', 65));
+                foreach (var item in Thongtinhoadon)
+                {
+                    string productName = item.pro.ProductName;
+                    string unit = item.unit.UnitName;
+                    int quantity = item.det.Quantity;
+                    decimal price = item.det.Price;
+                    writer.WriteLine(productName.PadRight(30) + quantity.ToString().PadRight(10) + unit.PadRight(10) + price.ToString("C").PadRight(15));
+                }
+                writer.WriteLine("-------------------------------------------------------");
+                writer.WriteLine(($"Tổng tiền{txttien.Text}"));
+                writer.WriteLine();
+                writer.WriteLine(($"Voucher {TxtVoucher.Text}"));
+                writer.WriteLine();
+                writer.WriteLine(($"Tiền Phải thanh toán {TxtGiaCuoiCung.Text}"));
+                writer.WriteLine();
+                writer.WriteLine(($"Tiền khách đưa {txtkhachdua.Text}"));
+                writer.WriteLine();
+                writer.WriteLine(($"Tiền thừa  {txtThua.Text}"));
+                writer.WriteLine();
+                writer.WriteLine(("Cảm ơn quý khách đã mua hàng"));
+            }
+        }
+
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -636,17 +702,17 @@ namespace DUAN1.Nhân_Viên
         private void combovoucher_SelectedIndexChanged(object sender, EventArgs e)
         {
             var vou = _context.Vouchers.FirstOrDefault(x => x.IdVoucher == idvouchers);
-            phamtramgiam.Text= vou.VoucherValue.ToString();
-            
+            phamtramgiam.Text = vou.VoucherValue.ToString();
+
         }
         int? idvouchers;
         private void datavoucher_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-             var a = datavoucher.Rows[e.RowIndex];
-              idvouchers = Convert.ToInt32(a.Cells["ID"].Value.ToString());
+            var a = datavoucher.Rows[e.RowIndex];
+            idvouchers = Convert.ToInt32(a.Cells["ID"].Value.ToString());
             if (idvouchers != null)
             {
-                var valuevocher = _context.Vouchers.FirstOrDefault(x=>x.IdVoucher == idvouchers);
+                var valuevocher = _context.Vouchers.FirstOrDefault(x => x.IdVoucher == idvouchers);
                 phamtramgiam.Text = valuevocher.VoucherValue.ToString();
             }
         }
