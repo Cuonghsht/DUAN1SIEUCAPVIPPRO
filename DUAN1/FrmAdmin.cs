@@ -47,6 +47,7 @@ namespace DUAN1
             f.FormClosed += (a, b) => this.Show();
             f.Show();
             this.Hide();
+
         }
 
         private void btnViewUser_Click(object sender, EventArgs e)

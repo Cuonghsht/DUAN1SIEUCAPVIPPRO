@@ -202,5 +202,33 @@ namespace DUAN1.Nhân_Viên
         {
 
         }
+
+        private void guna2TextBox4_TextChanged(object sender, EventArgs e)
+        {
+            
+            if (txttimkiem.Text=="")
+            {
+                HienThi();
+            }
+            else
+            {
+                int values;
+                int.TryParse(txttimkiem.Text, out values);
+               var timkiem = (from b in _context.Vouchers
+                              join c in _context.TrangThaiVouchers on b.idtt equals c.idtt where(b.VoucherValue==values|| b.NameVoucher.ToLower().Contains(txttimkiem.Text))
+                              select new
+                              {
+                                  IdVoucher = b.IdVoucher,
+                                  Name = b.NameVoucher,
+                                  DateSX = b.NSX,
+                                  DateSD = b.HSD,
+                                  Quantity = b.Quantity,
+                                  Value = b.VoucherValue,
+                                  Status = c.Namett,
+
+                              }).ToList(); 
+                dataGridView1.DataSource= timkiem;
+            }
+        }
     }
 }

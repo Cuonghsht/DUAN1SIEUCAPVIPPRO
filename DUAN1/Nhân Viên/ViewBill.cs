@@ -73,7 +73,7 @@ namespace DUAN1.Nhân_Viên
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0)
+            if (e.RowIndex >= 0)
             {
                 var a = dataGridView1.Rows[e.RowIndex];
                 Id = Convert.ToInt32(a.Cells["IdBills"].Value.ToString());
@@ -81,7 +81,7 @@ namespace DUAN1.Nhân_Viên
             }
             else
             {
-                MessageBox.Show("Khong co du lieu");
+                MessageBox.Show("Không có dữ liệu");
             }
         }
     }
