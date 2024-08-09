@@ -13,8 +13,8 @@ namespace DUAN1.Nhân_Viên
 {
 	public partial class AddMedicine : Form
 	{
-		private readonly QuanLyHieuThuocEntities5 _context;
-		public AddMedicine(QuanLyHieuThuocEntities5 context)
+		private readonly QuanLyHieuThuocEntities6 _context;
+		public AddMedicine(QuanLyHieuThuocEntities6 context)
 		{
 			_context = context;
 			InitializeComponent();
@@ -49,19 +49,31 @@ namespace DUAN1.Nhân_Viên
 		private void btnSigin_Click(object sender, EventArgs e)
 
 		{
+			decimal price;
+			decimal.TryParse(TxtPrice.Text, out price);
+			int Quantity;
+			int.TryParse(TxtQuantity.Text, out Quantity);
 			if (TxtName.Text == "" || TxtPrice.Text == "" || TxtQuantity.Text == "")
 			{
-				MessageBox.Show("ban can nahp day du thong tin");
+				MessageBox.Show("Bạn cần nhập đầy đủ thông tin ");
+				return;
 			}
 			else if (Date.Value < DateTime.Now)
 			{
-				MessageBox.Show("Ban khong the them thuoc da qua han su dung");
+				MessageBox.Show("Bạn không thể thêm sản phẩm đã hết hạn sử dụng");
 			}
 			else if ((TxtPrice.Text.All(char.IsDigit) == false || TxtQuantity.Text.All(char.IsDigit) == false))
 			{
-				MessageBox.Show("So luong va gia tien khong duoc ton  tai ki tu");
+				MessageBox.Show("Giá tiền  và số lượng không được tồn tại kí tự ");
 			}
-
+			else if (price<0||Quantity<0)
+			{
+				MessageBox.Show("Giá và số lượng phải lớn hơn 0");
+			}
+			else if (!int.TryParse(TxtQuantity.Text,out Quantity))
+			{
+				MessageBox.Show("Số lượng bắt buộc pahi là 1 số nguyên");
+			}
 			else
 			{
 				var add = new Product
@@ -72,6 +84,7 @@ namespace DUAN1.Nhân_Viên
 					IdUnit = ComboUnit.SelectedIndex + 1,
 					ProductExpiry = Date.Value.Date,
 					IdCategory = ComboDanhMuc.SelectedIndex + 1,
+					StatusPr = 1
 				};
 				MessageBox.Show("Them san pham thanh cong");
 				_context.Products.Add(add);

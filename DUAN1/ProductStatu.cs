@@ -12,27 +12,18 @@ namespace DUAN1
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class ProductStatu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public ProductStatu()
         {
-            this.Detailedbills = new HashSet<Detailedbill>();
+            this.Products = new HashSet<Product>();
         }
     
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public System.DateTime ProductExpiry { get; set; }
-        public decimal ProductPrice { get; set; }
-        public int ProductQuantity { get; set; }
-        public int IdCategory { get; set; }
-        public int IdUnit { get; set; }
-        public int StatusPr { get; set; }
+        public int Idstatus { get; set; }
+        public string StatusName { get; set; }
     
-        public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Detailedbill> Detailedbills { get; set; }
-        public virtual Unit Unit { get; set; }
-        public virtual ProductStatu ProductStatu { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

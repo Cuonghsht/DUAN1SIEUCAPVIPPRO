@@ -15,9 +15,9 @@ namespace DUAN1
 {
     public partial class FrmAdmin : Form
     {
-        private readonly QuanLyHieuThuocEntities5 _dbcontext;
+        private readonly QuanLyHieuThuocEntities6 _dbcontext;
         public int _idd;
-        public FrmAdmin(QuanLyHieuThuocEntities5 dbcontext,int idd)
+        public FrmAdmin(QuanLyHieuThuocEntities6 dbcontext,int idd)
         {
             _idd = idd;
             _dbcontext= dbcontext;

@@ -14,8 +14,8 @@ namespace DUAN1.Nhân_Viên
 {
     public partial class Vouchers : Form
     {
-        public readonly QuanLyHieuThuocEntities5 _context;
-        public Vouchers(QuanLyHieuThuocEntities5 contetxt)
+        public readonly QuanLyHieuThuocEntities6 _context;
+        public Vouchers(QuanLyHieuThuocEntities6 contetxt)
         {
             _context = contetxt;
             InitializeComponent();

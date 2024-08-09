@@ -12,8 +12,8 @@ namespace DUAN1.Nhân_Viên
 {
     public partial class ViewMedicine : Form
     {
-        private readonly QuanLyHieuThuocEntities5 _context;
-        public ViewMedicine(QuanLyHieuThuocEntities5 context)
+        private readonly QuanLyHieuThuocEntities6 _context;
+        public ViewMedicine(QuanLyHieuThuocEntities6 context)
         {
             _context = context;
             InitializeComponent();
@@ -28,6 +28,11 @@ namespace DUAN1.Nhân_Viên
             {
                 CatePro.Items.Add(item.CategoryName);
             }
+            var status = _context.ProductStatus.ToList();
+            foreach (var item in status)
+            {
+                Statuspr.Items.Add(item.StatusName);
+            }
             HienThiView();
         }
 
@@ -36,14 +41,17 @@ namespace DUAN1.Nhân_Viên
             var View = (from a in _context.Units
                         join b in _context.Products on a.IdUnit equals b.IdUnit
                         join c in _context.Categories on b.IdCategory equals c.IdCategory
+                        join d in _context.ProductStatus on b.StatusPr equals d.Idstatus
                         select new
                         {
                             MedicineId = b.ProductId,
                             MedicineName = b.ProductName,
+                            Price = b.ProductPrice,
                             MedicineExpiry = b.ProductExpiry,
                             Quantity = b.ProductQuantity,
                             Category = c.CategoryName,
                             Unit = a.UnitName,
+                            Status = d.StatusName
                         }).ToList();
 
             dataGridView1.DataSource = View;
@@ -54,23 +62,32 @@ namespace DUAN1.Nhân_Viên
 
         }
 
-        private void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        private async void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
             var Ss = dataGridView1.Rows[e.RowIndex];
-            var b = Ss.Cells["MedicineExpiry"].Value.ToString();
-            DateTime datevalue;
-            DateTime.TryParse(b, out datevalue);
-            var HSD = DateTime.Now.Month - datevalue.Month;
-            var a = Convert.ToInt32(Ss.Cells["Quantity"].Value.ToString());
-            if (a < 5)
+            var a = Convert.ToInt32(Ss.Cells["MedicineId"].Value.ToString());
+            var check = (from r in _context.Products  select r).ToList();
+             List<int> pr = new List<int>();
+            foreach (var i in check)
             {
-                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                if (i.ProductQuantity < 5 || i.ProductExpiry.Date < DateTime.Now|| i.StatusPr==2)
+                {
+                    pr.Add(i.ProductId);
+
+                }
+               
             }
-            else
+            foreach(var r in pr)
             {
-                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Green;
+                if (r == a)
+                {
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+
+                }
+               
             }
         }
+      
 
         private void TxtTimkiem_TextChanged(object sender, EventArgs e)
         {
@@ -89,6 +106,7 @@ namespace DUAN1.Nhân_Viên
                                {
                                    MedicineId = a.ProductId,
                                    MedicineName = a.ProductName,
+                                   Price = a.ProductPrice,
                                    MedicineExpiry = a.ProductExpiry,
                                    Quantity = a.ProductQuantity,
                                    Category = b.CategoryName,
@@ -102,25 +120,34 @@ namespace DUAN1.Nhân_Viên
         {
             var b = dataGridView1.Rows[e.RowIndex];
             a = Convert.ToInt32(b.Cells["MedicineId"].Value.ToString());
+            IdPro.Text = b.Cells["MedicineId"].Value.ToString();
+            NamePro.Text = b.Cells["MedicineName"].Value.ToString();
+            SLPro.Text = (b.Cells["Quantity"].Value.ToString());
+            Giapro.Text = (b.Cells["Price"].Value.ToString());
+            var timrole = _context.Products.FirstOrDefault(x => x.ProductId == a);
+            CatePro.SelectedIndex = timrole.IdCategory - 1;
+            UnitPro.SelectedIndex = timrole.IdUnit - 1;
+            Statuspr.SelectedIndex = timrole.StatusPr - 1;
+
         }
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             if (a == 0)
             {
-                MessageBox.Show(" Ban can chon nguoi can xoa");
+                MessageBox.Show("Bạn cần chọn sản phầm cần dừng bán");
             }
             else
             {
                 var delete = _context.Products.FirstOrDefault(x => x.ProductId == a);
                 if (delete == null)
                 {
-                    MessageBox.Show(" San pham nay khong ton tai");
+                    MessageBox.Show("Sản phẩm này  không tồn tại");
                 }
                 else
                 {
-                    if (MessageBox.Show("Ban co chac chan muon xoa san pham nay ra khoi he thong khon", "Xac nhan", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show("Bạn có chắc chắn muốn dừng bán sản phẩm này không", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        _context.Products.Remove(delete);
+                        delete.StatusPr = 2;
                         _context.SaveChanges();
                         HienThiView();
                         a = 0;
@@ -128,8 +155,6 @@ namespace DUAN1.Nhân_Viên
 
                 }
             }
-
-
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

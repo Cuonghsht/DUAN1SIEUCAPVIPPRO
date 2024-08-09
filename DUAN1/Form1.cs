@@ -13,12 +13,12 @@ namespace DUAN1
 {
     public partial class Form1 : Form
     {
-         private QuanLyHieuThuocEntities5 dbContext;
+         private QuanLyHieuThuocEntities6 dbContext;
 
         public Form1()
         {
             InitializeComponent();
-            dbContext = new QuanLyHieuThuocEntities5();
+            dbContext = new QuanLyHieuThuocEntities6();
             txtMatKhau.UseSystemPasswordChar = true;
         }
 

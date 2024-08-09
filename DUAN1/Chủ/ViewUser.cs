@@ -14,8 +14,8 @@ namespace DUAN1.Chủ
 {
     public partial class ViewUser : Form
     {
-        private readonly QuanLyHieuThuocEntities5 _context;
-        public ViewUser(QuanLyHieuThuocEntities5 context)
+        private readonly QuanLyHieuThuocEntities6 _context;
+        public ViewUser(QuanLyHieuThuocEntities6 context)
         {
             InitializeComponent();
             _context = context;

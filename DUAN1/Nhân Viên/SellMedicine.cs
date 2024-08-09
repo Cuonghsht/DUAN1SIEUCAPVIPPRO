@@ -18,10 +18,10 @@ namespace DUAN1.Nhân_Viên
 {
     public partial class SellMedicine : Form
     {
-        private readonly QuanLyHieuThuocEntities5 _context;
+        private readonly QuanLyHieuThuocEntities6 _context;
         private int iid;
         private int iddd;
-        public SellMedicine(QuanLyHieuThuocEntities5 context, int idd, int ids)
+        public SellMedicine(QuanLyHieuThuocEntities6 context, int idd, int ids)
         {
             InitializeComponent();
             _context = context;
@@ -95,7 +95,7 @@ namespace DUAN1.Nhân_Viên
             listView1.Columns.Add("Name", 120);
             listView1.Columns.Add("Price", 100);
             listView1.Columns.Add("Quantity", 40);
-            var list = (from a in _context.Products select a).ToList();
+            var list = (from a in _context.Products where(a.ProductQuantity>0 && a.ProductExpiry > DateTime.Now && a.StatusPr==1) select a ).ToList();
             foreach (var a in list)
             {
                 ListViewItem item = new ListViewItem(a.ProductId.ToString());
