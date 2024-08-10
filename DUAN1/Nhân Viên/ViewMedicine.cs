@@ -128,7 +128,6 @@ namespace DUAN1.Nhân_Viên
             CatePro.SelectedIndex = timrole.IdCategory - 1;
             UnitPro.SelectedIndex = timrole.IdUnit - 1;
             Statuspr.SelectedIndex = timrole.StatusPr - 1;
-
         }
         private void guna2Button2_Click(object sender, EventArgs e)
         {

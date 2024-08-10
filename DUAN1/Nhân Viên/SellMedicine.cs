@@ -355,11 +355,10 @@ namespace DUAN1.Nhân_Viên
                     else
                     {
                         AddbillAndVoucher();
+                        return;
                     }
 
-                    var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
-                    var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
-                    idhdss = HoaDon.BillId;
+                  
                 }
 
             }
@@ -422,7 +421,15 @@ namespace DUAN1.Nhân_Viên
                     MessageBox.Show("Khách hàng đã từng mua sản phẩm ở đây");
                     ThemHoaDon();
                 }
+                var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
+                var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
+                idhdss = HoaDon.BillId;
             }
+            else
+            {
+                return;
+            }
+           
 
         }
         public void ThemHoaDon()
@@ -451,9 +458,6 @@ namespace DUAN1.Nhân_Viên
             int.TryParse(txtSl.Text, out sl);
             decimal tong = sl * gia;
             txtGia.Text = tong.ToString();
-
-
-
         }
         private void label7_Click(object sender, EventArgs e)
         {
@@ -484,7 +488,6 @@ namespace DUAN1.Nhân_Viên
                         var SanPhamHoiQuantity = _context.Products.FirstOrDefault(x => x.ProductId == delete.ProductId);
                         int Quantity = SanPhamHoiQuantity.ProductQuantity + delete.Quantity;
                         SanPhamHoiQuantity.ProductQuantity = Quantity;
-
                         decimal canxoa = delete.Price;
                         decimal tien;
                         decimal.TryParse(txttien.Text, out tien);

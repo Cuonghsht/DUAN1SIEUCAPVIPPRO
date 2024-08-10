@@ -87,7 +87,6 @@
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Báo cáo bán hàng";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // combosheacher
             // 
@@ -123,7 +122,7 @@
             this.label5.Font = new System.Drawing.Font("Century", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(274, 26);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 26);
+            this.label5.Size = new System.Drawing.Size(109, 21);
             this.label5.TabIndex = 17;
             this.label5.Text = "Trạng thái ";
             // 
@@ -229,6 +228,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ViewBill";
             this.Text = "ViewBill";
+            this.Load += new System.EventHandler(this.ViewBill_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
