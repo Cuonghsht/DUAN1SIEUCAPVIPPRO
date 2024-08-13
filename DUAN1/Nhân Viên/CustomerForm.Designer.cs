@@ -261,7 +261,7 @@
             this.TxtTimkiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtTimkiem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TxtTimkiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtTimkiem.Location = new System.Drawing.Point(1383, 92);
+            this.TxtTimkiem.Location = new System.Drawing.Point(1383, 90);
             this.TxtTimkiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtTimkiem.Name = "TxtTimkiem";
             this.TxtTimkiem.PasswordChar = '\0';
@@ -274,13 +274,13 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1301, 90);
+            this.label6.Location = new System.Drawing.Point(1289, 90);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 23);
             this.label6.TabIndex = 93;
             this.label6.Text = "Name:";
             // 
-            // Customer
+            // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -300,7 +300,8 @@
             this.Controls.Add(this.txtsearche);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Name = "Customer";
+            this.Name = "CustomerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customer";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

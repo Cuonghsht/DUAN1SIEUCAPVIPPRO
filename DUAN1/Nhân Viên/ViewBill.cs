@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
 namespace DUAN1.Nhân_Viên
 {
     public partial class ViewBill : Form
@@ -24,7 +23,6 @@ namespace DUAN1.Nhân_Viên
             ids = idd;
             idddd = iddd;
             InitializeComponent();
-           
             var billsWithoutDetails = _context.Bills.Where(b => !_context.Detailedbills.Any(d => d.BillId == b.BillId)).ToList();
             foreach (var bill in billsWithoutDetails)
             {
@@ -32,13 +30,11 @@ namespace DUAN1.Nhân_Viên
                 var check = _context.Vouchers.Where(x => x.IdVoucher == bill.IdVoucher).ToList(); 
                 if (check != null)
                 {
-                    
                     foreach(var i in check)
                     {
                         i.Quantity  +=1;
 
                     }
-                    
                 }
                 else
                 {
@@ -53,7 +49,6 @@ namespace DUAN1.Nhân_Viên
                 combosheacher.Items.Add(status.StatusName);
             }
         }
-
         public void Hienthi()
         {
             var viewwwwww = (from a in _context.Users
@@ -76,18 +71,13 @@ namespace DUAN1.Nhân_Viên
                                  StaTus = d != null ? d.StatusName : "No Status",
                                  VoucherName = v != null ? v.NameVoucher : "No Voucher",
                              }).Distinct().ToList();
-
             dataGridView1.DataSource = viewwwwww;
 
-           
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
-       
-
         private void ChiTiet_Click(object sender, EventArgs e)
         {
 
@@ -113,7 +103,7 @@ namespace DUAN1.Nhân_Viên
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            Hienthi();
+           
             
         }
 
@@ -155,6 +145,11 @@ namespace DUAN1.Nhân_Viên
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            Hienthi();
         }
     }
 }

@@ -54,9 +54,9 @@
             // 
             this.elementHost1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.elementHost1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.elementHost1.Location = new System.Drawing.Point(15, 65);
+            this.elementHost1.Location = new System.Drawing.Point(134, 171);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(1016, 701);
+            this.elementHost1.Size = new System.Drawing.Size(1081, 701);
             this.elementHost1.TabIndex = 66;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.elementHost1_ChildChanged);
@@ -67,7 +67,7 @@
             this.batdau.Checked = true;
             this.batdau.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.batdau.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.batdau.Location = new System.Drawing.Point(1088, 69);
+            this.batdau.Location = new System.Drawing.Point(1359, 210);
             this.batdau.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.batdau.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.batdau.Name = "batdau";
@@ -80,7 +80,7 @@
             this.ketthuc.Checked = true;
             this.ketthuc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ketthuc.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.ketthuc.Location = new System.Drawing.Point(1088, 177);
+            this.ketthuc.Location = new System.Drawing.Point(1359, 318);
             this.ketthuc.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.ketthuc.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.ketthuc.Name = "ketthuc";
@@ -101,7 +101,7 @@
             this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(1090, 34);
+            this.guna2TextBox1.Location = new System.Drawing.Point(1359, 171);
             this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
@@ -124,7 +124,7 @@
             this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox2.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Location = new System.Drawing.Point(1088, 142);
+            this.guna2TextBox2.Location = new System.Drawing.Point(1359, 283);
             this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PasswordChar = '\0';
@@ -145,7 +145,7 @@
             this.guna2Button1.Font = new System.Drawing.Font("Century", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.Location = new System.Drawing.Point(1266, 265);
+            this.guna2Button1.Location = new System.Drawing.Point(1537, 406);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(119, 63);
             this.guna2Button1.TabIndex = 69;
@@ -163,7 +163,7 @@
             this.reload.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reload.ForeColor = System.Drawing.Color.White;
             this.reload.Image = ((System.Drawing.Image)(resources.GetObject("reload.Image")));
-            this.reload.Location = new System.Drawing.Point(1097, 265);
+            this.reload.Location = new System.Drawing.Point(1368, 406);
             this.reload.Name = "reload";
             this.reload.Size = new System.Drawing.Size(138, 63);
             this.reload.TabIndex = 70;
@@ -174,7 +174,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1406, 778);
+            this.ClientSize = new System.Drawing.Size(1845, 1055);
             this.Controls.Add(this.reload);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.guna2TextBox2);
@@ -185,6 +185,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "UpdateMedicine";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateMedicine";
             this.ResumeLayout(false);
             this.PerformLayout();

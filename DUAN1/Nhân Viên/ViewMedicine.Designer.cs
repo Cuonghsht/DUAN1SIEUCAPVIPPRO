@@ -35,14 +35,12 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.IdPro = new System.Windows.Forms.TextBox();
-            this.NamePro = new System.Windows.Forms.TextBox();
+            this.TxtName = new System.Windows.Forms.TextBox();
             this.Date = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.UnitPro = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.ChiTiet = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.SLPro = new System.Windows.Forms.TextBox();
-            this.Giapro = new System.Windows.Forms.TextBox();
-            this.CatePro = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.ComboUnit = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.TxtQuantity = new System.Windows.Forms.TextBox();
+            this.TxtPrice = new System.Windows.Forms.TextBox();
+            this.ComboDanhMuc = new Guna.UI2.WinForms.Guna2ComboBox();
             this.Statuspr = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,6 +52,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +113,7 @@
             this.guna2Button2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2Button2.HoverState.ForeColor = System.Drawing.Color.Black;
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
-            this.guna2Button2.Location = new System.Drawing.Point(1500, 297);
+            this.guna2Button2.Location = new System.Drawing.Point(1509, 313);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(178, 72);
             this.guna2Button2.TabIndex = 22;
@@ -136,24 +136,24 @@
             // 
             // IdPro
             // 
-            this.IdPro.Location = new System.Drawing.Point(103, 68);
+            this.IdPro.Location = new System.Drawing.Point(130, 68);
             this.IdPro.Name = "IdPro";
             this.IdPro.Size = new System.Drawing.Size(205, 22);
             this.IdPro.TabIndex = 24;
             // 
-            // NamePro
+            // TxtName
             // 
-            this.NamePro.Location = new System.Drawing.Point(103, 104);
-            this.NamePro.Name = "NamePro";
-            this.NamePro.Size = new System.Drawing.Size(205, 22);
-            this.NamePro.TabIndex = 24;
+            this.TxtName.Location = new System.Drawing.Point(130, 98);
+            this.TxtName.Name = "TxtName";
+            this.TxtName.Size = new System.Drawing.Size(205, 22);
+            this.TxtName.TabIndex = 24;
             // 
             // Date
             // 
             this.Date.Checked = true;
             this.Date.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.Date.Location = new System.Drawing.Point(466, 48);
+            this.Date.Location = new System.Drawing.Point(490, 48);
             this.Date.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.Date.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.Date.Name = "Date";
@@ -161,93 +161,49 @@
             this.Date.TabIndex = 25;
             this.Date.Value = new System.DateTime(2024, 7, 29, 15, 14, 31, 162);
             // 
-            // UnitPro
+            // ComboUnit
             // 
-            this.UnitPro.BackColor = System.Drawing.Color.Transparent;
-            this.UnitPro.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.UnitPro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.UnitPro.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.UnitPro.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.UnitPro.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.UnitPro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.UnitPro.ItemHeight = 30;
-            this.UnitPro.Location = new System.Drawing.Point(466, 152);
-            this.UnitPro.Name = "UnitPro";
-            this.UnitPro.Size = new System.Drawing.Size(271, 36);
-            this.UnitPro.TabIndex = 26;
+            this.ComboUnit.BackColor = System.Drawing.Color.Transparent;
+            this.ComboUnit.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboUnit.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboUnit.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboUnit.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ComboUnit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.ComboUnit.ItemHeight = 30;
+            this.ComboUnit.Location = new System.Drawing.Point(490, 150);
+            this.ComboUnit.Name = "ComboUnit";
+            this.ComboUnit.Size = new System.Drawing.Size(271, 36);
+            this.ComboUnit.TabIndex = 26;
             // 
-            // ChiTiet
+            // TxtQuantity
             // 
-            this.ChiTiet.BorderRadius = 19;
-            this.ChiTiet.BorderThickness = 1;
-            this.ChiTiet.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ChiTiet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ChiTiet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ChiTiet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ChiTiet.FillColor = System.Drawing.Color.Blue;
-            this.ChiTiet.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChiTiet.ForeColor = System.Drawing.Color.White;
-            this.ChiTiet.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
-            this.ChiTiet.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.ChiTiet.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.ChiTiet.Image = ((System.Drawing.Image)(resources.GetObject("ChiTiet.Image")));
-            this.ChiTiet.Location = new System.Drawing.Point(1500, 405);
-            this.ChiTiet.Name = "ChiTiet";
-            this.ChiTiet.Size = new System.Drawing.Size(178, 72);
-            this.ChiTiet.TabIndex = 22;
-            this.ChiTiet.Text = "Thêm";
-            this.ChiTiet.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.TxtQuantity.Location = new System.Drawing.Point(130, 169);
+            this.TxtQuantity.Name = "TxtQuantity";
+            this.TxtQuantity.Size = new System.Drawing.Size(205, 22);
+            this.TxtQuantity.TabIndex = 24;
             // 
-            // guna2Button4
+            // TxtPrice
             // 
-            this.guna2Button4.BorderRadius = 19;
-            this.guna2Button4.BorderThickness = 1;
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.Green;
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
-            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.Image")));
-            this.guna2Button4.Location = new System.Drawing.Point(1500, 527);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(178, 72);
-            this.guna2Button4.TabIndex = 22;
-            this.guna2Button4.Text = "Cập Nhật ";
-            this.guna2Button4.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.TxtPrice.Location = new System.Drawing.Point(130, 132);
+            this.TxtPrice.Name = "TxtPrice";
+            this.TxtPrice.Size = new System.Drawing.Size(205, 22);
+            this.TxtPrice.TabIndex = 27;
             // 
-            // SLPro
+            // ComboDanhMuc
             // 
-            this.SLPro.Location = new System.Drawing.Point(103, 166);
-            this.SLPro.Name = "SLPro";
-            this.SLPro.Size = new System.Drawing.Size(205, 22);
-            this.SLPro.TabIndex = 24;
-            // 
-            // Giapro
-            // 
-            this.Giapro.Location = new System.Drawing.Point(103, 138);
-            this.Giapro.Name = "Giapro";
-            this.Giapro.Size = new System.Drawing.Size(205, 22);
-            this.Giapro.TabIndex = 27;
-            // 
-            // CatePro
-            // 
-            this.CatePro.BackColor = System.Drawing.Color.Transparent;
-            this.CatePro.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CatePro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CatePro.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CatePro.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CatePro.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.CatePro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.CatePro.ItemHeight = 30;
-            this.CatePro.Location = new System.Drawing.Point(466, 104);
-            this.CatePro.Name = "CatePro";
-            this.CatePro.Size = new System.Drawing.Size(271, 36);
-            this.CatePro.TabIndex = 26;
+            this.ComboDanhMuc.BackColor = System.Drawing.Color.Transparent;
+            this.ComboDanhMuc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboDanhMuc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboDanhMuc.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboDanhMuc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboDanhMuc.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ComboDanhMuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.ComboDanhMuc.ItemHeight = 30;
+            this.ComboDanhMuc.Location = new System.Drawing.Point(490, 101);
+            this.ComboDanhMuc.Name = "ComboDanhMuc";
+            this.ComboDanhMuc.Size = new System.Drawing.Size(271, 36);
+            this.ComboDanhMuc.TabIndex = 26;
             // 
             // Statuspr
             // 
@@ -259,7 +215,7 @@
             this.Statuspr.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Statuspr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.Statuspr.ItemHeight = 30;
-            this.Statuspr.Location = new System.Drawing.Point(789, 152);
+            this.Statuspr.Location = new System.Drawing.Point(818, 153);
             this.Statuspr.Name = "Statuspr";
             this.Statuspr.Size = new System.Drawing.Size(271, 36);
             this.Statuspr.TabIndex = 28;
@@ -279,7 +235,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(785, 126);
+            this.label4.Location = new System.Drawing.Point(814, 109);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 23);
             this.label4.TabIndex = 30;
@@ -364,12 +320,58 @@
             this.label12.TabIndex = 30;
             this.label12.Text = "Price";
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 19;
+            this.guna2Button1.BorderThickness = 1;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Blue;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.Location = new System.Drawing.Point(1509, 535);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(178, 72);
+            this.guna2Button1.TabIndex = 31;
+            this.guna2Button1.Text = "Thêm";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.BorderRadius = 19;
+            this.guna2Button3.BorderThickness = 1;
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.FillColor = System.Drawing.Color.Green;
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
+            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
+            this.guna2Button3.Location = new System.Drawing.Point(1509, 428);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Size = new System.Drawing.Size(178, 72);
+            this.guna2Button3.TabIndex = 32;
+            this.guna2Button3.Text = "Cập Nhật ";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            // 
             // ViewMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1790, 884);
+            this.Controls.Add(this.guna2Button3);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -381,22 +383,21 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Statuspr);
-            this.Controls.Add(this.Giapro);
-            this.Controls.Add(this.UnitPro);
-            this.Controls.Add(this.CatePro);
+            this.Controls.Add(this.TxtPrice);
+            this.Controls.Add(this.ComboUnit);
+            this.Controls.Add(this.ComboDanhMuc);
             this.Controls.Add(this.Date);
-            this.Controls.Add(this.SLPro);
-            this.Controls.Add(this.NamePro);
+            this.Controls.Add(this.TxtQuantity);
+            this.Controls.Add(this.TxtName);
             this.Controls.Add(this.IdPro);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.guna2Button4);
-            this.Controls.Add(this.ChiTiet);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.TxtTimkiem);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ViewMedicine";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewMedicine";
             this.Load += new System.EventHandler(this.ViewMedicine_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -413,14 +414,12 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox IdPro;
-        private System.Windows.Forms.TextBox NamePro;
+        private System.Windows.Forms.TextBox TxtName;
         private Guna.UI2.WinForms.Guna2DateTimePicker Date;
-        private Guna.UI2.WinForms.Guna2ComboBox UnitPro;
-        private Guna.UI2.WinForms.Guna2Button ChiTiet;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private System.Windows.Forms.TextBox SLPro;
-        private System.Windows.Forms.TextBox Giapro;
-        private Guna.UI2.WinForms.Guna2ComboBox CatePro;
+        private Guna.UI2.WinForms.Guna2ComboBox ComboUnit;
+        private System.Windows.Forms.TextBox TxtQuantity;
+        private System.Windows.Forms.TextBox TxtPrice;
+        private Guna.UI2.WinForms.Guna2ComboBox ComboDanhMuc;
         private Guna.UI2.WinForms.Guna2ComboBox Statuspr;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -432,5 +431,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewUser));
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
@@ -65,30 +64,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "View User";
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.SystemColors.Control;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(175, 9);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(81, 78);
-            this.guna2Button1.TabIndex = 4;
-            this.guna2Button1.Text = "guna2Button1";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1282, 218);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1337, 214);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 34);
+            this.label2.Size = new System.Drawing.Size(83, 23);
             this.label2.TabIndex = 5;
             this.label2.Text = "Search:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -104,13 +86,13 @@
             this.TxtTimKiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtTimKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TxtTimKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtTimKiem.Location = new System.Drawing.Point(1406, 214);
+            this.TxtTimKiem.Location = new System.Drawing.Point(1474, 214);
             this.TxtTimKiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtTimKiem.Name = "TxtTimKiem";
             this.TxtTimKiem.PasswordChar = '\0';
             this.TxtTimKiem.PlaceholderText = "Search.......";
             this.TxtTimKiem.SelectedText = "";
-            this.TxtTimKiem.Size = new System.Drawing.Size(229, 34);
+            this.TxtTimKiem.Size = new System.Drawing.Size(161, 34);
             this.TxtTimKiem.TabIndex = 6;
             this.TxtTimKiem.TextChanged += new System.EventHandler(this.TxtTimKiem_TextChanged);
             // 
@@ -222,7 +204,7 @@
             this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAddress.Location = new System.Drawing.Point(430, 57);
+            this.txtAddress.Location = new System.Drawing.Point(461, 59);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
@@ -242,7 +224,7 @@
             this.TxtNameAccount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtNameAccount.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TxtNameAccount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TxtNameAccount.Location = new System.Drawing.Point(430, 107);
+            this.TxtNameAccount.Location = new System.Drawing.Point(461, 109);
             this.TxtNameAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtNameAccount.Name = "TxtNameAccount";
             this.TxtNameAccount.PasswordChar = '\0';
@@ -262,7 +244,7 @@
             this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPassword.Location = new System.Drawing.Point(430, 159);
+            this.txtPassword.Location = new System.Drawing.Point(461, 161);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '\0';
@@ -276,11 +258,11 @@
             this.DateUser.Checked = true;
             this.DateUser.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DateUser.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.DateUser.Location = new System.Drawing.Point(763, 39);
+            this.DateUser.Location = new System.Drawing.Point(774, 57);
             this.DateUser.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DateUser.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.DateUser.Name = "DateUser";
-            this.DateUser.Size = new System.Drawing.Size(206, 47);
+            this.DateUser.Size = new System.Drawing.Size(308, 47);
             this.DateUser.TabIndex = 24;
             this.DateUser.Value = new System.DateTime(2024, 7, 30, 21, 43, 51, 225);
             // 
@@ -294,15 +276,15 @@
             this.ComBoVaiTro.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ComBoVaiTro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.ComBoVaiTro.ItemHeight = 30;
-            this.ComBoVaiTro.Location = new System.Drawing.Point(763, 107);
+            this.ComBoVaiTro.Location = new System.Drawing.Point(774, 125);
             this.ComBoVaiTro.Name = "ComBoVaiTro";
-            this.ComBoVaiTro.Size = new System.Drawing.Size(206, 36);
+            this.ComBoVaiTro.Size = new System.Drawing.Size(308, 36);
             this.ComBoVaiTro.TabIndex = 25;
             // 
             // RadioNam
             // 
             this.RadioNam.AutoSize = true;
-            this.RadioNam.Location = new System.Drawing.Point(763, 159);
+            this.RadioNam.Location = new System.Drawing.Point(789, 192);
             this.RadioNam.Name = "RadioNam";
             this.RadioNam.Size = new System.Drawing.Size(57, 20);
             this.RadioNam.TabIndex = 26;
@@ -367,7 +349,7 @@
             // RadioNu
             // 
             this.RadioNu.AutoSize = true;
-            this.RadioNu.Location = new System.Drawing.Point(763, 206);
+            this.RadioNu.Location = new System.Drawing.Point(881, 192);
             this.RadioNu.Name = "RadioNu";
             this.RadioNu.Size = new System.Drawing.Size(45, 20);
             this.RadioNu.TabIndex = 26;
@@ -416,10 +398,10 @@
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.TxtTimKiem);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ViewUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewUsers";
             this.Load += new System.EventHandler(this.ViewUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.View)).EndInit();
@@ -431,7 +413,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox TxtTimKiem;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;

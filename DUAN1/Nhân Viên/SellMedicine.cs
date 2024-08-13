@@ -284,7 +284,7 @@ namespace DUAN1.Nhân_Viên
                                         listView1_Click(sender, e);
                                     }
                                     kho.ProductQuantity = kho.ProductQuantity - c;
-
+                                    _context.SaveChanges();
                                     clear();
                                     hienthiview();
                                     listView1.Clear();
@@ -478,12 +478,25 @@ namespace DUAN1.Nhân_Viên
         }
         private void txtSl_TextChanged(object sender, EventArgs e)
         {
+            
             var tongtien = _context.Products.FirstOrDefault(x => x.ProductId == id);
-          decimal gia = tongtien.ProductPrice;
-            int sl;
-            int.TryParse(txtSl.Text, out sl);
-            decimal tong = sl * gia;
-            txtGia.Text = tong.ToString();
+          
+            if (tongtien == null)
+            {
+                MessageBox.Show("Hãy chọn sản phẩm ");
+                return;
+            }
+            else
+            {
+                decimal gia = tongtien.ProductPrice;
+                int sl;
+                int.TryParse(txtSl.Text, out sl);
+                decimal tong = sl * gia;
+                txtGia.Text = tong.ToString();
+            }
+
+            
+            
         }
         private void label7_Click(object sender, EventArgs e)
         {
@@ -493,8 +506,17 @@ namespace DUAN1.Nhân_Viên
         int Idddd;
         private void view_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var a = view.Rows[e.RowIndex];
-            Idddd = Convert.ToInt32(a.Cells["ID"].Value.ToString());
+            if (e.RowIndex > 0)
+            {
+                MessageBox.Show("Hãy chọn giá đúng");
+                return;
+            }
+            else
+            {
+                var a = view.Rows[e.RowIndex];
+                Idddd = Convert.ToInt32(a.Cells["ID"].Value.ToString());
+            }
+            
         }
         private void guna2Button3_Click(object sender, EventArgs e)
         {
@@ -506,6 +528,12 @@ namespace DUAN1.Nhân_Viên
             else
             {
                 var delete = _context.Detailedbills.FirstOrDefault(x => x.DetailedbillsId == Idddd);
+                if (delete == null)
+                {
+                    MessageBox.Show("Chưa có gì cả");
+                    return;
+                }
+                
                 var hoadonanhhuong = _context.Bills.FirstOrDefault(x => x.BillId == delete.BillId);
                 if (delete != null)
                 {
@@ -627,15 +655,21 @@ namespace DUAN1.Nhân_Viên
                     }
                     else
                     {
-                        capnhat.StatusId = 1;
-                        capnhat.PriceBill = TienCuoi;
-                        InHoaDon(iddd, 0);
-                        _context.SaveChanges();
-                        MessageBox.Show("Đã thanh toán thành công ");
-                        checktrave();
-                        
-                       
-
+                        var hehe = _context.Products.FirstOrDefault(x => x.ProductId == Kiemtragiohang.ProductId);
+                        var checkmechi = _context.Products.FirstOrDefault(x => x.ProductId == Kiemtragiohang.ProductId && x.ProductExpiry > DateTime.Now && x.StatusPr == 1);
+                        if (checkmechi == null)
+                        {
+                            MessageBox.Show($"sản phẩm {hehe.ProductName} có thể đã hết hạn hoặc dùng bán");
+                        }
+                        else
+                        {
+                            capnhat.StatusId = 1;
+                            capnhat.PriceBill = TienCuoi;
+                            InHoaDon(iddd, 0);
+                            _context.SaveChanges();
+                            MessageBox.Show("Đã thanh toán thành công ");
+                            checktrave();
+                        }
                     }
                 }
                 else
@@ -644,7 +678,6 @@ namespace DUAN1.Nhân_Viên
                     if (a == null)
                     {
                         MessageBox.Show("Hóa đơn chưa được tạo");
-
                     }
                     else
                     {
@@ -655,15 +688,20 @@ namespace DUAN1.Nhân_Viên
                         }
                         else
                         {
-                            a.StatusId = 1;
-                            a.PriceBill = TienCuoi;
-                            InHoaDon(0, idhdss);
-                            MessageBox.Show("Đã thanh toán thành công ");
-                            _context.SaveChanges();
-                            checktrave();
-
-
-
+                            var checkmechi = _context.Products.FirstOrDefault(x => x.ProductId == b.ProductId && x.ProductExpiry > DateTime.Now && x.StatusPr == 1);
+                            if (checkmechi == null)
+                            {
+                                MessageBox.Show("Sản phẩm đang gặp vấn để về hạn sử dụng hoặc sản phẩm đã bị dừng bán ");
+                            }
+                            else
+                            {
+                                a.StatusId = 1;
+                                a.PriceBill = TienCuoi;
+                                InHoaDon(0, idhdss);
+                                MessageBox.Show("Đã thanh toán thành công ");
+                                _context.SaveChanges();
+                                checktrave();
+                            }
                         }
                     }
                 }
@@ -725,6 +763,10 @@ namespace DUAN1.Nhân_Viên
                 writer.WriteLine();
                 writer.WriteLine();
                 writer.WriteLine();
+                var ttkh = Thongtinhoadon.Select(x => x.cus).FirstOrDefault();
+                writer.WriteLine($"Tên khách hàng :{ttkh.CustomerName}");
+                writer.WriteLine($"SDT :{ttkh.SDT}");
+                writer.WriteLine("-------------------------------------------------------");
                 var ttSp = Thongtinhoadon.Select(x => x.pro).ToList();
                 writer.WriteLine("Tên sản phẩm".PadRight(30) + "Số lượng".PadRight(10) + "Đơn vị".PadRight(10) + "Giá thành".PadRight(15));
                 writer.WriteLine(new string('-', 65));

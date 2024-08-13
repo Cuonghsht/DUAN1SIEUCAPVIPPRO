@@ -100,9 +100,9 @@
             this.thanhtona.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.thanhtona.HoverState.ForeColor = System.Drawing.Color.Black;
             this.thanhtona.Image = ((System.Drawing.Image)(resources.GetObject("thanhtona.Image")));
-            this.thanhtona.Location = new System.Drawing.Point(1315, 556);
+            this.thanhtona.Location = new System.Drawing.Point(1545, 429);
             this.thanhtona.Name = "thanhtona";
-            this.thanhtona.Size = new System.Drawing.Size(188, 62);
+            this.thanhtona.Size = new System.Drawing.Size(248, 65);
             this.thanhtona.TabIndex = 96;
             this.thanhtona.Text = "Thanh toán và In";
             this.thanhtona.Click += new System.EventHandler(this.guna2Button4_Click);
@@ -115,16 +115,16 @@
             this.xoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.xoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.xoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.xoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(118)))), ((int)(((byte)(255)))));
+            this.xoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.xoa.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xoa.ForeColor = System.Drawing.Color.White;
             this.xoa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(225)))));
             this.xoa.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.xoa.HoverState.ForeColor = System.Drawing.Color.Black;
             this.xoa.Image = ((System.Drawing.Image)(resources.GetObject("xoa.Image")));
-            this.xoa.Location = new System.Drawing.Point(1119, 546);
+            this.xoa.Location = new System.Drawing.Point(1568, 535);
             this.xoa.Name = "xoa";
-            this.xoa.Size = new System.Drawing.Size(141, 65);
+            this.xoa.Size = new System.Drawing.Size(162, 65);
             this.xoa.TabIndex = 95;
             this.xoa.Text = "Loại Bỏ";
             this.xoa.Click += new System.EventHandler(this.guna2Button3_Click);
@@ -149,7 +149,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.view.DefaultCellStyle = dataGridViewCellStyle2;
-            this.view.Location = new System.Drawing.Point(541, 701);
+            this.view.Location = new System.Drawing.Point(535, 734);
             this.view.Name = "view";
             this.view.RowHeadersWidth = 51;
             this.view.RowTemplate.Height = 24;
@@ -376,9 +376,9 @@
             this.themgio.Font = new System.Drawing.Font("Century", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.themgio.ForeColor = System.Drawing.Color.White;
             this.themgio.Image = ((System.Drawing.Image)(resources.GetObject("themgio.Image")));
-            this.themgio.Location = new System.Drawing.Point(1281, 650);
+            this.themgio.Location = new System.Drawing.Point(1223, 673);
             this.themgio.Name = "themgio";
-            this.themgio.Size = new System.Drawing.Size(222, 45);
+            this.themgio.Size = new System.Drawing.Size(284, 45);
             this.themgio.TabIndex = 79;
             this.themgio.Text = "Thêm Vào Giỏ hàng";
             this.themgio.Click += new System.EventHandler(this.guna2Button2_Click);
@@ -498,9 +498,9 @@
             this.themadd.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.themadd.HoverState.ForeColor = System.Drawing.Color.Black;
             this.themadd.Image = ((System.Drawing.Image)(resources.GetObject("themadd.Image")));
-            this.themadd.Location = new System.Drawing.Point(535, 640);
+            this.themadd.Location = new System.Drawing.Point(529, 673);
             this.themadd.Name = "themadd";
-            this.themadd.Size = new System.Drawing.Size(157, 46);
+            this.themadd.Size = new System.Drawing.Size(211, 46);
             this.themadd.TabIndex = 104;
             this.themadd.Text = "Tạo hóa đơn";
             this.themadd.Click += new System.EventHandler(this.guna2Button5_Click);
@@ -826,7 +826,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1845, 1055);
+            this.ClientSize = new System.Drawing.Size(1882, 1055);
             this.Controls.Add(this.datavoucher);
             this.Controls.Add(this.phamtramgiam);
             this.Controls.Add(this.TxtGiaCuoiCung);
@@ -875,6 +875,7 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
             this.Name = "SellMedicine";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "       ";
             this.Load += new System.EventHandler(this.SellMedicine_Load);
             ((System.ComponentModel.ISupportInitialize)(this.view)).EndInit();

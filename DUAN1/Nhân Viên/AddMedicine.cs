@@ -19,7 +19,6 @@ namespace DUAN1.Nhân_Viên
 			_context = context;
 			InitializeComponent();
 			addCateUnit();
-
 		}
 		public void Reload()
 		{
@@ -29,7 +28,6 @@ namespace DUAN1.Nhân_Viên
 			TxtQuantity.Text = "";
 			ComboUnit.SelectedIndex = 0;
 			ComboDanhMuc.SelectedIndex = 0;
-
 		}
 		public void addCateUnit()
 		{
@@ -47,7 +45,6 @@ namespace DUAN1.Nhân_Viên
 			}
 		}
 		private void btnSigin_Click(object sender, EventArgs e)
-
 		{
 			decimal price;
 			decimal.TryParse(TxtPrice.Text, out price);
@@ -72,7 +69,7 @@ namespace DUAN1.Nhân_Viên
 			}
 			else if (!int.TryParse(TxtQuantity.Text,out Quantity))
 			{
-				MessageBox.Show("Số lượng bắt buộc pahi là 1 số nguyên");
+				MessageBox.Show("Số lượng bắt buộc phải là 1 số nguyên");
 			}
 			else
 			{
@@ -86,60 +83,52 @@ namespace DUAN1.Nhân_Viên
 					IdCategory = ComboDanhMuc.SelectedIndex + 1,
 					StatusPr = 1
 				};
-				MessageBox.Show("Them san pham thanh cong");
+				MessageBox.Show("Thêm thành công sản phẩm");
 				_context.Products.Add(add);
 				_context.SaveChanges();
 				Reload();
 			}
 		}
-
 		private void AddMedicine_Load(object sender, EventArgs e)
 		{
-
 		}
-
 		private void guna2Button1_Click(object sender, EventArgs e)
 		{
 			Reload();
 		}
-
 		private void guna2Button2_Click(object sender, EventArgs e)
 		{
 
 			if (ComboDanhMuc.Text == "")
 			{
-				MessageBox.Show("Nhap day du thong tin");
+				MessageBox.Show("Nhập đầy đủ thông tin");
 			}
 			else
 			{
 				var checkcate = _context.Categories.FirstOrDefault(x => x.CategoryName == ComboDanhMuc.Text);
 				if (checkcate != null)
 				{
-					MessageBox.Show("Danh mục nayf đã tồn tại ");
+					MessageBox.Show("Danh mục này đã tồn tại ");
 				}
-
 				else
 				{
 					Category category = new Category
 					{
-
 						CategoryName = ComboDanhMuc.Text,
 					};
 					_context.Categories.Add(category);
 					_context.SaveChanges();
 
 					addCateUnit();
-					MessageBox.Show("them thanh cong");
+					MessageBox.Show("thêm thành công");
 				}
 			}
 		}
-
 		private void guna2Button3_Click(object sender, EventArgs e)
 		{
-
 			if (ComboUnit.Text == "")
 			{
-				MessageBox.Show("Nhap day du thong tin");
+				MessageBox.Show("nhập đầy đủ thông tin");
 			}
 			else
 			{
@@ -155,24 +144,19 @@ namespace DUAN1.Nhân_Viên
 					};
 					_context.Units.Add(unit);
 					_context.SaveChanges();
-					MessageBox.Show("them thanh cong");
+					MessageBox.Show("thêm thành thành công");
 					addCateUnit();
 				}
 			}
 		}
-
 		private void ComboDanhMuc_SelectedIndexChanged(object sender, EventArgs e)
 		{
 		}
-
 		private void ComboDanhMuc_TextChanged(object sender, EventArgs e)
 		{
-
 		}
-
 		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
-
 		}
 	}
 }

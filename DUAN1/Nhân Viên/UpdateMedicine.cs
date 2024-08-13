@@ -136,7 +136,6 @@ namespace DUAN1.Nhân_Viên
 
         private void reload_Click(object sender, EventArgs e)
         {
-           // elementHost1_ChildChanged( sender);
         }
     }
 }

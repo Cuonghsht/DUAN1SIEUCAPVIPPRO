@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
 namespace DUAN1
 {
@@ -25,35 +26,28 @@ namespace DUAN1
 
             var a = _idd;
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
             
         }
-
         private void FrmAdmin_Load(object sender, EventArgs e)
         {
-
+            //this.Invalidate();
         }
-
         private void btnDashbord_Click(object sender, EventArgs e)
         {
             UpdateMedicine f = new UpdateMedicine(_dbcontext);
             f.FormClosed += (a, b) => this.Show();
             f.Show();
             this.Hide();
-
         }
-
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             AddUser f = new AddUser(_dbcontext);
             f.FormClosed += (a, b) => this.Show();
             f.Show();
             this.Hide();
-
         }
-
         private void btnViewUser_Click(object sender, EventArgs e)
         {
             ViewUser f = new ViewUser(_dbcontext);
@@ -61,7 +55,6 @@ namespace DUAN1
             f.Show();
             this.Hide();
         }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             
@@ -70,7 +63,6 @@ namespace DUAN1
             f.Show();
             this.Hide();
         }
-
         private void btnProfile_Click(object sender, EventArgs e)
         {
             Frofile f = new Frofile(_dbcontext,_idd);
@@ -78,7 +70,6 @@ namespace DUAN1
             f.Show();
             this.Hide();
         }
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             change_Password f = new change_Password(_dbcontext, _idd);
@@ -86,7 +77,6 @@ namespace DUAN1
             f.Show();
             this.Hide();
         }
-
         private void Voucher_Click(object sender, EventArgs e)
         {
             Vouchers f = new Vouchers(_dbcontext);
@@ -94,7 +84,6 @@ namespace DUAN1
             f.Show();
             this.Hide();
         }
-
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             SellMedicine f = new SellMedicine(_dbcontext,_idd, 0);
@@ -102,10 +91,32 @@ namespace DUAN1
             f.Show();
             this.Hide();
         }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            ViewBill f = new ViewBill(_dbcontext, _idd, 0);
+            f.FormClosed += (a, b) => this.Show();
+            f.Show();
+            this.Hide();
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            AddMedicine f = new AddMedicine(_dbcontext);
+            f.FormClosed += (a, b) => this.Show();
+            f.Show();
+            this.Hide();
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            ViewMedicine f = new ViewMedicine(_dbcontext);
+            f.FormClosed += (a, b) => this.Show();
+            f.Show();
+            this.Hide();
         }
     }
 }

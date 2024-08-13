@@ -55,7 +55,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 139);
+            this.label3.Location = new System.Drawing.Point(184, 188);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(141, 19);
             this.label3.TabIndex = 7;
@@ -72,7 +72,7 @@
             this.txtSoLuong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSoLuong.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSoLuong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSoLuong.Location = new System.Drawing.Point(370, 273);
+            this.txtSoLuong.Location = new System.Drawing.Point(532, 322);
             this.txtSoLuong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.PasswordChar = '\0';
@@ -92,7 +92,7 @@
             this.txtPhanTram.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPhanTram.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPhanTram.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPhanTram.Location = new System.Drawing.Point(370, 162);
+            this.txtPhanTram.Location = new System.Drawing.Point(532, 211);
             this.txtPhanTram.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPhanTram.Name = "txtPhanTram";
             this.txtPhanTram.PasswordChar = '\0';
@@ -105,7 +105,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(371, 139);
+            this.label1.Location = new System.Drawing.Point(533, 188);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 19);
             this.label1.TabIndex = 9;
@@ -116,7 +116,7 @@
             this.dateSX.Checked = true;
             this.dateSX.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dateSX.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateSX.Location = new System.Drawing.Point(26, 162);
+            this.dateSX.Location = new System.Drawing.Point(188, 211);
             this.dateSX.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateSX.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dateSX.Name = "dateSX";
@@ -139,7 +139,7 @@
             this.dateHD.Checked = true;
             this.dateHD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dateHD.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateHD.Location = new System.Drawing.Point(26, 273);
+            this.dateHD.Location = new System.Drawing.Point(188, 322);
             this.dateHD.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateHD.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dateHD.Name = "dateHD";
@@ -151,7 +151,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 250);
+            this.label4.Location = new System.Drawing.Point(184, 299);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 19);
             this.label4.TabIndex = 13;
@@ -161,7 +161,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(371, 250);
+            this.label5.Location = new System.Drawing.Point(533, 299);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 19);
             this.label5.TabIndex = 15;
@@ -178,7 +178,7 @@
             this.guna2Button1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.Location = new System.Drawing.Point(730, 779);
+            this.guna2Button1.Location = new System.Drawing.Point(892, 828);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(180, 45);
             this.guna2Button1.TabIndex = 18;
@@ -196,7 +196,7 @@
             this.guna2Button2.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
-            this.guna2Button2.Location = new System.Drawing.Point(938, 779);
+            this.guna2Button2.Location = new System.Drawing.Point(1100, 828);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(180, 45);
             this.guna2Button2.TabIndex = 19;
@@ -214,7 +214,7 @@
             this.guna2Button3.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
             this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
-            this.guna2Button3.Location = new System.Drawing.Point(1137, 779);
+            this.guna2Button3.Location = new System.Drawing.Point(1299, 828);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(139, 45);
             this.guna2Button3.TabIndex = 20;
@@ -233,7 +233,7 @@
             this.txttimkiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txttimkiem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txttimkiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttimkiem.Location = new System.Drawing.Point(998, 342);
+            this.txttimkiem.Location = new System.Drawing.Point(1160, 391);
             this.txttimkiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txttimkiem.Name = "txttimkiem";
             this.txttimkiem.PasswordChar = '\0';
@@ -247,7 +247,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(914, 353);
+            this.label7.Location = new System.Drawing.Point(1076, 402);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 19);
             this.label7.TabIndex = 22;
@@ -257,7 +257,7 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 379);
+            this.dataGridView1.Location = new System.Drawing.Point(190, 428);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(1248, 365);
@@ -276,7 +276,7 @@
             this.trangthai.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.trangthai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.trangthai.ItemHeight = 30;
-            this.trangthai.Location = new System.Drawing.Point(721, 174);
+            this.trangthai.Location = new System.Drawing.Point(883, 223);
             this.trangthai.Name = "trangthai";
             this.trangthai.Size = new System.Drawing.Size(293, 36);
             this.trangthai.TabIndex = 24;
@@ -292,7 +292,7 @@
             this.VoucherName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.VoucherName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.VoucherName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.VoucherName.Location = new System.Drawing.Point(730, 273);
+            this.VoucherName.Location = new System.Drawing.Point(892, 322);
             this.VoucherName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.VoucherName.Name = "VoucherName";
             this.VoucherName.PasswordChar = '\0';
@@ -305,7 +305,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(726, 250);
+            this.label6.Location = new System.Drawing.Point(888, 299);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 19);
             this.label6.TabIndex = 15;
@@ -315,7 +315,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(717, 147);
+            this.label8.Location = new System.Drawing.Point(879, 196);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 19);
             this.label8.TabIndex = 15;
@@ -325,7 +325,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1327, 836);
+            this.ClientSize = new System.Drawing.Size(1667, 1055);
             this.Controls.Add(this.VoucherName);
             this.Controls.Add(this.trangthai);
             this.Controls.Add(this.dataGridView1);
@@ -346,6 +346,7 @@
             this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.label3);
             this.Name = "Vouchers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vouchers";
             this.Load += new System.EventHandler(this.Vouchers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

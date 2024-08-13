@@ -70,7 +70,5 @@ namespace DUAN1
             f.Show();
             this.Hide();
         }
-
-        
     }
 }

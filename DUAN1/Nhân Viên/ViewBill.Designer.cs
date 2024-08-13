@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewBill));
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.combosheacher = new Guna.UI2.WinForms.Guna2ComboBox();
             this.ddatesh = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -41,6 +40,7 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.ChiTiet = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -55,24 +55,6 @@
             this.label1.TabIndex = 77;
             this.label1.Text = "View Bill";
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.SystemColors.Control;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(165, 12);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(63, 74);
-            this.guna2Button1.TabIndex = 78;
-            this.guna2Button1.Text = "guna2Button1";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.combosheacher);
@@ -81,9 +63,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtsearche);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(30, 92);
+            this.groupBox1.Location = new System.Drawing.Point(281, 209);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(976, 258);
+            this.groupBox1.Size = new System.Drawing.Size(1273, 258);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Báo cáo bán hàng";
@@ -178,9 +160,9 @@
             this.guna2Button2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
-            this.guna2Button2.Location = new System.Drawing.Point(840, 356);
+            this.guna2Button2.Location = new System.Drawing.Point(1403, 473);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(139, 45);
+            this.guna2Button2.Size = new System.Drawing.Size(151, 45);
             this.guna2Button2.TabIndex = 16;
             this.guna2Button2.Text = "Lọc";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
@@ -196,9 +178,9 @@
             this.ChiTiet.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChiTiet.ForeColor = System.Drawing.Color.White;
             this.ChiTiet.Image = ((System.Drawing.Image)(resources.GetObject("ChiTiet.Image")));
-            this.ChiTiet.Location = new System.Drawing.Point(54, 356);
+            this.ChiTiet.Location = new System.Drawing.Point(305, 473);
             this.ChiTiet.Name = "ChiTiet";
-            this.ChiTiet.Size = new System.Drawing.Size(174, 45);
+            this.ChiTiet.Size = new System.Drawing.Size(172, 45);
             this.ChiTiet.TabIndex = 16;
             this.ChiTiet.Text = "Chi Tiết ";
             this.ChiTiet.Click += new System.EventHandler(this.ChiTiet_Click);
@@ -207,27 +189,46 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 407);
+            this.dataGridView1.Location = new System.Drawing.Point(281, 524);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(976, 335);
+            this.dataGridView1.Size = new System.Drawing.Size(1273, 335);
             this.dataGridView1.TabIndex = 80;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 19;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.Location = new System.Drawing.Point(204, 9);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(137, 45);
+            this.guna2Button1.TabIndex = 81;
+            this.guna2Button1.Text = "Tải lại ";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
             // 
             // ViewBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1018, 792);
+            this.ClientSize = new System.Drawing.Size(1845, 1055);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.ChiTiet);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.label1);
             this.Name = "ViewBill";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewBill";
             this.Load += new System.EventHandler(this.ViewBill_Load);
             this.groupBox1.ResumeLayout(false);
@@ -241,7 +242,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private Guna.UI2.WinForms.Guna2DateTimePicker ddatesh;
         private System.Windows.Forms.Label label4;
@@ -252,5 +252,6 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Button ChiTiet;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
