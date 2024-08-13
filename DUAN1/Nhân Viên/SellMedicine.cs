@@ -36,19 +36,23 @@ namespace DUAN1.Nhân_Viên
             if (iddd != 0)
             {
                 var HienThiBenKiaQua = (from m in _context.Customers
-                                        join n in _context.Bills on m.IdCustomer equals n.IdCustomer
-                                        join b in _context.Detailedbills on n.BillId equals b.BillId
-                                        join v in _context.Products on b.ProductId equals v.ProductId
-                                        join e in _context.Vouchers on n.IdVoucher equals e.IdVoucher
-                                        where n.BillId == iddd
-                                        select new
-                                        {
-                                            Cus = m,
-                                            Bil = n,
-                                            Del = b,
-                                            pro = v,
-                                            vou = e
-                                        }).ToList();
+                                         join n in _context.Bills on m.IdCustomer equals n.IdCustomer into bills
+                                         from n in bills.DefaultIfEmpty()
+                                         join b in _context.Detailedbills on n.BillId equals b.BillId into detailedBills
+                                         from b in detailedBills.DefaultIfEmpty()
+                                         join v in _context.Products on b.ProductId equals v.ProductId into products
+                                         from v in products.DefaultIfEmpty()
+                                         join e in _context.Vouchers on n.IdVoucher equals e.IdVoucher into vouchers
+                                         from e in vouchers.DefaultIfEmpty()
+                                         where n.BillId == iddd
+                                         select new
+                                         {
+                                             Cus = m,
+                                             Bil = n,
+                                             Del = b,
+                                             pro = v,
+                                             vou = e
+                                         }).ToList();
                 var checkhoadon = _context.Bills.FirstOrDefault(x => x.BillId == iddd);
                 if (checkhoadon.StatusId == 1)
                 {
@@ -67,26 +71,39 @@ namespace DUAN1.Nhân_Viên
                 SDTCus.Text = idhds.Cus.SDT;
                 IdHD.Text = idhds.Bil.BillId.ToString();
                 var voucheri = _context.Vouchers.FirstOrDefault(x => x.IdVoucher == idhds.Bil.IdVoucher);
-                phamtramgiam.Text = voucheri.VoucherValue.ToString();
+                if (voucheri != null)
+                {
+                    phamtramgiam.Text = voucheri.VoucherValue.ToString();
+                }
+                else
+                {
+                    phamtramgiam.Text = "0";
+                }
                 hienthiview();
                 themadd.Enabled = false;
                 datavoucher.Enabled = false;
                 TinhToan();
 
             }
-            var voucher = (from v in _context.Vouchers
-                           where (v.HSD > DateTime.Now && v.Quantity > 0 && v.idtt == 1)
-                           select new
-                           {
-                               ID = v.IdVoucher,
-                               Name = v.NameVoucher
-                           }).ToList();
-            datavoucher.DataSource = voucher;
+            vouchers();
+
             txttien.Enabled = false;
             TxtVoucher.Enabled = false;
             TxtGiaCuoiCung.Enabled = false;
             phamtramgiam.Enabled = false;
 
+        }
+        public void vouchers()
+        {
+            var voucher = (from v in _context.Vouchers
+                           where (v.HSD > DateTime.Now && v.Quantity > 0 && v.idtt == 1)
+                           select new
+                           {
+                               ID = v.IdVoucher,
+                               Name = v.NameVoucher,
+                               Quantity = v.Quantity,
+                           }).ToList();
+            datavoucher.DataSource = voucher;
         }
         public void ListProduct()
         {
@@ -95,7 +112,7 @@ namespace DUAN1.Nhân_Viên
             listView1.Columns.Add("Name", 120);
             listView1.Columns.Add("Price", 100);
             listView1.Columns.Add("Quantity", 40);
-            var list = (from a in _context.Products where(a.ProductQuantity>0 && a.ProductExpiry > DateTime.Now && a.StatusPr==1) select a ).ToList();
+            var list = (from a in _context.Products where (a.ProductQuantity > 0 && a.ProductExpiry > DateTime.Now && a.StatusPr == 1) select a).ToList();
             foreach (var a in list)
             {
                 ListViewItem item = new ListViewItem(a.ProductId.ToString());
@@ -355,10 +372,11 @@ namespace DUAN1.Nhân_Viên
                     else
                     {
                         AddbillAndVoucher();
+
                         return;
                     }
 
-                  
+
                 }
 
             }
@@ -424,12 +442,20 @@ namespace DUAN1.Nhân_Viên
                 var khachhang = _context.Customers.Where(X => X.SDT == SDTCus.Text).FirstOrDefault();
                 var HoaDon = _context.Bills.Where(x => x.IdCustomer == khachhang.IdCustomer).OrderByDescending(x => x.BillId).FirstOrDefault();
                 idhdss = HoaDon.BillId;
+                var voucherss = _context.Vouchers.FirstOrDefault(x => x.IdVoucher == idvouchers);
+                if (voucherss != null)
+                {
+                    var sl = voucherss.Quantity - 1;
+                    voucherss.Quantity = sl;
+                }
+                _context.SaveChanges();
+                vouchers();
             }
             else
             {
                 return;
             }
-           
+
 
         }
         public void ThemHoaDon()
@@ -453,7 +479,7 @@ namespace DUAN1.Nhân_Viên
         private void txtSl_TextChanged(object sender, EventArgs e)
         {
             var tongtien = _context.Products.FirstOrDefault(x => x.ProductId == id);
-            decimal gia = tongtien.ProductPrice;
+          decimal gia = tongtien.ProductPrice;
             int sl;
             int.TryParse(txtSl.Text, out sl);
             decimal tong = sl * gia;
@@ -545,12 +571,13 @@ namespace DUAN1.Nhân_Viên
             if (txttimkiem.Text == "")
             {
                 listView1.Items.Clear();
-                var list = (from a in _context.Products select a).ToList();
+                var list = (from a in _context.Products where (a.ProductQuantity > 0 && a.ProductExpiry > DateTime.Now && a.StatusPr == 1) select a).ToList();
                 foreach (var a in list)
                 {
                     ListViewItem item = new ListViewItem(a.ProductId.ToString());
                     item.SubItems.Add(a.ProductName);
                     item.SubItems.Add(a.ProductPrice.ToString());
+                    item.SubItems.Add(a.ProductQuantity.ToString());
                     listView1.Items.Add(item);
                 }
             }
@@ -605,6 +632,10 @@ namespace DUAN1.Nhân_Viên
                         InHoaDon(iddd, 0);
                         _context.SaveChanges();
                         MessageBox.Show("Đã thanh toán thành công ");
+                        checktrave();
+                        
+                       
+
                     }
                 }
                 else
@@ -628,8 +659,9 @@ namespace DUAN1.Nhân_Viên
                             a.PriceBill = TienCuoi;
                             InHoaDon(0, idhdss);
                             MessageBox.Show("Đã thanh toán thành công ");
-
                             _context.SaveChanges();
+                            checktrave();
+
 
 
                         }
@@ -638,6 +670,28 @@ namespace DUAN1.Nhân_Viên
 
             }
         }
+        public void checktrave()
+        {
+             var  ee = _context.TaiKhoans.FirstOrDefault(x=>x.IdTaiKhoan== iid);
+            if (ee != null)
+            {
+                if (ee.IdRoles == 2)
+                {
+                    FrmAdmin f = new FrmAdmin(_context, iid);
+                    f.FormClosed += (a, b) => this.Show();
+                    f.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    Users f = new Users(_context, iid);
+                    f.FormClosed += (a, b) => this.Show();
+                    f.Show();
+                    this.Hide();
+                }
+            }
+        }
+
         public void InHoaDon(int a, int b)
         {
             int idhoadon;
@@ -650,19 +704,19 @@ namespace DUAN1.Nhân_Viên
                 idhoadon = a;
             }
             var Thongtinhoadon = (from c in _context.Bills
-                                 join d in _context.Detailedbills on c.BillId equals d.BillId
-                                 join e in _context.Customers on c.IdCustomer equals e.IdCustomer
-                                 join p in _context.Products on d.ProductId equals p.ProductId
-                                 join u in _context.Units on p.IdUnit equals u.IdUnit
-                                 where (c.BillId == idhoadon)
-                                 select new
-                                 {
-                                     bill = c,
-                                     det = d,
-                                     cus = e,
-                                     pro =p,
-                                     unit = u,
-                                 }).ToList();
+                                  join d in _context.Detailedbills on c.BillId equals d.BillId
+                                  join e in _context.Customers on c.IdCustomer equals e.IdCustomer
+                                  join p in _context.Products on d.ProductId equals p.ProductId
+                                  join u in _context.Units on p.IdUnit equals u.IdUnit
+                                  where (c.BillId == idhoadon)
+                                  select new
+                                  {
+                                      bill = c,
+                                      det = d,
+                                      cus = e,
+                                      pro = p,
+                                      unit = u,
+                                  }).ToList();
             string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"Hoadon{idhoadon}");
             using (StreamWriter writer = new StreamWriter(filePath))
             {
@@ -719,6 +773,8 @@ namespace DUAN1.Nhân_Viên
                 phamtramgiam.Text = valuevocher.VoucherValue.ToString();
             }
         }
+
+
     }
 }
 

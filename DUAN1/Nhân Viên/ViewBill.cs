@@ -29,7 +29,23 @@ namespace DUAN1.Nhân_Viên
             foreach (var bill in billsWithoutDetails)
             {
                 _context.Bills.Remove(bill);
+                var check = _context.Vouchers.Where(x => x.IdVoucher == bill.IdVoucher).ToList(); 
+                if (check != null)
+                {
+                    
+                    foreach(var i in check)
+                    {
+                        i.Quantity  +=1;
+
+                    }
+                    
+                }
+                else
+                {
+
+                }
             }
+            _context.SaveChanges();
             Hienthi();
             var combo = _context.Statusses.ToList();
             foreach (var status in combo)
@@ -41,22 +57,29 @@ namespace DUAN1.Nhân_Viên
         public void Hienthi()
         {
             var viewwwwww = (from a in _context.Users
-                             join b in _context.Detailedbills on a.IdUser equals b.IdUser
-                             join c in _context.Bills on b.BillId equals c.BillId
-                             join d in _context.Statusses on c.StatusId equals d.StatusId
+                             join b in _context.Detailedbills on a.IdUser equals b.IdUser into detailedBills
+                             from b in detailedBills.DefaultIfEmpty()
+                             join c in _context.Bills on b.BillId equals c.BillId into bills
+                             from c in bills.DefaultIfEmpty()
+                             join d in _context.Statusses on c.StatusId equals d.StatusId into statuses
+                             from d in statuses.DefaultIfEmpty()
                              join v in _context.Vouchers on c.IdVoucher equals v.IdVoucher into vouchers
-                             from v in vouchers 
-                             join e in _context.Customers on c.IdCustomer equals e.IdCustomer
+                             from v in vouchers.DefaultIfEmpty()
+                             join e in _context.Customers on c.IdCustomer equals e.IdCustomer into customers
+                             from e in customers.DefaultIfEmpty()
                              select new
                              {
-                                 IdBills = c.BillId,
-                                 NameCustomer = e.CustomerName,
-                                 Price = c.PriceBill,
-                                 Date = c.DateBill,
-                                 StaTus = d.StatusName,
-                                 VoucherName = v != null ? v.NameVoucher : null,
+                                 IdBills = c != null ? c.BillId : (int?)null,
+                                 NameCustomer = e != null ? e.CustomerName : "No Customer",
+                                 Price = c != null ? c.PriceBill : (decimal?)null,
+                                 Date = c != null ? c.DateBill : (DateTime?)null,
+                                 StaTus = d != null ? d.StatusName : "No Status",
+                                 VoucherName = v != null ? v.NameVoucher : "No Voucher",
                              }).Distinct().ToList();
+
             dataGridView1.DataSource = viewwwwww;
+
+           
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -125,6 +148,11 @@ namespace DUAN1.Nhân_Viên
         }
 
         private void ViewBill_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

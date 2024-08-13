@@ -87,6 +87,7 @@
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Báo cáo bán hàng";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // combosheacher
             // 
@@ -177,9 +178,9 @@
             this.guna2Button2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
-            this.guna2Button2.Location = new System.Drawing.Point(862, 356);
+            this.guna2Button2.Location = new System.Drawing.Point(840, 356);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(117, 45);
+            this.guna2Button2.Size = new System.Drawing.Size(139, 45);
             this.guna2Button2.TabIndex = 16;
             this.guna2Button2.Text = "Lọc";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
@@ -197,7 +198,7 @@
             this.ChiTiet.Image = ((System.Drawing.Image)(resources.GetObject("ChiTiet.Image")));
             this.ChiTiet.Location = new System.Drawing.Point(54, 356);
             this.ChiTiet.Name = "ChiTiet";
-            this.ChiTiet.Size = new System.Drawing.Size(117, 45);
+            this.ChiTiet.Size = new System.Drawing.Size(174, 45);
             this.ChiTiet.TabIndex = 16;
             this.ChiTiet.Text = "Chi Tiết ";
             this.ChiTiet.Click += new System.EventHandler(this.ChiTiet_Click);

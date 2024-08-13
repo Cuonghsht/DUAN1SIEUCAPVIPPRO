@@ -43,9 +43,9 @@
             this.txtMail = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.Date = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.Date = new Guna.UI2.WinForms.Guna2DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -236,6 +236,19 @@
             this.label9.Text = "label9";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Date
+            // 
+            this.Date.Checked = true;
+            this.Date.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.Date.Location = new System.Drawing.Point(959, 333);
+            this.Date.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.Date.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.Date.Name = "Date";
+            this.Date.Size = new System.Drawing.Size(277, 57);
+            this.Date.TabIndex = 30;
+            this.Date.Value = new System.DateTime(2024, 7, 25, 0, 31, 12, 166);
+            // 
             // guna2Button1
             // 
             this.guna2Button1.BorderRadius = 19;
@@ -278,19 +291,6 @@
             this.guna2Button2.TabIndex = 29;
             this.guna2Button2.Text = "Tải lại";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
-            // 
-            // Date
-            // 
-            this.Date.Checked = true;
-            this.Date.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.Date.Location = new System.Drawing.Point(959, 333);
-            this.Date.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.Date.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.Date.Name = "Date";
-            this.Date.Size = new System.Drawing.Size(277, 57);
-            this.Date.TabIndex = 30;
-            this.Date.Value = new System.DateTime(2024, 7, 25, 0, 31, 12, 166);
             // 
             // Frofile
             // 
@@ -340,8 +340,8 @@
         private Guna.UI2.WinForms.Guna2TextBox txtMail;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2DateTimePicker Date;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2DateTimePicker Date;
     }
 }

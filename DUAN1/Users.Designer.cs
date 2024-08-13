@@ -57,7 +57,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(256, 1100);
+            this.panel1.Size = new System.Drawing.Size(320, 743);
             this.panel1.TabIndex = 1;
             // 
             // Account
@@ -70,9 +70,9 @@
             this.Account.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Account.ForeColor = System.Drawing.Color.White;
             this.Account.Image = ((System.Drawing.Image)(resources.GetObject("Account.Image")));
-            this.Account.Location = new System.Drawing.Point(0, 581);
+            this.Account.Location = new System.Drawing.Point(3, 581);
             this.Account.Name = "Account";
-            this.Account.Size = new System.Drawing.Size(256, 45);
+            this.Account.Size = new System.Drawing.Size(310, 45);
             this.Account.TabIndex = 8;
             this.Account.Text = "Account";
             this.Account.Click += new System.EventHandler(this.Account_Click);
@@ -87,9 +87,9 @@
             this.btnLogout.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
-            this.btnLogout.Location = new System.Drawing.Point(0, 644);
+            this.btnLogout.Location = new System.Drawing.Point(3, 644);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(256, 45);
+            this.btnLogout.Size = new System.Drawing.Size(310, 45);
             this.btnLogout.TabIndex = 6;
             this.btnLogout.Text = "LogOut";
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -104,9 +104,9 @@
             this.guna2Button1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.Location = new System.Drawing.Point(0, 462);
+            this.guna2Button1.Location = new System.Drawing.Point(3, 462);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(256, 45);
+            this.guna2Button1.Size = new System.Drawing.Size(310, 45);
             this.guna2Button1.TabIndex = 5;
             this.guna2Button1.Text = "Medicine Validity";
             // 
@@ -120,9 +120,9 @@
             this.btnviewbill.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnviewbill.ForeColor = System.Drawing.Color.White;
             this.btnviewbill.Image = ((System.Drawing.Image)(resources.GetObject("btnviewbill.Image")));
-            this.btnviewbill.Location = new System.Drawing.Point(0, 513);
+            this.btnviewbill.Location = new System.Drawing.Point(3, 513);
             this.btnviewbill.Name = "btnviewbill";
-            this.btnviewbill.Size = new System.Drawing.Size(256, 45);
+            this.btnviewbill.Size = new System.Drawing.Size(310, 45);
             this.btnviewbill.TabIndex = 5;
             this.btnviewbill.Text = "ViewBill";
             this.btnviewbill.Click += new System.EventHandler(this.btnviewbill_Click);
@@ -137,9 +137,9 @@
             this.btnViewUser.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewUser.ForeColor = System.Drawing.Color.White;
             this.btnViewUser.Image = ((System.Drawing.Image)(resources.GetObject("btnViewUser.Image")));
-            this.btnViewUser.Location = new System.Drawing.Point(0, 394);
+            this.btnViewUser.Location = new System.Drawing.Point(3, 394);
             this.btnViewUser.Name = "btnViewUser";
-            this.btnViewUser.Size = new System.Drawing.Size(256, 45);
+            this.btnViewUser.Size = new System.Drawing.Size(310, 45);
             this.btnViewUser.TabIndex = 4;
             this.btnViewUser.Text = "View Medicine";
             this.btnViewUser.Click += new System.EventHandler(this.btnViewUser_Click);
@@ -154,9 +154,9 @@
             this.btnAddUser.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddUser.ForeColor = System.Drawing.Color.White;
             this.btnAddUser.Image = ((System.Drawing.Image)(resources.GetObject("btnAddUser.Image")));
-            this.btnAddUser.Location = new System.Drawing.Point(0, 332);
+            this.btnAddUser.Location = new System.Drawing.Point(3, 332);
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(256, 45);
+            this.btnAddUser.Size = new System.Drawing.Size(310, 45);
             this.btnAddUser.TabIndex = 3;
             this.btnAddUser.Text = "Add Medicine";
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
@@ -171,11 +171,11 @@
             this.btnDashbord.Font = new System.Drawing.Font("Century", 12F);
             this.btnDashbord.ForeColor = System.Drawing.Color.White;
             this.btnDashbord.Image = ((System.Drawing.Image)(resources.GetObject("btnDashbord.Image")));
-            this.btnDashbord.Location = new System.Drawing.Point(0, 272);
+            this.btnDashbord.Location = new System.Drawing.Point(3, 272);
             this.btnDashbord.Name = "btnDashbord";
-            this.btnDashbord.Size = new System.Drawing.Size(256, 45);
+            this.btnDashbord.Size = new System.Drawing.Size(310, 45);
             this.btnDashbord.TabIndex = 2;
-            this.btnDashbord.Text = "Dashbord";
+            this.btnDashbord.Text = "Sell Medicine";
             this.btnDashbord.Click += new System.EventHandler(this.btnDashbord_Click);
             // 
             // label1
@@ -202,11 +202,9 @@
             // 
             // Users
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1667, 1102);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1337, 772);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Users";
             this.Text = "Users";
             this.Load += new System.EventHandler(this.Users_Load);

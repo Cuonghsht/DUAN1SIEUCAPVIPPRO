@@ -122,11 +122,8 @@ namespace DUAN1.Chủ
                     IdRoles = ComBoVaiTro.SelectedIndex + 1,
                     idtrangthai = 1,
                 };
-
                 _dbcontext.TaiKhoans.Add(Ac);
-
                 var gioitinnh = RadioNam.Checked;
-
                 var user = new User
                 {
                     UserName = txtNameUser.Text,
@@ -137,7 +134,6 @@ namespace DUAN1.Chủ
                     UsesGend = gioitinnh,
                     IdTaiKhoan = Ac.IdTaiKhoan,
                 };
-
                 _dbcontext.Users.Add(user);
                 _dbcontext.SaveChanges();
                 clear();
@@ -146,63 +142,63 @@ namespace DUAN1.Chủ
         }
 
         private void label7_Click(object sender, EventArgs e)
-            {
+        {
 
-            }
+        }
 
-            private void label8_Click(object sender, EventArgs e)
-            {
+        private void label8_Click(object sender, EventArgs e)
+        {
 
-            }
+        }
 
-            private void label3_Click(object sender, EventArgs e)
-            {
+        private void label3_Click(object sender, EventArgs e)
+        {
 
-            }
+        }
 
-            private void label10_Click(object sender, EventArgs e)
-            {
+        private void label10_Click(object sender, EventArgs e)
+        {
 
-            }
+        }
 
-            private void label6_Click(object sender, EventArgs e)
-            {
+        private void label6_Click(object sender, EventArgs e)
+        {
 
-            }
+        }
 
-            private void txtPassword_TextChanged(object sender, EventArgs e)
-            {
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
 
-            }
+        }
 
-            private void label5_Click(object sender, EventArgs e)
-            {
+        private void label5_Click(object sender, EventArgs e)
+        {
 
-            }
+        }
 
-            private void radioButton1_CheckedChanged(object sender, EventArgs e)
-            {
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
 
-            }
+        }
 
-            public void clear()
-            {
-                txtAddress.Text = "";
-                txtEmail.Text = "";
-                txtPassword.Text = "";
-                txtPhone.Text = "";
-                TxtNameAccount.Text = "";
-                RadioNam.Checked = false;
-                RadioNu.Checked = false;
-                ComBoVaiTro.SelectedIndex = -1;
-                txtNameUser.Text = "";
+        public void clear()
+        {
+            txtAddress.Text = "";
+            txtEmail.Text = "";
+            txtPassword.Text = "";
+            txtPhone.Text = "";
+            TxtNameAccount.Text = "";
+            RadioNam.Checked = false;
+            RadioNu.Checked = false;
+            ComBoVaiTro.SelectedIndex = -1;
+            txtNameUser.Text = "";
 
-            }
-            private void guna2Button1_Click(object sender, EventArgs e)
-            {
-                clear();
-            }
+        }
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            clear();
         }
     }
+}
 
 

@@ -300,6 +300,11 @@ namespace DUAN1.Chủ
                 }
             }
         }
+
+        private void View_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 

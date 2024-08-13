@@ -38,7 +38,11 @@ namespace DUAN1
 
         private void btnDashbord_Click(object sender, EventArgs e)
         {
-           
+            UpdateMedicine f = new UpdateMedicine(_dbcontext);
+            f.FormClosed += (a, b) => this.Show();
+            f.Show();
+            this.Hide();
+
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -97,6 +101,11 @@ namespace DUAN1
             f.FormClosed += (a, b) => this.Show();
             f.Show();
             this.Hide();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

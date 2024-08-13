@@ -147,6 +147,7 @@
             this.View.Size = new System.Drawing.Size(1581, 464);
             this.View.TabIndex = 22;
             this.View.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.View_CellClick_1);
+            this.View.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.View_CellContentClick);
             this.View.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.View_RowPrePaint);
             // 
             // txtNameUser
@@ -382,7 +383,7 @@
             this.update.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.update.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.update.ForeColor = System.Drawing.Color.White;
-            this.update.Location = new System.Drawing.Point(201, 725);
+            this.update.Location = new System.Drawing.Point(54, 725);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(159, 72);
             this.update.TabIndex = 28;

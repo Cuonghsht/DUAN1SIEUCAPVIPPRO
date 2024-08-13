@@ -47,14 +47,12 @@
             this.btnSigin = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtNameUser = new Guna.UI2.WinForms.Guna2TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.RadioNam = new System.Windows.Forms.RadioButton();
             this.RadioNu = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -323,21 +321,13 @@
             this.panel1.Size = new System.Drawing.Size(5, 666);
             this.panel1.TabIndex = 21;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(975, 279);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(83, 50);
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.SystemColors.Control;
             this.label9.Font = new System.Drawing.Font("Century", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(732, 617);
+            this.label9.Location = new System.Drawing.Point(719, 617);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(216, 21);
             this.label9.TabIndex = 23;
@@ -404,7 +394,7 @@
             this.label11.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(658, 106);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(96, 24);
+            this.label11.Size = new System.Drawing.Size(77, 19);
             this.label11.TabIndex = 6;
             this.label11.Text = "Giới Tính";
             // 
@@ -416,7 +406,6 @@
             this.Controls.Add(this.RadioNu);
             this.Controls.Add(this.RadioNam);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.btnSigin);
@@ -442,7 +431,6 @@
             this.Name = "AddUser";
             this.Text = "AddUser";
             this.Load += new System.EventHandler(this.AddUser_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,7 +456,6 @@
         private Guna.UI2.WinForms.Guna2Button btnSigin;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2TextBox txtNameUser;
         private System.Windows.Forms.Label label10;
